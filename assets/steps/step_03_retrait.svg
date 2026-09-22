@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none">
+  <circle cx="60" cy="60" r="54" fill="#fbebf1" stroke="#111111" stroke-width="3"/>
+  <!-- Shop bag -->
+  <rect x="38" y="46" width="44" height="42" rx="6" fill="#f9a220" stroke="#111111" stroke-width="3"/>
+  <path d="M48 46V36a12 12 0 0 1 24 0v10" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
+  <!-- Bookmark ribbon sticking out -->
+  <path d="M52 46v16l6-4 6 4V46H52z" fill="#fd48f2" stroke="#111111" stroke-width="2"/>
+  <circle cx="68" cy="72" r="5" fill="#3b308f"/>
+</svg>

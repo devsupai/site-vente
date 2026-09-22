@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="260" height="260" fill="none">
+  <!-- Soft shadow / background circle -->
+  <circle cx="130" cy="130" r="115" fill="#fdf0f4" stroke="#111111" stroke-width="4"/>
+  
+  <!-- Gift Card Envelope / Voucher Base -->
+  <g transform="rotate(-6 130 130)">
+    <rect x="50" y="70" width="160" height="110" rx="16" fill="#faed8f" stroke="#111111" stroke-width="4"/>
+    
+    <!-- Pattern / ribbon on the voucher -->
+    <rect x="50" y="112" width="160" height="24" fill="#f9a220"/>
+    <line x1="50" y1="112" x2="210" y2="112" stroke="#111111" stroke-width="3"/>
+    <line x1="50" y1="136" x2="210" y2="136" stroke="#111111" stroke-width="3"/>
+    
+    <!-- Heart badge on voucher -->
+    <g transform="translate(130, 124)">
+      <circle cx="0" cy="0" r="24" fill="#fd48f2" stroke="#111111" stroke-width="3"/>
+      <path d="M-8 -6 C-14 -12, -2 -18, 0 -8 C2 -18, 14 -12, 8 -6 C4 0, 0 10, 0 10 C0 10, -4 0, -8 -6 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+    </g>
+    
+    <!-- Book silhouette or typography on card -->
+    <text x="70" y="96" font-family="'Degular', sans-serif" font-weight="700" font-size="13" fill="#111111" letter-spacing="1">BON CADEAU</text>
+    <text x="70" y="162" font-family="'Degular', sans-serif" font-weight="600" font-size="11" fill="#32225f">MAISON DE LA PRESSE</text>
+  </g>
+  
+  <!-- Sparkles -->
+  <g fill="#f9a220" stroke="#111111" stroke-width="2">
+    <path d="M40 55 L44 40 L48 55 L63 59 L48 63 L44 78 L40 63 L25 59 Z"/>
+    <path d="M210 185 L213 175 L216 185 L226 188 L216 191 L213 201 L210 191 L200 188 Z"/>
+  </g>
+</svg>

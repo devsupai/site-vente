@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison de la Presse | Librairie, Presse, Papeterie &amp; Coffrets Littéraires</title>
+  <meta name="description" content="Votre repaire littéraire et culturel. Romans primés, bandes dessinées, papeterie fine, presse quotidienne et commande de livres sous 48h partout en France.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f9a220'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400..800&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Page Intro Transition Overlay -->
+  <div id="pageTransition" data-transition-wrap="" class="transition">
+    <div class="transition__shape">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" fill="none" preserveAspectRatio="none" class="transition__svg">
+        <path id="transitionPath" d="M66.858-19C57.597 196.452 127.164 482.585 206.5 464.5c125.428-28.592 52.293-293.51 200.001-339 568.234-175-241.425 712.6 15.5 803.02C645 1007 629.398 499 810.5 499c113.398 0 106.54 189.465 164.235 429.52 48.005 199.72 89.415 213.09 105.265 173.78" stroke="currentColor" stroke-width="70%" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+    <div id="transitionLogo" data-transition-logo="" class="transition__logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" class="transition__logo-svg">
+        <circle cx="60" cy="60" r="56" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="4"/>
+        <path d="M35 80V42a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4v38M85 80V42a4 4 0 0 0-4-4H63a4 4 0 0 0-4 4v38" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M61 38v42" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <span class="transition__logo-text">Maison de la Presse</span>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay & Drawer -->
+  <div id="mobileOverlay" class="mobile-menu__overlay"></div>
+  <aside id="mobileMenu" class="mobile-menu" aria-label="Navigation mobile">
+    <div class="mobile-menu__header">
+      <div style="font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em;">Maison de la Presse</div>
+      <button id="menuClose" class="btn-pill" aria-label="Fermer le menu">
+        <span>Fermer</span>
+      </button>
+    </div>
+    <nav class="mobile-menu__nav">
+      <a href="#livres">Coups de Cœur</a>
+      <a href="#papeterie">Papeterie Fine</a>
+      <a href="#goodies">Goodies &amp; Pop Culture</a>
+      <a href="#fonctionnement">Comment commander</a>
+      <a href="#avis">Presse &amp; Avis</a>
+      <a href="#faq">FAQ</a>
+      <a href="#evenements">Événements &amp; Dédicaces</a>
+      <a href="#contact">Horaires &amp; Contact</a>
+    </nav>
+    <a href="#contact" class="btn-alt">
+      <span class="btn-alt__text-wrap">
+        <span>Nous Contacter</span>
+      </span>
+      <span class="btn-alt__icon-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+          <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+        </svg>
+      </span>
+    </a>
+  </aside>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo" aria-label="Accueil Maison de la Presse">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-black);">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <div>
+            <div style="font-weight: 700; font-size: 1.2rem; line-height: 1; letter-spacing: -0.02em;">Maison de la Presse</div>
+            <div style="font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85;">Librairie &amp; Culture</div>
+          </div>
+        </div>
+      </a>
+      
+      <nav class="header__nav" aria-label="Navigation principale">
+        <div class="nav-pill-track" id="navPillTrack">
+          <div class="nav-pill-indicator" id="navPillIndicator" aria-hidden="true"></div>
+          <ul class="nav-pill-list">
+            <li><a href="#livres" class="nav-pill-link" data-section="livres">Coups de Cœur</a></li>
+            <li><a href="#papeterie" class="nav-pill-link" data-section="papeterie">Papeterie</a></li>
+            <li><a href="#goodies" class="nav-pill-link" data-section="goodies">Goodies</a></li>
+            <li><a href="#fonctionnement" class="nav-pill-link" data-section="fonctionnement">Commande 48h</a></li>
+            <li><a href="#avis" class="nav-pill-link" data-section="avis">Presse &amp; Avis</a></li>
+            <li><a href="#faq" class="nav-pill-link" data-section="faq">FAQ</a></li>
+            <li><a href="#evenements" class="nav-pill-link" data-section="evenements">Événements</a></li>
+            <li><a href="#contact" class="nav-pill-link" data-section="contact">Horaires</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <div class="header__socials">
+          <a href="#contact" class="social-icon-btn" aria-label="Suivre la Maison de la Presse">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
+
+        <a href="#livres" class="btn-alt">
+          <span class="btn-alt__text-wrap">
+            <span>Réserver un livre</span>
+          </span>
+          <span class="btn-alt__icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="header__menu-toggle">
+        <button id="menuToggle" class="btn-pill" aria-label="Ouvrir le menu">
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero Flat-Lay -->
+    <section class="hero hero--flatlay">
+      <div class="hero-flatlay__container">
+        <!-- Layer 1: Background layer (receives peripheral depth) -->
+        <picture class="hero-flatlay__picture hero-flatlay__picture--bg" aria-hidden="true">
+          <source srcset="/hero.webp" type="image/webp">
+          <img 
+            src="/hero.png" 
+            alt="" 
+            class="hero-flatlay__image hero-flatlay__image--bg" 
+            width="1920" 
+            height="819" 
+            decoding="async">
+        </picture>
+
+        <!-- Layer 2: Focal layer (sharp focal zone revealed via mask-image) -->
+        <picture class="hero-flatlay__picture hero-flatlay__picture--focal">
+          <source srcset="/hero.webp" type="image/webp">
+          <img 
+            src="/hero.png" 
+            alt="Maison de la Presse - Presse quotidienne, romans coups de cœur, bandes dessinées et papeterie" 
+            class="hero-flatlay__image hero-flatlay__image--focal" 
+            width="1920" 
+            height="819" 
+            fetchpriority="high"
+            decoding="async">
+        </picture>
+
+        <!-- Ambient Golden Hour dust particles container (Desktop only) -->
+        <div class="hero-particles" aria-hidden="true"></div>
+
+        <!-- Editorial paper grain texture overlay (inline SVG filter for reliable rendering) -->
+        <svg class="hero-grain" aria-hidden="true" width="100%" height="100%">
+          <filter id="heroPaperGrain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#heroPaperGrain)" />
+        </svg>
+
+        <!-- Composition deux zones selon mockup : texte manuscrit à gauche, bouton circulaire à droite -->
+        <div class="hero-flatlay__center">
+          <!-- Zone gauche : titre manuscrit + description -->
+          <div class="hero-flatlay__left">
+            <h1 class="hero-flatlay__title">
+              <span class="hero-flatlay__title-line">Tout l'univers du livre</span>
+              <span class="hero-flatlay__title-line hero-flatlay__title-line--sub">&amp; de la presse.</span>
+            </h1>
+            <p class="hero-flatlay__desc">
+              Romans coups de cœur, presse quotidienne,<br>bandes dessinées et papeterie fine.
+            </p>
+          </div>
+
+          <!-- Bouton circulaire Proposition 4 : Sceau Minimaliste en Verre Dépoli Fumé -->
+          <a href="#livres" class="hero-circle-btn" aria-label="Découvrir la sélection — Maison de la Presse">
+            <svg class="hero-circle-btn__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" aria-hidden="true">
+              <defs>
+                <!-- Arcs de texte calibrés -->
+                <path id="btn-arc-top" d="M 22,80 A 58,58 0 0,1 138,80"/>
+                <path id="btn-arc-bot" d="M 22,80 A 58,58 0 0,0 138,80"/>
+              </defs>
+
+              <!-- Cadran et gravures en verre & or éteint -->
+              <g class="hero-circle-btn__dial">
+                <!-- Filet extérieur verre clair -->
+                <circle cx="80" cy="80" r="74" fill="none" stroke="rgba(245, 239, 230, 0.18)" stroke-width="0.8" />
+                <!-- Filet perlé or ambré subtil -->
+                <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(245, 166, 35, 0.45)" stroke-width="1" stroke-dasharray="1.5 2.5" />
+                <!-- Filet de délimitation typographique -->
+                <circle cx="80" cy="80" r="51" fill="none" stroke="rgba(245, 239, 230, 0.12)" stroke-width="0.8" />
+
+                <!-- Losanges or de séparation à 9h et 3h -->
+                <path d="M 22,76.5 L 23.8,80 L 22,83.5 L 20.2,80 Z" fill="#F5A623" fill-opacity="0.85" />
+                <path d="M 138,76.5 L 139.8,80 L 138,83.5 L 136.2,80 Z" fill="#F5A623" fill-opacity="0.85" />
+
+                <!-- Texte circulaire supérieur : MAISON DE LA PRESSE (toujours droit et lisible) -->
+                <text font-family="'Degular', -apple-system, sans-serif" font-size="8.6" font-weight="800" letter-spacing="2.3" fill="#F5EFE6" text-anchor="middle">
+                  <textPath href="#btn-arc-top" startOffset="50%">MAISON DE LA PRESSE</textPath>
+                </text>
+                <!-- Texte circulaire inférieur : · LIBRAIRIE & PRESSE · -->
+                <text font-family="'Degular', -apple-system, sans-serif" font-size="7.4" font-weight="700" letter-spacing="2" fill="rgba(245, 239, 230, 0.75)" text-anchor="middle">
+                  <textPath href="#btn-arc-bot" startOffset="50%">· LIBRAIRIE &amp; PRESSE ·</textPath>
+                </text>
+              </g>
+
+              <!-- Cœur du sceau : médaillon central épuré -->
+              <g class="hero-circle-btn__center">
+                <circle cx="80" cy="80" r="43" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(245, 239, 230, 0.14)" stroke-width="0.75" />
+                <!-- Flèche dorée chaleureuse -->
+                <g class="hero-circle-btn__arrow">
+                  <path d="M 80,66 L 80,84 M 73.5,77.5 L 80,84 L 86.5,77.5" stroke="#F5A623" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <!-- Mention DÉCOUVRIR en blanc crème noble -->
+                <text x="80" y="98.5" font-family="'Degular', -apple-system, sans-serif" font-size="10" font-weight="800" letter-spacing="1.8" fill="#F5EFE6" text-anchor="middle">DÉCOUVRIR</text>
+              </g>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Glassmorphism Hero Metrics (Engagements & Chiffres Clés) -->
+        <div class="hero-metrics" aria-label="Engagements et repères clés">
+          <div class="hero-metric-card">
+            <span class="hero-metric-card__num">+500 000</span>
+            <strong class="hero-metric-card__label">Ouvrages accessibles</strong>
+            <span class="hero-metric-card__sub">Catalogue national direct</span>
+          </div>
+          <div class="hero-metric-card">
+            <span class="hero-metric-card__num">48h</span>
+            <strong class="hero-metric-card__label">Délai moyen de retrait</strong>
+            <span class="hero-metric-card__sub">Sans frais supplémentaires</span>
+          </div>
+          <div class="hero-metric-card">
+            <span class="hero-metric-card__num">100%</span>
+            <strong class="hero-metric-card__label">Prix unique du livre</strong>
+            <span class="hero-metric-card__sub">Garantie Loi Lang 1981</span>
+          </div>
+          <div class="hero-metric-card">
+            <span class="hero-metric-card__num">0 €</span>
+            <strong class="hero-metric-card__label">Frais de mise de côté</strong>
+            <span class="hero-metric-card__sub">Réservation gratuite</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Section 2: Books Slider -->
+    <section id="livres" class="books-section">
+      <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
+      <div class="section-parallax section-parallax--books" aria-hidden="true">
+        <!-- Layer 1: Blurred base depth layer -->
+        <picture class="section-parallax__picture section-parallax__picture--bg">
+          <source srcset="/bg_books.webp" type="image/webp">
+          <img src="/bg_books.png" alt="" class="section-parallax__image section-parallax__image--bg" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 2: Focal sharp layer -->
+        <picture class="section-parallax__picture section-parallax__picture--focal">
+          <source srcset="/bg_books.webp" type="image/webp">
+          <img src="/bg_books.png" alt="" class="section-parallax__image section-parallax__image--focal" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 3: Ambient particles -->
+        <div class="section-parallax__particles" data-particles="books"></div>
+      </div>
+
+      <div class="container">
+        <div class="books-section__header">
+          <div class="books-section__title-group">
+            <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Sélection Littéraire</span>
+            <h2 class="u-heading-l">Nos Coups de Cœur du Mois</h2>
+            <p class="u-paragraph-regular">Romans primés, bulles graphiques et pépites d'évasion choisis par nos libraires.</p>
+          </div>
+
+          <!-- Filter tabs bar -->
+          <div class="books-filter-bar">
+            <div class="filter-tabs" role="tablist" aria-label="Filtrer les ouvrages par rayon">
+              <button class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">
+                <span>Tous les coups de cœur</span>
+                <span class="filter-tab__count">6</span>
+              </button>
+              <button class="filter-tab" data-filter="roman" role="tab" aria-selected="false">
+                <span>Romans &amp; Rentrée</span>
+                <span class="filter-tab__count">2</span>
+              </button>
+              <button class="filter-tab" data-filter="bd-manga" role="tab" aria-selected="false">
+                <span>BD &amp; Mangas</span>
+                <span class="filter-tab__count">2</span>
+              </button>
+              <button class="filter-tab" data-filter="thriller" role="tab" aria-selected="false">
+                <span>Thrillers</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button class="filter-tab" data-filter="nature" role="tab" aria-selected="false">
+                <span>Beaux-Livres &amp; Nature</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="books-section__controls">
+            <button id="sliderPrev" class="slider-btn is-prev" aria-label="Ouvrages précédents">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </button>
+            <button id="sliderNext" class="slider-btn" aria-label="Ouvrages suivants">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="booksSlider" class="books-slider">
+          <!-- Book 1: Veiller sur elle -->
+          <article class="book-card" 
+            data-category="roman"
+            data-id="veiller-sur-elle"
+            data-title="Veiller sur elle"
+            data-author="Jean-Baptiste Andrea"
+            data-badge="Prix Goncourt 2023"
+            data-badge-color="#ff9d00"
+            data-cover="/assets/books/veiller_sur_elle.jpg"
+            data-synopsis="Au grand jeu du destin, Mimo est né sans rien, Viola avec tout. Lui est un sculpteur de génie enfermé dans un corps difforme ; elle, une héritière rebelle fascinée par les sciences. Dans l'Italie tumultueuse du XXe siècle, leur amitié indéfectible bravera tous les interdits politiques et sociaux. Une fresque magistrale récompensée par le Prix Goncourt."
+            data-pages="582 pages"
+            data-publisher="Éditions de l'Iconoclaste"
+            data-format="Grand format broché • 22,90 €"
+            data-stock="En rayon &amp; Commande 48h">
+            
+            <div class="book-3d-stage js-open-book-modal" role="button" tabindex="0" aria-label="Ouvrir et feuilleter Veiller sur elle">
+              <div class="book-3d-shadow"></div>
+              <div class="book-3d book-3d--roman" style="--spine-color: #384c68; --spine-text-color: #ffffff;">
+                <div class="book-3d__front">
+                  <img class="book-3d__cover-img" src="/assets/books/veiller_sur_elle.jpg" alt="Couverture Veiller sur elle" width="190" height="285" loading="lazy">
+                  <div class="book-3d__sheen"></div>
+                  <div class="book-3d__joint"></div>
+                </div>
+                <div class="book-3d__spine">
+                  <div class="book-3d__spine-content">
+                    <span class="book-3d__spine-author">J-B. Andrea</span>
+                    <span class="book-3d__spine-title">Veiller sur elle</span>
+                    <span class="book-3d__spine-logo">ICONOCLASTE</span>
+                  </div>
+                </div>
+                <div class="book-3d__pages"></div>
+                <div class="book-3d__pages-top"></div>
+                <div class="book-3d__pages-bottom"></div>
+                <div class="book-3d__back"></div>
+              </div>
+              <div class="book-3d-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Ouvrir &amp; Découvrir</span>
+              </div>
+            </div>
+
+            <div class="book-card__info-panel">
+              <div class="book-card__tags">
+                <span class="tag-badge" style="background-color: #ff9d00; color: #000;">Prix Goncourt</span>
+                <span class="tag-badge tag-badge--subtle">Roman</span>
+                <span class="tag-badge tag-badge--subtle" style="color: #e62701;">Coup de cœur</span>
+              </div>
+              <h3 class="u-heading-s book-card__title">Veiller sur elle</h3>
+              <p class="book-card__author">Jean-Baptiste Andrea</p>
+              <div class="book-card__meta">
+                <span class="book-card__format">Grand format (15×23 cm)</span>
+                <span class="book-card__price">22,90 €</span>
+              </div>
+              <div class="book-card__cta">
+                <button class="btn-pill js-trigger-drawer" aria-label="Réserver Veiller sur elle">
+                  <span>Réserver en boutique</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 2: La Faille -->
+          <article class="book-card"
+            data-category="thriller"
+            data-id="la-faille"
+            data-title="La Faille"
+            data-author="Franck Thilliez"
+            data-badge="Thriller &amp; Suspense"
+            data-badge-color="#e62701"
+            data-cover="/assets/books/la_faille.jpg"
+            data-synopsis="Une voiture roule à tombeau ouvert dans la nuit. À l'intérieur, une femme morte au volant... et son cadavre est encore chaud, mais son cœur a cessé de battre depuis des heures. Le commandant Sharko plonge dans les méandres les plus angoissants de la neurobiologie et des expériences de mort imminente. Impossible à lâcher."
+            data-pages="504 pages"
+            data-publisher="Fleuve Noir"
+            data-format="Grand format broché • 22,90 €"
+            data-stock="En rayon &amp; Commande 48h">
+            
+            <div class="book-3d-stage js-open-book-modal" role="button" tabindex="0" aria-label="Ouvrir et feuilleter La Faille">
+              <div class="book-3d-shadow"></div>
+              <div class="book-3d book-3d--roman" style="--spine-color: #0b1114; --spine-text-color: #1fe5d5;">
+                <div class="book-3d__front">
+                  <img class="book-3d__cover-img" src="/assets/books/la_faille.jpg" alt="Couverture La Faille" width="190" height="285" loading="lazy">
+                  <div class="book-3d__sheen"></div>
+                  <div class="book-3d__joint"></div>
+                </div>
+                <div class="book-3d__spine">
+                  <div class="book-3d__spine-content">
+                    <span class="book-3d__spine-author">F. Thilliez</span>
+                    <span class="book-3d__spine-title">La Faille</span>
+                    <span class="book-3d__spine-logo">FLEUVE</span>
+                  </div>
+                </div>
+                <div class="book-3d__pages"></div>
+                <div class="book-3d__pages-top"></div>
+                <div class="book-3d__pages-bottom"></div>
+                <div class="book-3d__back"></div>
+              </div>
+              <div class="book-3d-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Ouvrir &amp; Découvrir</span>
+              </div>
+            </div>
+
+            <div class="book-card__info-panel">
+              <div class="book-card__tags">
+                <span class="tag-badge" style="background-color: #e62701; color: #fff;">Thriller</span>
+                <span class="tag-badge tag-badge--subtle">Nuit Blanche</span>
+              </div>
+              <h3 class="u-heading-s book-card__title">La Faille</h3>
+              <p class="book-card__author">Franck Thilliez</p>
+              <div class="book-card__meta">
+                <span class="book-card__format">Grand format (15×23 cm)</span>
+                <span class="book-card__price">22,90 €</span>
+              </div>
+              <div class="book-card__cta">
+                <button class="btn-pill js-trigger-drawer" aria-label="Réserver La Faille">
+                  <span>Réserver en boutique</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 3: Le Monde sans fin -->
+          <article class="book-card"
+            data-category="bd-manga"
+            data-id="le-monde-sans-fin"
+            data-title="Le Monde sans fin"
+            data-author="Jean-Marc Jancovici &amp; Christophe Blain"
+            data-badge="BD Phénomène"
+            data-badge-color="#6abf4c"
+            data-cover="/assets/books/le_monde_sans_fin.jpg"
+            data-synopsis="La rencontre percutante entre l'ingénieur polytechnicien spécialiste du climat et l'un des plus talentueux auteurs de bande dessinée. Avec une clarté désarmante et un humour salvateur, cet album décortique notre dépendance aux énergies fossiles et les solutions d'avenir."
+            data-pages="196 pages (Grand format cartonné)"
+            data-publisher="Dargaud"
+            data-format="Album relié couleur • 28,00 €"
+            data-stock="En rayon &amp; Commande 48h">
+            
+            <div class="book-3d-stage js-open-book-modal" role="button" tabindex="0" aria-label="Ouvrir et feuilleter Le Monde sans fin">
+              <div class="book-3d-shadow"></div>
+              <div class="book-3d book-3d--bd" style="--spine-color: #e5a708; --spine-text-color: #1a1a1a;">
+                <div class="book-3d__front">
+                  <img class="book-3d__cover-img" src="/assets/books/le_monde_sans_fin.jpg" alt="Couverture Le Monde sans fin" width="216" height="288" loading="lazy">
+                  <div class="book-3d__sheen"></div>
+                  <div class="book-3d__joint"></div>
+                </div>
+                <div class="book-3d__spine">
+                  <div class="book-3d__spine-content">
+                    <span class="book-3d__spine-author">Jancovici • Blain</span>
+                    <span class="book-3d__spine-title">Le Monde sans fin</span>
+                    <span class="book-3d__spine-logo">DARGAUD</span>
+                  </div>
+                </div>
+                <div class="book-3d__pages"></div>
+                <div class="book-3d__pages-top"></div>
+                <div class="book-3d__pages-bottom"></div>
+                <div class="book-3d__back"></div>
+              </div>
+              <div class="book-3d-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Ouvrir &amp; Découvrir</span>
+              </div>
+            </div>
+
+            <div class="book-card__info-panel">
+              <div class="book-card__tags">
+                <span class="tag-badge" style="background-color: #6abf4c; color: #000;">Bande Dessinée</span>
+                <span class="tag-badge tag-badge--subtle">Société</span>
+              </div>
+              <h3 class="u-heading-s book-card__title">Le Monde sans fin</h3>
+              <p class="book-card__author">J.-M. Jancovici &amp; C. Blain</p>
+              <div class="book-card__meta">
+                <span class="book-card__format">Album cartonné (24×32 cm)</span>
+                <span class="book-card__price">28,00 €</span>
+              </div>
+              <div class="book-card__cta">
+                <button class="btn-pill js-trigger-drawer" aria-label="Réserver Le Monde sans fin">
+                  <span>Réserver en boutique</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 4: Les Enfants du fleuve -->
+          <article class="book-card"
+            data-category="roman"
+            data-id="les-enfants-du-fleuve"
+            data-title="Les Enfants du fleuve"
+            data-author="Lisa Wingate"
+            data-badge="Bestseller Pocket"
+            data-badge-color="#e62701"
+            data-cover="/assets/books/enfants_du_fleuve.jpg"
+            data-synopsis="Memphis, 1939. Rill et ses frères et sœurs mènent une enfance libre sur le Mississippi à bord de leur péniche familiale. Jusqu'au jour où des inconnus les arrachent à leurs parents pour les livrer à un orphelinat géré par la redoutable Georgia Tann... Une fresque bouleversante tirée de faits réels, vendue à plus de 3 millions d'exemplaires."
+            data-pages="512 pages"
+            data-publisher="Éditions Pocket"
+            data-format="Édition de poche • 8,90 €"
+            data-stock="En rayon &amp; Commande 48h">
+            
+            <div class="book-3d-stage js-open-book-modal" role="button" tabindex="0" aria-label="Ouvrir et feuilleter Les Enfants du fleuve">
+              <div class="book-3d-shadow"></div>
+              <div class="book-3d book-3d--poche" style="--spine-color: #2b241e; --spine-text-color: #f7ecd6;">
+                <div class="book-3d__front">
+                  <img class="book-3d__cover-img" src="/assets/books/enfants_du_fleuve.jpg" alt="Couverture Les Enfants du fleuve" width="165" height="268" loading="lazy">
+                  <div class="book-3d__sheen"></div>
+                  <div class="book-3d__joint"></div>
+                </div>
+                <div class="book-3d__spine">
+                  <div class="book-3d__spine-content">
+                    <span class="book-3d__spine-author">Lisa Wingate</span>
+                    <span class="book-3d__spine-title">Les Enfants du fleuve</span>
+                    <span class="book-3d__spine-logo">POCKET</span>
+                  </div>
+                </div>
+                <div class="book-3d__pages"></div>
+                <div class="book-3d__pages-top"></div>
+                <div class="book-3d__pages-bottom"></div>
+                <div class="book-3d__back"></div>
+              </div>
+              <div class="book-3d-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Ouvrir &amp; Découvrir</span>
+              </div>
+            </div>
+
+            <div class="book-card__info-panel">
+              <div class="book-card__tags">
+                <span class="tag-badge" style="background-color: #e62701; color: #fff;">Bestseller</span>
+                <span class="tag-badge tag-badge--subtle">Poche</span>
+              </div>
+              <h3 class="u-heading-s book-card__title">Les Enfants du fleuve</h3>
+              <p class="book-card__author">Lisa Wingate</p>
+              <div class="book-card__meta">
+                <span class="book-card__format">Édition de poche (11×18 cm)</span>
+                <span class="book-card__price">8,90 €</span>
+              </div>
+              <div class="book-card__cta">
+                <button class="btn-pill js-trigger-drawer" aria-label="Réserver Les Enfants du fleuve">
+                  <span>Réserver en boutique</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 5: Spy x Family -->
+          <article class="book-card"
+            data-category="bd-manga"
+            data-id="spy-family"
+            data-title="Spy x Family (Tome 1)"
+            data-author="Tatsuya Endo"
+            data-badge="Manga Événement"
+            data-badge-color="#3d3195"
+            data-cover="/assets/books/spy_family.jpg"
+            data-synopsis="Twilight, le plus brillant espion du monde, doit former une famille fictive pour infiltrer la prestigieuse école Eden. Ce qu'il ignore, c'est que son épouse est une redoutable tueuse à gages et que sa fille adoptive Anya est une petite télépathe capable de lire dans leurs pensées. Une comédie jubilatoire au succès planétaire."
+            data-pages="212 pages"
+            data-publisher="Kurokawa"
+            data-format="Manga format poche • 7,20 €"
+            data-stock="En rayon &amp; Commande 48h">
+            
+            <div class="book-3d-stage js-open-book-modal" role="button" tabindex="0" aria-label="Ouvrir et feuilleter Spy x Family">
+              <div class="book-3d-shadow"></div>
+              <div class="book-3d book-3d--poche" style="--spine-color: #5c7b71; --spine-text-color: #ffffff;">
+                <div class="book-3d__front">
+                  <img class="book-3d__cover-img" src="/assets/books/spy_family.jpg" alt="Couverture Spy x Family" width="165" height="268" loading="lazy">
+                  <div class="book-3d__sheen"></div>
+                  <div class="book-3d__joint"></div>
+                </div>
+                <div class="book-3d__spine">
+                  <div class="book-3d__spine-content">
+                    <span class="book-3d__spine-author">Tatsuya Endo</span>
+                    <span class="book-3d__spine-title">Spy x Family 1</span>
+                    <span class="book-3d__spine-logo">KUROKAWA</span>
+                  </div>
+                </div>
+                <div class="book-3d__pages"></div>
+                <div class="book-3d__pages-top"></div>
+                <div class="book-3d__pages-bottom"></div>
+                <div class="book-3d__back"></div>
+              </div>
+              <div class="book-3d-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Ouvrir &amp; Découvrir</span>
+              </div>
+            </div>
+
+            <div class="book-card__info-panel">
+              <div class="book-card__tags">
+                <span class="tag-badge" style="background-color: #1ce8ed; color: #000;">Manga</span>
+                <span class="tag-badge tag-badge--subtle">Poche</span>
+              </div>
+              <h3 class="u-heading-s book-card__title">Spy x Family (Tome 1)</h3>
+              <p class="book-card__author">Tatsuya Endo</p>
+              <div class="book-card__meta">
+                <span class="book-card__format">Édition de poche (11×18 cm)</span>
+                <span class="book-card__price">7,20 €</span>
+              </div>
+              <div class="book-card__cta">
+                <button class="btn-pill js-trigger-drawer" aria-label="Réserver Spy x Family">
+                  <span>Réserver en boutique</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Book 6: Forêts Sauvages -->
+          <article class="book-card"
+            data-category="nature"
+            data-id="forets-sauvages"
+            data-title="Forêts sauvages"
+            data-author="Annik Schnitzler &amp; Biosphoto"
+            data-badge="Beau-Livre d'Art"
+            data-badge-color="#2d7a3a"
+            data-cover="/assets/books/sentiers_sauvages.jpg"
+            data-synopsis="Une immersion photographique spectaculaire à travers les dernières forêts primaires et réserves sauvages du globe. Un chef-d'œuvre de naturalisme et d'émerveillement écologique sublimé par une impression d'art sur grand format."
+            data-pages="288 pages (Papier d'art 170g)"
+            data-publisher="Éditions Glénat"
+            data-format="Grand format relié prestige • 39,95 €"
+            data-stock="En rayon &amp; Commande 48h">
+            
+            <div class="book-3d-stage js-open-book-modal" role="button" tabindex="0" aria-label="Ouvrir et feuilleter Forêts sauvages">
+              <div class="book-3d-shadow"></div>
+              <div class="book-3d book-3d--beau-livre" style="--spine-color: #172714; --spine-text-color: #eaf5e6;">
+                <div class="book-3d__front">
+                  <img class="book-3d__cover-img" src="/assets/books/sentiers_sauvages.jpg" alt="Couverture Forêts sauvages" width="224" height="280" loading="lazy">
+                  <div class="book-3d__sheen"></div>
+                  <div class="book-3d__joint"></div>
+                </div>
+                <div class="book-3d__spine">
+                  <div class="book-3d__spine-content">
+                    <span class="book-3d__spine-author">A. Schnitzler</span>
+                    <span class="book-3d__spine-title">Forêts sauvages</span>
+                    <span class="book-3d__spine-logo">GLÉNAT</span>
+                  </div>
+                </div>
+                <div class="book-3d__pages"></div>
+                <div class="book-3d__pages-top"></div>
+                <div class="book-3d__pages-bottom"></div>
+                <div class="book-3d__back"></div>
+              </div>
+              <div class="book-3d-hint">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Ouvrir &amp; Découvrir</span>
+              </div>
+            </div>
+
+            <div class="book-card__info-panel">
+              <div class="book-card__tags">
+                <span class="tag-badge" style="background-color: #2d7a3a; color: #fff;">Beau-Livre</span>
+                <span class="tag-badge tag-badge--subtle">Nature</span>
+              </div>
+              <h3 class="u-heading-s book-card__title">Forêts sauvages</h3>
+              <p class="book-card__author">Annik Schnitzler &amp; Biosphoto</p>
+              <div class="book-card__meta">
+                <span class="book-card__format">Grand format relié (24×32 cm)</span>
+                <span class="book-card__price">39,95 €</span>
+              </div>
+              <div class="book-card__cta">
+                <button class="btn-pill js-trigger-drawer" aria-label="Réserver Forêts sauvages">
+                  <span>Réserver en boutique</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Papeterie Fine & Écriture -->
+    <section id="papeterie" class="stationery-section">
+      <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
+      <div class="section-parallax section-parallax--stationery" aria-hidden="true">
+        <!-- Layer 1: Blurred base depth layer -->
+        <picture class="section-parallax__picture section-parallax__picture--bg">
+          <source srcset="/bg_stationery.webp" type="image/webp">
+          <img src="/bg_stationery.png" alt="" class="section-parallax__image section-parallax__image--bg" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 2: Focal sharp layer -->
+        <picture class="section-parallax__picture section-parallax__picture--focal">
+          <source srcset="/bg_stationery.webp" type="image/webp">
+          <img src="/bg_stationery.png" alt="" class="section-parallax__image section-parallax__image--focal" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 3: Ambient particles -->
+        <div class="section-parallax__particles" data-particles="stationery"></div>
+      </div>
+
+      <div class="container">
+        <div class="stationery-section__header">
+          <div class="stationery-section__title-group">
+            <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Papeterie &amp; Beaux-Arts</span>
+            <h2 class="u-heading-l">Papeterie Fine &amp; Matériel d'Art</h2>
+            <p class="u-paragraph-regular">Instruments nobles, papier d'art et fournitures choisis avec exigence.</p>
+          </div>
+
+          <!-- Category filter tabs -->
+          <div class="stationery-filter-bar">
+            <div class="filter-tabs" role="tablist" aria-label="Filtrer les articles de papeterie et beaux-arts">
+              <button type="button" role="tab" aria-selected="true" class="filter-tab stationery-tab is-active" data-cat="all">
+                <span>Tous les univers</span>
+                <span class="filter-tab__count">4</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="ecriture">
+                <span>Écriture &amp; Stylos</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="canson">
+                <span>Papier Dessin</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="pinceaux">
+                <span>Pinceaux d'Art</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="classeur">
+                <span>Feuilles de Classeur</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="stationery-section__controls">
+            <button id="stationeryPrev" class="slider-btn is-prev" aria-label="Articles de papeterie précédents">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </button>
+            <button id="stationeryNext" class="slider-btn" aria-label="Articles de papeterie suivants">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Stationery Items Horizontal Slider -->
+        <div id="stationerySlider" class="stationery-slider">
+          <!-- Item 1: Stylo-Plume Laiton (Kaweco Sport Brass) -->
+          <article class="stationery-card" data-category="ecriture">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--pen"></div>
+              <div class="stationery-3d-item">
+                <img src="assets/stationery/mockup_kaweco_brass.webp" 
+                  alt="Packshot officiel stylo-plume Kaweco Sport Brass laiton massif" 
+                  class="stationery-3d-mockup stationery-3d-mockup--pen" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Laiton Massif CNC</span>
+                <span class="stationery-card__spec">Plume iridiée M • 82,00 €</span>
+              </div>
+              <h3 class="stationery-card__title">Kaweco Sport Brass Laiton</h3>
+              <p class="stationery-card__desc">Format de poche culte de 1935 taillé dans un bloc de laiton massif brut non verni, développant une patine naturelle unique au fil de vos écrits.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="kaweco-sport-brass"
+                data-title="Kaweco Sport Brass Laiton"
+                data-author="Kaweco • Manufacture Heidelberg"
+                data-cat="Instruments d'Écriture"
+                data-genre="Stylos">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 2: Papier Dessin Canson (Pochette C à grain A4) -->
+          <article class="stationery-card" data-category="canson">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--canson"></div>
+              <div class="stationery-3d-item">
+                <img src="assets/stationery/mockup_canson_dessin.jpg" 
+                  alt="Packshot officiel pochette papier à dessin Canson C à grain A4" 
+                  class="stationery-3d-mockup stationery-3d-mockup--canson" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Grain Fin 180g/m²</span>
+                <span class="stationery-card__spec">12 feuilles A4 • 4,90 €</span>
+              </div>
+              <h3 class="stationery-card__title">Pochette Canson « C » à grain A4</h3>
+              <p class="stationery-card__desc">Le papier à dessin mythique des artistes et étudiants, au grain fin équilibré pour le crayon, fusain, lavis et feutre, fabriqué en France.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="canson-c-a-grain"
+                data-title="Pochette Canson C à grain A4"
+                data-author="Canson • Manufacture Annonay"
+                data-cat="Papier &amp; Beaux-Arts"
+                data-genre="Dessin">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 3: Pinceaux Beaux-Arts (Set Raphaël Précision) -->
+          <article class="stationery-card" data-category="pinceaux">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--brushes"></div>
+              <div class="stationery-3d-item">
+                <img src="assets/stationery/mockup_pinceaux_raphael.jpg" 
+                  alt="Packshot set de 4 pinceaux beaux-arts Raphaël Précision martre et bois" 
+                  class="stationery-3d-mockup stationery-3d-mockup--brushes" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Poils Martre &amp; Bois</span>
+                <span class="stationery-card__spec">Set 4 pcs • 18,90 €</span>
+              </div>
+              <h3 class="stationery-card__title">Set 4 Pinceaux Raphaël Précision</h3>
+              <p class="stationery-card__desc">Pinceaux d'artisanat français montés sur manche bois verni avec virole nickelée, pointe fine extra-nerveuse pour l'aquarelle et l'illustration.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="pinceaux-raphael-precision"
+                data-title="Set 4 Pinceaux Raphaël Précision"
+                data-author="Raphaël • Manufacture Bretagne"
+                data-cat="Matériel d'Art"
+                data-genre="Pinceaux">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 4: Feuilles de Classeur (Feuillets Mobiles Clairefontaine Seyès) -->
+          <article class="stationery-card" data-category="classeur">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--sheets"></div>
+              <div class="stationery-3d-item">
+                <img src="assets/stationery/mockup_feuilles_clairefontaine.jpg" 
+                  alt="Packshot officiel feuillets mobiles perforés Seyès Clairefontaine" 
+                  class="stationery-3d-mockup stationery-3d-mockup--sheets" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Vélin Velouté 90g Seyès</span>
+                <span class="stationery-card__spec">Étui 500 p. A4 • 8,90 €</span>
+              </div>
+              <h3 class="stationery-card__title">Feuillets Mobiles Perforés Seyès</h3>
+              <p class="stationery-card__desc">L'incontournable du classement : papier vélin velouté 90 g/m² ultra-doux, grands carreaux bicolores et perforations universelles pour classeur.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="clairefontaine-feuillets-seyes"
+                data-title="Feuillets Mobiles Perforés Seyès"
+                data-author="Clairefontaine • Vosges"
+                data-cat="Fournitures Scolaires &amp; Bureau"
+                data-genre="Classeur">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Goodies & Pop Culture -->
+    <section id="goodies" class="goodies-section">
+      <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
+      <div class="section-parallax section-parallax--goodies" aria-hidden="true">
+        <!-- Layer 1: Blurred base depth layer -->
+        <picture class="section-parallax__picture section-parallax__picture--bg">
+          <source srcset="/bg_goodies.webp" type="image/webp">
+          <img src="/bg_goodies.png" alt="" class="section-parallax__image section-parallax__image--bg" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 2: Focal sharp layer -->
+        <picture class="section-parallax__picture section-parallax__picture--focal">
+          <source srcset="/bg_goodies.webp" type="image/webp">
+          <img src="/bg_goodies.png" alt="" class="section-parallax__image section-parallax__image--focal" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 3: Ambient particles -->
+        <div class="section-parallax__particles" data-particles="goodies"></div>
+      </div>
+
+      <div class="container">
+        <div class="goodies-section__header">
+          <div class="goodies-section__title-group">
+            <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Confiserie &amp; Pop Culture</span>
+            <h2 class="u-heading-l">Goodies &amp; Objets Culte</h2>
+            <p class="u-paragraph-regular">Douceurs d'antan, cartes à collectionner et pépites pop culture de nos comptoirs.</p>
+          </div>
+
+          <!-- Category filter tabs -->
+          <div class="goodies-filter-bar">
+            <div class="filter-tabs" role="tablist" aria-label="Filtrer les articles de goodies et confiserie">
+              <button type="button" role="tab" aria-selected="true" class="filter-tab goodies-tab is-active" data-cat="all">
+                <span>Tous les univers</span>
+                <span class="filter-tab__count">5</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="bonbons">
+                <span>Confiserie &amp; Bonbons</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="cartes">
+                <span>Cartes &amp; Boosters</span>
+                <span class="filter-tab__count">3</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="jeux">
+                <span>Jeux de Société</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="bijoux">
+                <span>Bijoux Fantaisie</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="kpop">
+                <span>Goodies K-Pop</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="goodies-section__controls">
+            <button id="goodiesPrev" class="slider-btn is-prev" aria-label="Goodies précédents">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </button>
+            <button id="goodiesNext" class="slider-btn" aria-label="Goodies suivants">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Goodies Items Horizontal Slider -->
+        <div id="goodiesSlider" class="goodies-slider">
+          <!-- Item 1: Confiserie (Sucette Pierrot Gourmand) -->
+          <article class="goodies-card" data-category="bonbons">
+            <div class="goodies-3d-stage">
+              <div class="goodies-3d-shadow goodies-3d-shadow--lollipop"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_pierrot_gourmand.png" 
+                  alt="Packshot officiel véritable sucette Pierrot Gourmand caramel au lait frais" 
+                  class="goodies-3d-mockup goodies-3d-mockup--lollipop" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">Caramel Lait Frais</span>
+                <span class="goodies-card__spec">Bois de hêtre • 0,50 €</span>
+              </div>
+              <h3 class="goodies-card__title">Véritable Sucette Pierrot Gourmand</h3>
+              <p class="goodies-card__desc">Le bonbon culte des comptoirs de presse : caramel au lait frais de France cuit en chaudron selon la recette de 1924, monté sur bâtonnet en bois naturel.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="pierrot-gourmand-sucette-caramel"
+                data-title="Véritable Sucette Pierrot Gourmand"
+                data-author="Pierrot Gourmand • Manufacture du Lot"
+                data-cat="Confiserie &amp; Comptoir"
+                data-genre="Bonbons"
+                data-price="0,50 €"
+                data-badge="Caramel Lait Frais"
+                data-format="Sucette fer de lance unitaire"
+                data-cover="assets/goodies/mockup_pierrot_gourmand.png"
+                data-desc="Le bonbon culte des comptoirs de presse : caramel au lait frais de France cuit en chaudron selon la recette de 1924, monté sur bâtonnet en bois naturel.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 2: Cartes & Boosters - Combo Éventail 3D (affiché sur 'all') -->
+          <article class="goodies-card" data-category="cartes" data-goodies-view="combo">
+            <div class="goodies-3d-stage" data-booster-type="fan">
+              <div class="goodies-3d-shadow goodies-3d-shadow--fan"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_boosters_fan.png" 
+                  alt="Packshot éventail 3D boosters cartes à collectionner Pokémon Mascarade Crépusculaire, Panini FIFA 2026 et Harry Potter ALWAYS" 
+                  class="goodies-3d-mockup goodies-3d-mockup--fan" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">Pokémon &amp; Panini</span>
+                <span class="goodies-card__spec">3 univers • Dès 2,00 €</span>
+              </div>
+              <h3 class="goodies-card__title">Cartes &amp; Boosters Officiels</h3>
+              <p class="goodies-card__desc">Retrouvez les séries cultes en kiosque : le JCC Pokémon Mascarade Crépusculaire, Panini FIFA World Cup 2026 Adrenalyn XL et Harry Potter ALWAYS.</p>
+              <button type="button" class="btn-alt js-view-boosters-tab" data-target-tab="cartes" aria-label="Voir les boosters Pokémon et Panini en détail">
+                <span class="btn-alt__text-wrap">
+                  <span>Explorer les 3 boosters</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 3: Cartes & Boosters - Fiche 1 Pokémon (affiché sur l'onglet 'cartes') -->
+          <article class="goodies-card" data-category="cartes" data-goodies-view="individual" style="display: none;">
+            <div class="goodies-3d-stage" data-booster-type="pokemon">
+              <div class="goodies-3d-shadow goodies-3d-shadow--booster"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_booster_pokemon.png" 
+                  alt="Packshot officiel booster Pokémon JCC Écarlate et Violet Mascarade Crépusculaire Ogerpon" 
+                  class="goodies-3d-mockup goodies-3d-mockup--booster" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">JCC Officiel EV06</span>
+                <span class="goodies-card__spec">10 cartes + 1 Énergie • 5,99 €</span>
+              </div>
+              <h3 class="goodies-card__title">Booster Pokémon Mascarade Crépusculaire</h3>
+              <p class="goodies-card__desc">Pochette officielle scellée Mascarade Crépusculaire avec illustration Ogerpon. Contient 10 cartes Pokémon authentiques, 1 carte Énergie et 1 carte à code Pokémon TCG Live.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="booster-pokemon-mascarade-crepusculaire"
+                data-title="Booster Pokémon Mascarade Crépusculaire"
+                data-author="The Pokémon Company • Asmodee"
+                data-cat="Cartes à Collectionner"
+                data-genre="Pokémon"
+                data-price="5,99 €"
+                data-badge="JCC Officiel EV06"
+                data-format="Booster scellé 10 cartes"
+                data-cover="assets/goodies/mockup_booster_pokemon.png"
+                data-desc="Pochette officielle scellée Mascarade Crépusculaire avec illustration Ogerpon. Contient 10 cartes Pokémon authentiques, 1 carte Énergie et 1 carte à code Pokémon TCG Live.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 4: Cartes & Boosters - Fiche 2 Panini FIFA World Cup 2026 (affiché sur l'onglet 'cartes') -->
+          <article class="goodies-card" data-category="cartes" data-goodies-view="individual" style="display: none;">
+            <div class="goodies-3d-stage" data-booster-type="panini-fifa">
+              <div class="goodies-3d-shadow goodies-3d-shadow--booster"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_booster_panini_fifa.png" 
+                  alt="Packshot officiel pochette de cartes Panini FIFA World Cup 2026 Adrenalyn XL" 
+                  class="goodies-3d-mockup goodies-3d-mockup--booster" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">Panini Officiel FIFA</span>
+                <span class="goodies-card__spec">8 cartes officielles • 2,00 €</span>
+              </div>
+              <h3 class="goodies-card__title">Booster Panini FIFA World Cup 2026</h3>
+              <p class="goodies-card__desc">Collection officielle de la Coupe du Monde FIFA 2026 Adrenalyn XL. 8 cartes par pochette : stars mondiales (Mbappé, Messi, Haaland, Vinícius Jr.), cartes brillantes et inserts rares.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="booster-panini-fifa-world-cup-2026"
+                data-title="Booster Panini FIFA World Cup 2026"
+                data-author="Panini France • FIFA World Cup 2026"
+                data-cat="Cartes à Collectionner"
+                data-genre="Football"
+                data-price="2,00 €"
+                data-badge="Panini Officiel FIFA"
+                data-format="Pochette scellée 8 cartes"
+                data-cover="assets/goodies/mockup_booster_panini_fifa.png"
+                data-desc="Collection officielle de la Coupe du Monde FIFA 2026 Adrenalyn XL. 8 cartes par pochette : stars mondiales (Mbappé, Messi, Haaland, Vinícius Jr.), cartes brillantes et inserts rares.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 5: Cartes & Boosters - Fiche 3 Harry Potter (affiché sur l'onglet 'cartes') -->
+          <article class="goodies-card" data-category="cartes" data-goodies-view="individual" style="display: none;">
+            <div class="goodies-3d-stage" data-booster-type="harry-potter">
+              <div class="goodies-3d-shadow goodies-3d-shadow--booster"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_booster_harry_potter.png" 
+                  alt="Packshot officiel pochette de cartes Panini Harry Potter ALWAYS Trading Cards" 
+                  class="goodies-3d-mockup goodies-3d-mockup--booster" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">Panini Officiel 2026</span>
+                <span class="goodies-card__spec">6 cartes exclusives • 2,99 €</span>
+              </div>
+              <h3 class="goodies-card__title">Booster Harry Potter ALWAYS Trading Cards</h3>
+              <p class="goodies-card__desc">Pochette officielle de cartes à collectionner Panini Harry Potter ALWAYS. Contient 6 cartes inédites explorant les coulisses des films, concept arts originaux, cartes brillantes et parallèles rares.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="booster-panini-harry-potter-always"
+                data-title="Booster Harry Potter ALWAYS Trading Cards"
+                data-author="Panini France • Wizarding World"
+                data-cat="Cartes à Collectionner"
+                data-genre="Harry Potter"
+                data-price="2,99 €"
+                data-badge="Panini Officiel 2026"
+                data-format="Pochette foil scellée 6 cartes"
+                data-cover="assets/goodies/mockup_booster_harry_potter.png"
+                data-desc="Pochette officielle de cartes à collectionner Panini Harry Potter ALWAYS. Contient 6 cartes inédites explorant les coulisses des films, concept arts originaux, cartes brillantes et parallèles rares.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Jeux de Société (Boîte de Jeu Monopoly Édition Classique France) -->
+          <article class="goodies-card" data-category="jeux">
+            <div class="goodies-3d-stage" data-booster-type="monopoly">
+              <div class="goodies-3d-shadow goodies-3d-shadow--box"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_monopoly.png" 
+                  alt="Packshot officiel boîte de jeu de société Monopoly Édition Classique France Hasbro Gaming" 
+                  class="goodies-3d-mockup goodies-3d-mockup--box" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">Hasbro Gaming Officiel</span>
+                <span class="goodies-card__spec">Dès 8 ans • 2 à 6 joueurs • 29,99 €</span>
+              </div>
+              <h3 class="goodies-card__title">Monopoly Édition Classique France</h3>
+              <p class="goodies-card__desc">La boîte de jeu culte par excellence : grand plateau officiel de Paris, 8 pions en métal véritable, billets de banque, 32 maisons, 12 hôtels et cartes de propriété complètes.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="monopoly-edition-classique-france"
+                data-title="Monopoly Édition Classique France"
+                data-author="Hasbro Gaming • Édition de Référence"
+                data-cat="Jeux de Société &amp; Jouets"
+                data-genre="Jeux de Plateau"
+                data-price="29,99 €"
+                data-badge="Hasbro Gaming Officiel"
+                data-format="Boîte carton rigide satinée scellée"
+                data-cover="assets/goodies/mockup_monopoly.png"
+                data-desc="La boîte de jeu culte par excellence : grand plateau officiel de Paris, 8 pions en métal véritable, billets de banque, 32 maisons, 12 hôtels et cartes de propriété complètes.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Bijoux Fantaisie (Bracelet Cordon Trèfle Porte-Bonheur) -->
+          <article class="goodies-card" data-category="bijoux">
+            <div class="goodies-3d-stage">
+              <div class="goodies-3d-shadow goodies-3d-shadow--jewelry"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_bracelet_fantaisie.png" 
+                  alt="Packshot bracelet cordon réglable noir avec breloque trèfle doré" 
+                  class="goodies-3d-mockup goodies-3d-mockup--jewelry" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">Acier Inox &amp; Or Fin</span>
+                <span class="goodies-card__spec">Tourniquet caisse • 12,00 €</span>
+              </div>
+              <h3 class="goodies-card__title">Bracelet Cordon Trèfle Porte-Bonheur</h3>
+              <p class="goodies-card__desc">Le cadeau d'impulsion par excellence : médaille trèfle découpée en acier inoxydable doré à l'or fin, montée sur cordon noir tressé ajustable à double nœud coulissant.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="bracelet-cordon-trefle-dore"
+                data-title="Bracelet Cordon Trèfle Porte-Bonheur"
+                data-author="Une Souris Verte • Collection Carrousel"
+                data-cat="Bijoux Fantaisie"
+                data-genre="Bracelets"
+                data-price="12,00 €"
+                data-badge="Acier Inox &amp; Or Fin"
+                data-format="Bracelet réglable cordon &amp; breloque"
+                data-cover="assets/goodies/mockup_bracelet_fantaisie.png"
+                data-desc="Le cadeau d'impulsion par excellence : médaille trèfle découpée en acier inoxydable doré à l'or fin, montée sur cordon noir tressé ajustable à double nœud coulissant.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 4: Goodies K-Pop (Coffret Photocards Stray Kids 5-STAR) -->
+          <article class="goodies-card" data-category="kpop">
+            <div class="goodies-3d-stage">
+              <div class="goodies-3d-shadow goodies-3d-shadow--kpop"></div>
+              <div class="goodies-3d-item">
+                <img src="assets/goodies/mockup_kpop_photocards.png" 
+                  alt="Packshot officiel boîte métal collector contenant 55 photocards K-Pop Stray Kids 5-STAR" 
+                  class="goodies-3d-mockup goodies-3d-mockup--kpop" 
+                  width="280" 
+                  height="280" 
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="goodies-card__info">
+              <div class="goodies-card__meta">
+                <span class="goodies-card__badge">55 Photocards</span>
+                <span class="goodies-card__spec">Boîte vernie • 8,90 €</span>
+              </div>
+              <h3 class="goodies-card__title">Coffret Photocards Stray Kids (5-STAR)</h3>
+              <p class="goodies-card__desc">Boîtier rigide collector contenant 55 cartes exclusives aux coins arrondis des membres de Stray Kids, carton couché haute densité 350g/m² avec finition brillante.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="photocards-stray-kids-5-star"
+                data-title="Coffret Photocards Stray Kids (5-STAR)"
+                data-author="JYP Entertainment • K-World"
+                data-cat="Goodies &amp; Pop Culture"
+                data-genre="K-Pop"
+                data-price="8,90 €"
+                data-badge="55 Photocards"
+                data-format="Boîtier collector de 55 cartes vernies"
+                data-cover="assets/goodies/mockup_kpop_photocards.png"
+                data-desc="Boîtier rigide collector contenant 55 cartes exclusives aux coins arrondis des membres de Stray Kids, carton couché haute densité 350g/m² avec finition brillante.">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Comment ça se passe chez nous -->
+    <section id="fonctionnement" class="flow-section">
+      <div class="container">
+        <header class="flow-section__header">
+          <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Service &amp; Proximité</span>
+          <h2 class="u-heading-l">Comment ça se passe chez nous</h2>
+          <p class="flow-section__subtitle">La proximité humaine avec la réactivité des plus grands catalogues</p>
+        </header>
+
+        <div class="flow-steps">
+          <div class="step-card">
+            <div class="step-card__top">
+              <span class="step-card__badge">Étape #1</span>
+            </div>
+            <div class="step-card__visual">
+              <img class="step-card__img" src="/assets/steps/step_01_explore.svg" alt="Repérez vos lectures" width="105" height="105" loading="lazy">
+            </div>
+            <div class="step-card__body">
+              <h3 class="step-card__title">Repérez &amp; Explorez</h3>
+              <p class="step-card__desc">Parcourez nos tables de nouveautés ou commandez n'importe quel titre parmi 500 000 références nationales.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-card__top">
+              <span class="step-card__badge">Étape #2</span>
+            </div>
+            <div class="step-card__visual">
+              <img class="step-card__img" src="/assets/steps/step_02_commande.svg" alt="Commande express sous 48h" width="105" height="105" loading="lazy">
+            </div>
+            <div class="step-card__body">
+              <h3 class="step-card__title">Commande Express 48h</h3>
+              <p class="step-card__desc">Un livre manquant en rayon ? Nous vous le commandons instantanément sans aucun frais supplémentaire.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-card__top">
+              <span class="step-card__badge">Étape #3</span>
+            </div>
+            <div class="step-card__visual">
+              <img class="step-card__img" src="/assets/steps/step_03_retrait.svg" alt="Retrait au comptoir" width="105" height="105" loading="lazy">
+            </div>
+            <div class="step-card__body">
+              <h3 class="step-card__title">Retrait au comptoir</h3>
+              <p class="step-card__desc">Dès réception, nous vous prévenons. Votre livre vous attend, préparé avec soin et marque-page offert.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-card__top">
+              <span class="step-card__badge">Étape #4</span>
+            </div>
+            <div class="step-card__visual">
+              <img class="step-card__img" src="/assets/steps/step_04_echange.svg" alt="Échangez &amp; Rencontrez" width="105" height="105" loading="lazy">
+            </div>
+            <div class="step-card__body">
+              <h3 class="step-card__title">Échangez &amp; Rencontrez</h3>
+              <p class="step-card__desc">Participez à nos événements dédicaces avec les auteurs et partagez vos coups de foudre de lecture.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-section__cta">
+          <a href="#contact" class="btn-alt">
+            <span class="btn-alt__text-wrap">
+              <span>Passer commande en magasin</span>
+            </span>
+            <span class="btn-alt__icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Benefits Marquee Ticker Banner -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-container">
+        <div class="marquee-track marquee-track--left">
+          <span class="marquee-item">Presse du matin dès l'ouverture •</span>
+          <span class="marquee-item">Livres sous 48h sans frais •</span>
+          <span class="marquee-item">Papeterie fine &amp; bureau •</span>
+          <span class="marquee-item">Point Relais Colis •</span>
+          <span class="marquee-item">Presse du matin dès l'ouverture •</span>
+          <span class="marquee-item">Livres sous 48h sans frais •</span>
+          <span class="marquee-item">Papeterie fine &amp; bureau •</span>
+          <span class="marquee-item">Point Relais Colis •</span>
+        </div>
+        <div class="marquee-track marquee-track--right marquee-track--accent">
+          <span class="marquee-item">Garantie Prix Unique Loi Lang •</span>
+          <span class="marquee-item">Conseils de libraires passionnés •</span>
+          <span class="marquee-item">Dédicaces d'auteurs &amp; rencontres •</span>
+          <span class="marquee-item">Ouvert du mardi au dimanche •</span>
+          <span class="marquee-item">Garantie Prix Unique Loi Lang •</span>
+          <span class="marquee-item">Conseils de libraires passionnés •</span>
+          <span class="marquee-item">Dédicaces d'auteurs &amp; rencontres •</span>
+          <span class="marquee-item">Ouvert du mardi au dimanche •</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Revue de Presse & Témoignages -->
+    <section id="avis" class="press-section">
+      <div class="container">
+        <div class="press-section__header">
+          <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.75rem;">Revue Culturelle &amp; Avis</span>
+          <h2 class="u-heading-l">La presse et nos lecteurs en parlent</h2>
+          <p class="u-paragraph-large">Retours critiques, enthousiasme des lecteurs et échos des gazettes littéraires.</p>
+        </div>
+
+        <div class="press-grid">
+          <!-- Card 1: Le Monde des Livres -->
+          <article class="press-card">
+            <div class="press-card__header">
+              <div class="press-card__source">Le Monde des Livres</div>
+              <span class="press-card__badge">Revue Critique</span>
+            </div>
+            <blockquote class="press-card__quote">
+              « Une librairie de proximité comme on en rêve : du conseil affûté, une sélection exigeante sans être snob, et un accueil chaleureux qui donne envie de lire jusqu'au bout de la nuit. »
+            </blockquote>
+            <div class="press-card__footer">
+              <h3 class="press-card__title">Chronique Littéraire</h3>
+              <cite class="press-card__author">Pierre M., critique littéraire</cite>
+            </div>
+          </article>
+
+          <!-- Card 2: Babelio -->
+          <article class="press-card">
+            <div class="press-card__header">
+              <div class="press-card__source">Communauté Babelio</div>
+              <span class="press-card__badge">Note Lecteurs 4.9/5</span>
+            </div>
+            <blockquote class="press-card__quote">
+              « Réservation par téléphone ou en ligne récupérée dès le surlendemain au comptoir. Toujours un petit mot attentionné et des suggestions de lecture qui tombent toujours juste ! »
+            </blockquote>
+            <div class="press-card__footer">
+              <h3 class="press-card__title">Avis vérifié</h3>
+              <cite class="press-card__author">Claire D., lectrice passionnée</cite>
+            </div>
+          </article>
+
+          <!-- Card 3: Télérama -->
+          <article class="press-card">
+            <div class="press-card__header">
+              <div class="press-card__source">Télérama Sorties</div>
+              <span class="press-card__badge">Sélection Librairies</span>
+            </div>
+            <blockquote class="press-card__quote">
+              « Au milieu du rythme effréné du quotidien, ce lieu maintient vivante la flamme du livre imprimé, de la presse de qualité et du conseil humain. Une halte indispensable. »
+            </blockquote>
+            <div class="press-card__footer">
+              <h3 class="press-card__title">Guide Culturel</h3>
+              <cite class="press-card__author">Marc L., journaliste culture</cite>
+            </div>
+          </article>
+
+          <!-- Card 4: Page des Libraires -->
+          <article class="press-card">
+            <div class="press-card__header">
+              <div class="press-card__source">Page des Libraires</div>
+              <span class="press-card__badge">Coup de Cœur Réseau</span>
+            </div>
+            <blockquote class="press-card__quote">
+              « Le rayon BD et romans est constamment enrichi des dernières pépites graphiques et des révélations d'auteurs. Un vrai travail de passionnés qui transparaît au premier regard. »
+            </blockquote>
+            <div class="press-card__footer">
+              <h3 class="press-card__title">Recommandation</h3>
+              <cite class="press-card__author">Sébastien V., libraire invité</cite>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: FAQ Accordion -->
+    <section id="faq" class="faq-section">
+      <div class="container faq-section__inner">
+        <h2 class="u-heading-l">Vos questions fréquentes</h2>
+
+        <div class="faq-accordion">
+          <div class="faq-item is-open">
+            <button class="faq-question">
+              <span>Pouvez-vous me commander un livre qui n'est pas en rayon ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Oui, absolument ! Grâce à notre raccordement aux messageries et distributeurs nationaux, nous pouvons vous commander n'importe quel titre disponible en France (romans, manuels scolaires, BD, essais) et le recevoir en magasin sous 48 à 72 heures, sans aucun surcoût.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Quels sont vos horaires d'ouverture les jours de marché ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>La boutique vous accueille du mardi au samedi de 8h30 à 12h15 et de 14h00 à 19h00. Les jours de marché et le dimanche matin, nous ouvrons dès 8h30 pour vous permettre de récupérer vos journaux frais et vos lectures du week-end.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Comment fonctionne le service Relais Colis ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Il vous suffit de sélectionner notre Maison de la Presse lors de vos achats en ligne. Présentez simplement une pièce d'identité valide ou votre QR code au comptoir pour retirer votre colis rapidement et avec le sourire.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Acceptez-vous les Chèques Lire et cartes cadeaux ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Oui ! Nous acceptons les Chèques Lire, Chèques Culture, ainsi que nos propres cartes cadeaux personnalisables pour gâter vos proches lors des fêtes et anniversaires.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Événements & Dédicaces -->
+    <section id="evenements" class="choice-section">
+      <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
+      <div class="section-parallax section-parallax--events" aria-hidden="true">
+        <!-- Layer 1: Blurred base depth layer -->
+        <picture class="section-parallax__picture section-parallax__picture--bg">
+          <source srcset="/bg_events.webp" type="image/webp">
+          <img src="/bg_events.png" alt="" class="section-parallax__image section-parallax__image--bg" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 2: Focal sharp layer -->
+        <picture class="section-parallax__picture section-parallax__picture--focal">
+          <source srcset="/bg_events.webp" type="image/webp">
+          <img src="/bg_events.png" alt="" class="section-parallax__image section-parallax__image--focal" width="1672" height="941" loading="lazy" decoding="async">
+        </picture>
+
+        <!-- Layer 3: Ambient particles -->
+        <div class="section-parallax__particles" data-particles="events"></div>
+      </div>
+
+      <div class="container">
+        <header class="choice-section__header">
+          <div class="choice-section__title-group">
+            <h2 class="u-heading-l">Événements &amp; Dédicaces</h2>
+            <p class="u-paragraph-regular">La vie culturelle de notre commune s'anime ici. Venez rencontrer ceux qui font vivre les mots et l'imaginaire.</p>
+          </div>
+        </header>
+
+        <div class="choice-grid">
+          <div class="choice-card">
+            <img src="/assets/events/event_dedicace.jpg" alt="Samedi Dédicace et Rencontre" width="140" height="210">
+            <h3 class="u-heading-s">Samedi Dédicace</h3>
+            <p class="u-paragraph-regular">Rencontre &amp; signature avec les romanciers du moment</p>
+          </div>
+
+          <div class="choice-card">
+            <img src="/assets/events/event_cafe.jpg" alt="Café Littéraire du Samedi" width="140" height="210">
+            <h3 class="u-heading-s">Café Littéraire</h3>
+            <p class="u-paragraph-regular">Échange libre autour de la rentrée des auteurs</p>
+          </div>
+
+          <div class="choice-card">
+            <img src="/assets/events/event_jeunesse.jpg" alt="Concours Dessin Jeunesse" width="140" height="210">
+            <h3 class="u-heading-s">Coin Jeunesse &amp; BD</h3>
+            <p class="u-paragraph-regular">Concours de dessin et nouveautés mangas du mois</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__newsletter">
+          <h3>La Gazette des Nouveautés</h3>
+          <p>Recevez une fois par mois la liste des coups de cœur, les dates des événements et les arrivages exclusifs.</p>
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Votre adresse email" required aria-label="Adresse email">
+            <button type="submit" class="btn-pill" style="background-color: var(--color-yellow); border-color: var(--color-yellow); color: var(--color-ink-blue); font-weight: 700;">
+              <span>S'inscrire</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="footer__links-col">
+          <h3>Horaires d'Ouverture</h3>
+          <ul class="footer__links-list" style="font-size: 0.95rem; color: #ccc;">
+            <li><strong>Mardi - Vendredi :</strong> 8h30 - 12h15 | 14h00 - 19h00</li>
+            <li><strong>Samedi :</strong> 8h30 - 12h30 | 14h00 - 18h30</li>
+            <li><strong>Dimanche :</strong> 8h30 - 12h00 (Presse matinale)</li>
+            <li><strong>Lundi :</strong> Fermeture hebdomadaire</li>
+          </ul>
+        </div>
+
+        <div class="footer__apps">
+          <h3>Réseau &amp; Librairies</h3>
+          <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 0.8rem;">
+            <strong>Maison de la Presse</strong><br>
+            Le réseau des commerces culturels et littéraires indépendants.<br>
+            Commandes express &amp; retrait comptoir partout en France.<br>
+            Service lecteurs : contact@maisondelapresse.fr
+          </p>
+          <div>
+            <a href="#livres" class="btn-pill" style="background-color: var(--color-ink-blue); color: #fff; border-color: var(--color-ink-blue);">
+              <span>Explorer nos collections</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Maison de la Presse. Commerce et culture de proximité.</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: #777;">Mentions Légales</a>
+          <a href="#" style="color: #777;">Politique de Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal 3D: Livre Ouvert & Révélation du Synopsis -->
+  <div id="bookModalOverlay" class="book-modal-overlay" aria-hidden="true"></div>
+  <dialog id="bookOpenModal" class="book-open-modal" aria-label="Feuilleter l'ouvrage et lire le résumé" inert>
+    <div class="book-modal__container">
+      
+      <!-- Barre d'outils supérieure -->
+      <div class="book-modal__header">
+        <div class="book-modal__badge" id="modalBookBadge">Prix Goncourt 2023</div>
+        <button id="bookModalClose" class="book-modal__close-btn" aria-label="Refermer le livre (Échap)">
+          <span>Fermer le livre</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scène 3D du Livre Ouvert -->
+      <div class="book-modal__stage" id="bookModalStage">
+        <!-- Ombre portée sur la table -->
+        <div class="open-book__shadow" id="openBookShadow"></div>
+
+        <!-- Le livre complet articulé en 3D -->
+        <div class="open-book" id="openBook3D">
+          
+          <!-- Fond reliure rigide extérieure -->
+          <div class="open-book__hardback" id="openBookHardback"></div>
+
+          <!-- Page Gauche : Fiche éditoriale & Miniature de couverture -->
+          <div class="open-book__page open-book__page--left">
+            <div class="open-book__page-content">
+              <div class="open-book__page-header">
+                <span class="open-book__cat-label" id="modalBookCategory">Sélection Roman</span>
+                <span class="open-book__page-num">01</span>
+              </div>
+
+              <div class="open-book__left-body">
+                <div class="open-book__cover-frame">
+                  <img id="modalBookCover" src="" alt="Couverture de l'ouvrage" class="open-book__cover-img" width="140" height="210">
+                  <div class="open-book__cover-emboss"></div>
+                </div>
+
+                <div class="open-book__left-meta">
+                  <h3 id="modalBookTitleLeft" class="open-book__title">Titre de l'ouvrage</h3>
+                  <p id="modalBookAuthorLeft" class="open-book__author">Auteur</p>
+
+                  <div class="open-book__specs-list">
+                    <div class="open-book__spec-item">
+                      <span class="open-book__spec-label">Éditeur :</span>
+                      <span class="open-book__spec-value" id="modalBookPublisher">Éditions</span>
+                    </div>
+                    <div class="open-book__spec-item">
+                      <span class="open-book__spec-label">Format :</span>
+                      <span class="open-book__spec-value" id="modalBookFormat">Grand format</span>
+                    </div>
+                    <div class="open-book__spec-item">
+                      <span class="open-book__spec-label">Pagination :</span>
+                      <span class="open-book__spec-value" id="modalBookPages">---</span>
+                    </div>
+                    <div class="open-book__spec-item">
+                      <span class="open-book__spec-label">Disponibilité :</span>
+                      <span class="open-book__spec-value open-book__spec-value--stock" id="modalBookStock">En rayon &amp; Commande 48h</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="open-book__left-footer">
+                <div class="open-book__guarantee-box">
+                  <span class="open-book__guarantee-price" id="modalBookPrice">22,90 €</span>
+                  <span class="open-book__guarantee-law">Prix unique légal garanti (Loi Lang 1981)</span>
+                </div>
+              </div>
+            </div>
+            <!-- Épaisseur tranche gauche de papier -->
+            <div class="open-book__stack open-book__stack--left"></div>
+          </div>
+
+          <!-- Reliure & Pli central -->
+          <div class="open-book__gutter">
+            <div class="open-book__gutter-crease"></div>
+            <div class="open-book__gutter-shadow"></div>
+          </div>
+
+          <!-- Page Droite : Titre littéraire & Synopsis formaté -->
+          <div class="open-book__page open-book__page--right">
+            <div class="open-book__page-content">
+              <div class="open-book__page-header">
+                <span class="open-book__running-title" id="modalBookRunningTitle">Titre de l'ouvrage</span>
+                <span class="open-book__page-num">02</span>
+              </div>
+
+              <div class="open-book__right-body">
+                <div class="open-book__chapter-tag">Synopsis &amp; Note de Lecture</div>
+                
+                <div id="modalBookSynopsis" class="open-book__synopsis-text">
+                  <!-- Sera injecté dynamiquement avec lettrine -->
+                </div>
+              </div>
+
+              <div class="open-book__right-footer">
+                <button id="modalBookReserveBtn" class="btn-alt btn-alt--primary open-book__cta">
+                  <span class="btn-alt__text-wrap">
+                    <span>Mettre de côté au comptoir</span>
+                  </span>
+                  <span class="btn-alt__icon-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                      <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <!-- Épaisseur tranche droite de papier -->
+            <div class="open-book__stack open-book__stack--right"></div>
+          </div>
+
+          <!-- Volet de Couverture 3D Pivotant -->
+          <div class="open-book__cover-wing" id="openBookCoverWing">
+            <!-- Face externe (Couverture fermée visible avant ouverture) -->
+            <div class="open-book__cover-wing-outside">
+              <img id="modalCoverWingImg" src="" alt="Couverture de l'ouvrage" class="open-book__cover-wing-img">
+              <div class="open-book__cover-wing-sheen"></div>
+              <div class="open-book__cover-wing-joint"></div>
+
+              <!-- Indication & Flèche de retournement interactif -->
+              <div class="open-book__flip-prompt" id="openBookFlipPrompt" role="button" tabindex="0" aria-label="Tourner la page pour ouvrir le livre">
+                <div class="open-book__flip-icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="open-book__flip-arrow">
+                    <path d="M9 14 4 9l5-5"/>
+                    <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
+                  </svg>
+                </div>
+                <div class="open-book__flip-text-group">
+                  <span class="open-book__flip-main">Tourner la page</span>
+                  <span class="open-book__flip-sub">Cliquez pour ouvrir</span>
+                </div>
+              </div>
+            </div>
+            <!-- Face interne (Page de garde quand le livre est ouvert) -->
+            <div class="open-book__cover-wing-inside">
+              <div class="open-book__guard-page">
+                <div class="open-book__guard-border">
+                  <span class="open-book__guard-brand">Maison de la Presse</span>
+                  <span class="open-book__guard-mention">Sélection des Libraires &amp; Coup de Cœur</span>
+                  <div class="open-book__guard-seal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                  </div>
+                  <!-- Bouton discret pour refermer la page -->
+                  <button type="button" class="open-book__reclose-btn" id="openBookRecloseBtn" aria-label="Refermer la couverture">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="m15 14 5-5-5-5"/>
+                      <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0A5.5 5.5 0 0 0 9.5 20H13"/>
+                    </svg>
+                    <span>Refermer la couverture</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Sliding Drawer: Fiche Ouvrage & Réservation Express -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <aside id="bookDrawer" class="book-drawer" aria-label="Fiche ouvrage et réservation en boutique" inert>
+    <div class="book-drawer__header">
+      <div class="book-drawer__badge" id="drawerBadge">Sélection Coup de Cœur</div>
+      <button id="drawerClose" class="drawer-close-btn" aria-label="Fermer la fiche ouvrage">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="book-drawer__body">
+      <div class="book-drawer__hero">
+        <div class="book-drawer__cover-wrap">
+          <img id="drawerCover" src="" alt="Couverture de l'ouvrage sélectionné" width="160" height="240" class="book-drawer__cover">
+        </div>
+        <div class="book-drawer__meta">
+          <h2 id="drawerTitle" class="book-drawer__title u-heading-m">Titre de l'ouvrage</h2>
+          <p id="drawerAuthor" class="book-drawer__author">Auteur</p>
+          <div class="book-drawer__tags">
+            <span id="drawerFormat" class="book-drawer__tag">Grand Format</span>
+            <span id="drawerPages" class="book-drawer__tag">320 pages</span>
+            <span id="drawerStock" class="book-drawer__tag book-drawer__tag--stock">En stock comptoir</span>
+          </div>
+          <p id="drawerPublisher" class="book-drawer__publisher">Éditeur</p>
+        </div>
+      </div>
+
+      <div class="book-drawer__section">
+        <h3 class="book-drawer__section-title">Présentation &amp; Note des libraires</h3>
+        <p id="drawerSynopsis" class="book-drawer__synopsis">...</p>
+      </div>
+
+      <div class="book-drawer__section book-drawer__reservation-box">
+        <h3 class="book-drawer__section-title">Mettre de côté au comptoir (Gratuit)</h3>
+        <p class="book-drawer__reservation-info">Votre exemplaire est mis de côté immédiatement à votre nom. Le règlement se fait sur place lors de votre passage, au prix légal garanti (Loi Lang 1981).</p>
+        
+        <form id="drawerReservationForm" class="drawer-reservation-form">
+          <input type="hidden" id="drawerBookId" name="bookId" value="">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reserName" class="form-label">Votre nom complet</label>
+              <input type="text" id="reserName" class="form-input" placeholder="Ex: Camille Bernard" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reserPhone" class="form-label">Numéro de téléphone (SMS de disponibilité)</label>
+              <input type="tel" id="reserPhone" class="form-input" placeholder="Ex: 06 12 34 56 78" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reserNotes" class="form-label">Note particulière (facultatif)</label>
+              <input type="text" id="reserNotes" class="form-input" placeholder="Ex: Retrait prévu samedi matin">
+            </div>
+          </div>
+          <button type="submit" class="btn-alt btn-alt--full">
+            <span class="btn-alt__text-wrap">
+              <span>Confirmer ma réservation gratuite</span>
+            </span>
+            <span class="btn-alt__icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
