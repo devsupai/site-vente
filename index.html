@@ -267,6 +267,11 @@
 
         <!-- Layer 3: Ambient particles -->
         <div class="section-parallax__particles" data-particles="books"></div>
+
+        <!-- Layer 4: Editorial paper grain texture overlay (identique Hero) -->
+        <svg class="section-parallax__grain" aria-hidden="true" width="100%" height="100%">
+          <rect width="100%" height="100%" filter="url(#heroPaperGrain)" />
+        </svg>
       </div>
 
       <div class="container">
@@ -303,18 +308,21 @@
             </div>
           </div>
 
-          <div class="books-section__controls">
-            <button id="sliderPrev" class="slider-btn is-prev" aria-label="Ouvrages précédents">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
-                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-              </svg>
-            </button>
-            <button id="sliderNext" class="slider-btn" aria-label="Ouvrages suivants">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
-                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-              </svg>
-            </button>
-          </div>
+        </div>
+      </div>
+
+      <div class="books-slider-wrap">
+        <div class="books-section__controls">
+          <button id="sliderPrev" class="slider-btn is-prev" aria-label="Ouvrages précédents">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <button id="sliderNext" class="slider-btn" aria-label="Ouvrages suivants">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </button>
         </div>
 
         <div id="booksSlider" class="books-slider">
@@ -718,6 +726,11 @@
 
         <!-- Layer 3: Ambient particles -->
         <div class="section-parallax__particles" data-particles="stationery"></div>
+
+        <!-- Layer 4: Editorial paper grain texture overlay (identique Hero) -->
+        <svg class="section-parallax__grain" aria-hidden="true" width="100%" height="100%">
+          <rect width="100%" height="100%" filter="url(#heroPaperGrain)" />
+        </svg>
       </div>
 
       <div class="container">
@@ -753,19 +766,21 @@
               </button>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="stationery-section__controls">
-            <button id="stationeryPrev" class="slider-btn is-prev" aria-label="Articles de papeterie précédents">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
-                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-              </svg>
-            </button>
-            <button id="stationeryNext" class="slider-btn" aria-label="Articles de papeterie suivants">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
-                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-              </svg>
-            </button>
-          </div>
+      <div class="stationery-slider-wrap">
+        <div class="stationery-section__controls">
+          <button id="stationeryPrev" class="slider-btn is-prev" aria-label="Articles de papeterie précédents">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <button id="stationeryNext" class="slider-btn" aria-label="Articles de papeterie suivants">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </button>
         </div>
 
         <!-- Stationery Items Horizontal Slider -->
@@ -943,6 +958,11 @@
 
         <!-- Layer 3: Ambient particles -->
         <div class="section-parallax__particles" data-particles="goodies"></div>
+
+        <!-- Layer 4: Editorial paper grain texture overlay (identique Hero) -->
+        <svg class="section-parallax__grain" aria-hidden="true" width="100%" height="100%">
+          <rect width="100%" height="100%" filter="url(#heroPaperGrain)" />
+        </svg>
       </div>
 
       <div class="container">
@@ -958,7 +978,7 @@
             <div class="filter-tabs" role="tablist" aria-label="Filtrer les articles de goodies et confiserie">
               <button type="button" role="tab" aria-selected="true" class="filter-tab goodies-tab is-active" data-cat="all">
                 <span>Tous les univers</span>
-                <span class="filter-tab__count">5</span>
+                <span class="filter-tab__count">4</span>
               </button>
               <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="bonbons">
                 <span>Confiserie &amp; Bonbons</span>
@@ -976,25 +996,23 @@
                 <span>Bijoux Fantaisie</span>
                 <span class="filter-tab__count">1</span>
               </button>
-              <button type="button" role="tab" aria-selected="false" class="filter-tab goodies-tab" data-cat="kpop">
-                <span>Goodies K-Pop</span>
-                <span class="filter-tab__count">1</span>
-              </button>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="goodies-section__controls">
-            <button id="goodiesPrev" class="slider-btn is-prev" aria-label="Goodies précédents">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
-                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-              </svg>
-            </button>
-            <button id="goodiesNext" class="slider-btn" aria-label="Goodies suivants">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
-                <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-              </svg>
-            </button>
-          </div>
+      <div class="goodies-slider-wrap">
+        <div class="goodies-section__controls">
+          <button id="goodiesPrev" class="slider-btn is-prev" aria-label="Goodies précédents">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </button>
+          <button id="goodiesNext" class="slider-btn" aria-label="Goodies suivants">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none">
+              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+            </svg>
+          </button>
         </div>
 
         <!-- Goodies Items Horizontal Slider -->
@@ -1290,48 +1308,6 @@
             </div>
           </article>
 
-          <!-- Item 4: Goodies K-Pop (Coffret Photocards Stray Kids 5-STAR) -->
-          <article class="goodies-card" data-category="kpop">
-            <div class="goodies-3d-stage">
-              <div class="goodies-3d-shadow goodies-3d-shadow--kpop"></div>
-              <div class="goodies-3d-item">
-                <img src="assets/goodies/mockup_kpop_photocards.png" 
-                  alt="Packshot officiel boîte métal collector contenant 55 photocards K-Pop Stray Kids 5-STAR" 
-                  class="goodies-3d-mockup goodies-3d-mockup--kpop" 
-                  width="280" 
-                  height="280" 
-                  loading="lazy">
-              </div>
-            </div>
-            <div class="goodies-card__info">
-              <div class="goodies-card__meta">
-                <span class="goodies-card__badge">55 Photocards</span>
-                <span class="goodies-card__spec">Boîte vernie • 8,90 €</span>
-              </div>
-              <h3 class="goodies-card__title">Coffret Photocards Stray Kids (5-STAR)</h3>
-              <p class="goodies-card__desc">Boîtier rigide collector contenant 55 cartes exclusives aux coins arrondis des membres de Stray Kids, carton couché haute densité 350g/m² avec finition brillante.</p>
-              <button type="button" class="btn-alt js-trigger-drawer"
-                data-id="photocards-stray-kids-5-star"
-                data-title="Coffret Photocards Stray Kids (5-STAR)"
-                data-author="JYP Entertainment • K-World"
-                data-cat="Goodies &amp; Pop Culture"
-                data-genre="K-Pop"
-                data-price="8,90 €"
-                data-badge="55 Photocards"
-                data-format="Boîtier collector de 55 cartes vernies"
-                data-cover="assets/goodies/mockup_kpop_photocards.png"
-                data-desc="Boîtier rigide collector contenant 55 cartes exclusives aux coins arrondis des membres de Stray Kids, carton couché haute densité 350g/m² avec finition brillante.">
-                <span class="btn-alt__text-wrap">
-                  <span>Mettre de côté</span>
-                </span>
-                <span class="btn-alt__icon-wrap">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
-                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -1581,6 +1557,11 @@
 
         <!-- Layer 3: Ambient particles -->
         <div class="section-parallax__particles" data-particles="events"></div>
+
+        <!-- Layer 4: Editorial paper grain texture overlay (identique Hero) -->
+        <svg class="section-parallax__grain" aria-hidden="true" width="100%" height="100%">
+          <rect width="100%" height="100%" filter="url(#heroPaperGrain)" />
+        </svg>
       </div>
 
       <div class="container">

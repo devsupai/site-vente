@@ -81,7 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   requestAnimationFrame(raf);
 
-  // --- 2. Page Intro Transition & Curtain Animation ---
+  // --- 2. Sync --header-h with actual rendered header height ---
+  const headerElement = document.querySelector('.header');
+  if (headerElement) {
+    const syncHeaderHeight = () => {
+      document.documentElement.style.setProperty('--header-h', headerElement.offsetHeight + 'px');
+    };
+    syncHeaderHeight();
+    window.addEventListener('resize', syncHeaderHeight);
+  }
+
+  // --- 3. Page Intro Transition & Curtain Animation ---
   const transitionWrap = document.getElementById('pageTransition');
   const transitionLogo = document.getElementById('transitionLogo');
   const transitionPath = document.getElementById('transitionPath');
@@ -895,7 +905,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (target) {
             e.preventDefault();
             setActiveLink(link, true);
-            lenis.scrollTo(target, { offset: -56, duration: 1.1 });
+            lenis.scrollTo(target, { duration: 1.1 });
           }
         }
       });
@@ -1025,7 +1035,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const controlsGroup = prevBtn?.parentElement;
       if (controlsGroup) {
         controlsGroup.style.opacity = hasOverflow ? '1' : '0';
-        controlsGroup.style.pointerEvents = hasOverflow ? 'auto' : 'none';
+        controlsGroup.style.pointerEvents = 'none';
         controlsGroup.style.transition = 'opacity 0.25s ease';
       }
 
@@ -1102,8 +1112,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize horizontal sliders for catalog sections (Books, Stationery, Goodies)
   initHorizontalSlider('booksSlider', 'sliderPrev', 'sliderNext', 380);
-  initHorizontalSlider('stationerySlider', 'stationeryPrev', 'stationeryNext', 300);
-  initHorizontalSlider('goodiesSlider', 'goodiesPrev', 'goodiesNext', 300);
+  initHorizontalSlider('stationerySlider', 'stationeryPrev', 'stationeryNext', 380);
+  initHorizontalSlider('goodiesSlider', 'goodiesPrev', 'goodiesNext', 380);
 
   // FAQ Accordion
   const faqItems = document.querySelectorAll('.faq-item');
