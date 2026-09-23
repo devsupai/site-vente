@@ -4037,7 +4037,7 @@ img, svg {
 .puzzle-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 200 / 250;
+  aspect-ratio: 220 / 260;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.28s ease,
               z-index 0.28s ease;
@@ -4087,19 +4087,39 @@ img, svg {
 .p3 { fill: #FED7AA; }
 .p4 { fill: #E9D5FF; }
 
-/* Contenu centré dans la pièce (zone utile élargie pour pleine lisibilité) */
+/* Contenu centré dans la pièce */
 .puzzle-inner {
   position: absolute;
-  inset: 7% 9% 7% 12%;
+  inset: 6% 0 6% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: clamp(0.35rem, 0.9vh, 0.75rem);
+  gap: clamp(0.35rem, 0.8vh, 0.65rem);
   pointer-events: none;
   z-index: 2;
   box-sizing: border-box;
+}
+
+/* Marges asymétriques étudiées selon la forme de chaque pièce pour ne JAMAIS couper le texte */
+/* Pièce 1 : bord gauche plat, ergot à droite -> marge à droite */
+.puzzle-wrap--1 .puzzle-inner {
+  padding-left: clamp(14px, 1.6vw, 24px);
+  padding-right: clamp(26px, 2.8vw, 42px);
+}
+
+/* Pièces 2 et 3 : creux à gauche (28px) et ergot à droite -> dégage le creux à gauche */
+.puzzle-wrap--2 .puzzle-inner,
+.puzzle-wrap--3 .puzzle-inner {
+  padding-left: clamp(30px, 3.4vw, 46px);
+  padding-right: clamp(24px, 2.6vw, 38px);
+}
+
+/* Pièce 4 : creux à gauche (28px), bord droit plat -> dégage le creux à gauche */
+.puzzle-wrap--4 .puzzle-inner {
+  padding-left: clamp(30px, 3.4vw, 46px);
+  padding-right: clamp(14px, 1.6vw, 24px);
 }
 
 /* Badges avec style biseauté élégant */
@@ -4127,8 +4147,8 @@ img, svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(52px, 5.5vw, 78px);
-  height: clamp(52px, 5.5vw, 78px);
+  width: clamp(48px, 5.2vw, 72px);
+  height: clamp(48px, 5.2vw, 72px);
   flex-shrink: 0;
 }
 .step-card__img {
@@ -4137,23 +4157,25 @@ img, svg {
   object-fit: contain;
 }
 
-/* Titre */
+/* Titre - calibré pour ne jamais déborder dans les creux */
 .step-card__title {
   font-family: var(--font-display, inherit);
-  font-size: clamp(0.92rem, 1.1vw, 1.18rem);
+  font-size: clamp(0.92rem, 1.1vw, 1.16rem);
   font-weight: 700;
   line-height: 1.25;
   margin: 0;
   color: var(--color-ink-blue, #1C2841);
+  text-wrap: balance;
+  max-width: 165px;
 }
 
 /* Description totalement lisible et confortablement espacée */
 .step-card__desc {
-  font-size: clamp(0.72rem, 0.84vw, 0.88rem);
+  font-size: clamp(0.72rem, 0.82vw, 0.86rem);
   color: #334155;
   line-height: 1.45;
   margin: 0;
-  max-width: 95%;
+  max-width: 175px;
 }
 
 /* Responsive mobile et tablette : défilement horizontal fluide de la chaîne de puzzle */
