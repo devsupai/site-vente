@@ -4064,12 +4064,18 @@ img, svg {
   width: 100%;
   height: 100%;
   overflow: visible;
+  filter: drop-shadow(0 8px 16px rgba(28, 40, 65, 0.12)) drop-shadow(0 2px 4px rgba(28, 40, 65, 0.08));
+  transition: filter 0.28s ease;
 }
 
-/* Contour néo-brutaliste et remplissage */
+.puzzle-wrap:hover .puzzle-bg {
+  filter: drop-shadow(0 16px 26px rgba(28, 40, 65, 0.24)) drop-shadow(0 4px 8px rgba(28, 40, 65, 0.12));
+}
+
+/* Contour biseauté lumineux (plus aucun bord noir) */
 .puzzle-path {
-  stroke: #111111;
-  stroke-width: 3.5;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 1.5;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
@@ -4095,21 +4101,22 @@ img, svg {
   z-index: 2;
 }
 
-/* Badges */
+/* Badges avec style biseauté élégant sans bord noir */
 .step-card__badge {
   display: inline-flex;
   align-items: center;
   font-size: clamp(0.6rem, 0.7vw, 0.72rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.18rem 0.55rem;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.62rem;
   border-radius: 99px;
-  border: 2px solid #111111;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
   white-space: nowrap;
 }
-.step-card__badge--1 { background: #F59E0B; color: #111111; }
+.step-card__badge--1 { background: #D97706; color: #ffffff; }
 .step-card__badge--2 { background: #059669; color: #ffffff; }
 .step-card__badge--3 { background: #EA580C; color: #ffffff; }
 .step-card__badge--4 { background: #7C3AED; color: #ffffff; }
