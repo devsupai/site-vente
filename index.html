@@ -61,18 +61,18 @@
     </a>
   </aside>
 
-  <!-- Header -->
+  <!-- Floating Glass Capsule Header -->
   <header class="header">
     <div class="header__inner">
       <a href="/" class="header__logo" aria-label="Accueil Maison de la Presse">
-        <div style="display: flex; align-items: center; gap: 0.65rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-black);">
+        <div class="header__logo-brand">
+          <svg class="header__logo-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
           </svg>
-          <div>
-            <div style="font-weight: 700; font-size: 1.2rem; line-height: 1; letter-spacing: -0.02em;">Maison de la Presse</div>
-            <div style="font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85;">Librairie &amp; Culture</div>
+          <div class="header__logo-text">
+            <span class="header__logo-title">Maison de la Presse</span>
+            <span class="header__logo-sub">Librairie &amp; Culture</span>
           </div>
         </div>
       </a>
@@ -81,11 +81,11 @@
         <div class="nav-pill-track" id="navPillTrack">
           <div class="nav-pill-indicator" id="navPillIndicator" aria-hidden="true"></div>
           <ul class="nav-pill-list">
-            <li><a href="#livres" class="nav-pill-link" data-section="livres">Coups de Cœur</a></li>
+            <li><a href="#livres" class="nav-pill-link" data-section="livres">Livres</a></li>
             <li><a href="#papeterie" class="nav-pill-link" data-section="papeterie">Papeterie</a></li>
             <li><a href="#goodies" class="nav-pill-link" data-section="goodies">Goodies</a></li>
-            <li><a href="#fonctionnement" class="nav-pill-link" data-section="fonctionnement">Commande 48h</a></li>
-            <li><a href="#avis" class="nav-pill-link" data-section="avis">Presse &amp; Avis</a></li>
+            <li><a href="#fonctionnement" class="nav-pill-link" data-section="fonctionnement">Services 48h</a></li>
+            <li><a href="#avis" class="nav-pill-link" data-section="avis">Avis</a></li>
             <li><a href="#faq" class="nav-pill-link" data-section="faq">FAQ</a></li>
             <li><a href="#evenements" class="nav-pill-link" data-section="evenements">Événements</a></li>
             <li><a href="#contact" class="nav-pill-link" data-section="contact">Horaires</a></li>
@@ -94,23 +94,11 @@
       </nav>
 
       <div class="header__actions">
-        <div class="header__socials">
-          <a href="#contact" class="social-icon-btn" aria-label="Suivre la Maison de la Presse">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-        </div>
-
-        <a href="#livres" class="btn-alt">
-          <span class="btn-alt__text-wrap">
-            <span>Réserver un livre</span>
-          </span>
-          <span class="btn-alt__icon-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
-              <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-            </svg>
-          </span>
+        <a href="#livres" class="header-cta-pill" aria-label="Réserver un livre au comptoir">
+          <span>Réserver un livre</span>
+          <svg class="header-cta-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
         </a>
       </div>
 
@@ -121,6 +109,16 @@
       </div>
     </div>
   </header>
+
+  <!-- Fixed Liquid Animated Background (Multi-color responsive scroll - hors hero) -->
+  <div id="liquidBackground" class="liquid-bg" aria-hidden="true">
+    <svg class="liquid-bg__svg" viewBox="0 0 1920 1080" fill="none" preserveAspectRatio="none">
+      <path class="liquid-bg__wave liquid-bg__wave--1"
+            d="M 0,420 C 320,320 480,560 640,500 C 800,440 1040,280 1280,340 C 1520,400 1720,240 1920,200 L 1920,1080 L 0,1080 Z" />
+      <path class="liquid-bg__wave liquid-bg__wave--2"
+            d="M 0,680 C 350,560 500,750 640,710 C 780,670 1100,520 1280,580 C 1460,640 1700,460 1920,410 L 1920,1080 L 0,1080 Z" />
+    </svg>
+  </div>
 
   <main>
     <!-- Section 1: Hero Flat-Lay -->
@@ -250,7 +248,10 @@
 
 
     <!-- Section 2: Books Slider -->
-    <section id="livres" class="books-section">
+    <section id="livres" class="books-section" 
+      data-liquid-bg="#FEF7CD" data-liquid-wave1="#FCD34D" data-liquid-wave2="#F9A220"
+      data-liquid-path1="M 0,420 C 320,320 480,560 640,500 C 800,440 1040,280 1280,340 C 1520,400 1720,240 1920,200 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,680 C 350,560 500,750 640,710 C 780,670 1100,520 1280,580 C 1460,640 1700,460 1920,410 L 1920,1080 L 0,1080 Z">
       <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
       <div class="section-parallax section-parallax--books" aria-hidden="true">
         <!-- Layer 1: Blurred base depth layer -->
@@ -276,10 +277,10 @@
 
       <div class="container">
         <div class="books-section__header">
-          <div class="books-section__title-group">
-            <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Sélection Littéraire</span>
-            <h2 class="u-heading-l">Nos Coups de Cœur du Mois</h2>
-            <p class="u-paragraph-regular">Romans primés, bulles graphiques et pépites d'évasion choisis par nos libraires.</p>
+          <div class="section-header-unified">
+            <span class="section-badge-pill">Sélection du Moment</span>
+            <h2 class="section-title-h2">Nos Coups de Cœur Littéraires</h2>
+            <p class="section-handwritten-note">« Des histoires qui ne vous lâcheront plus »</p>
           </div>
 
           <!-- Filter tabs bar -->
@@ -709,7 +710,10 @@
     </section>
 
     <!-- Section: Papeterie Fine & Écriture -->
-    <section id="papeterie" class="stationery-section">
+    <section id="papeterie" class="stationery-section" 
+      data-liquid-bg="#E8F5E9" data-liquid-wave1="#A5D6A7" data-liquid-wave2="#43A047"
+      data-liquid-path1="M 0,220 C 300,260 500,380 640,430 C 780,480 1100,560 1280,600 C 1460,640 1700,720 1920,760 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,460 C 320,510 520,620 640,660 C 760,700 1120,780 1280,810 C 1440,840 1720,890 1920,910 L 1920,1080 L 0,1080 Z">
       <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
       <div class="section-parallax section-parallax--stationery" aria-hidden="true">
         <!-- Layer 1: Blurred base depth layer -->
@@ -735,10 +739,10 @@
 
       <div class="container">
         <div class="stationery-section__header">
-          <div class="stationery-section__title-group">
-            <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Papeterie &amp; Beaux-Arts</span>
-            <h2 class="u-heading-l">Papeterie Fine &amp; Matériel d'Art</h2>
-            <p class="u-paragraph-regular">Instruments nobles, papier d'art et fournitures choisis avec exigence.</p>
+          <div class="section-header-unified">
+            <span class="section-badge-pill">Atelier d'Écriture</span>
+            <h2 class="section-title-h2">Papeterie Fine &amp; Carnets</h2>
+            <p class="section-handwritten-note">« Le plaisir noble du papier et de l'encre »</p>
           </div>
 
           <!-- Category filter tabs -->
@@ -941,7 +945,10 @@
     </section>
 
     <!-- Section: Goodies & Pop Culture -->
-    <section id="goodies" class="goodies-section">
+    <section id="goodies" class="goodies-section" 
+      data-liquid-bg="#FFF3E0" data-liquid-wave1="#FFB74D" data-liquid-wave2="#FF7043"
+      data-liquid-path1="M 0,550 C 250,220 450,200 640,320 C 830,440 1100,680 1280,520 C 1460,360 1750,580 1920,480 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,780 C 280,480 480,450 640,580 C 800,710 1120,850 1280,720 C 1440,590 1720,760 1920,680 L 1920,1080 L 0,1080 Z">
       <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
       <div class="section-parallax section-parallax--goodies" aria-hidden="true">
         <!-- Layer 1: Blurred base depth layer -->
@@ -967,10 +974,10 @@
 
       <div class="container">
         <div class="goodies-section__header">
-          <div class="goodies-section__title-group">
-            <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Confiserie &amp; Pop Culture</span>
-            <h2 class="u-heading-l">Goodies &amp; Objets Culte</h2>
-            <p class="u-paragraph-regular">Douceurs d'antan, cartes à collectionner et pépites pop culture de nos comptoirs.</p>
+          <div class="section-header-unified">
+            <span class="section-badge-pill">Pop Culture &amp; Cadeaux</span>
+            <h2 class="section-title-h2">Trésors &amp; Objets Rares</h2>
+            <p class="section-handwritten-note">« Des pièces exclusives pour les passionnés »</p>
           </div>
 
           <!-- Category filter tabs -->
@@ -1313,12 +1320,17 @@
     </section>
 
     <!-- Section 3: Comment ça se passe chez nous -->
-    <section id="fonctionnement" class="flow-section">
+    <section id="fonctionnement" class="flow-section" 
+      data-liquid-bg="#EDE7F6" data-liquid-wave1="#B39DDB" data-liquid-wave2="#5E35B1"
+      data-liquid-path1="M 0,380 C 350,520 480,240 640,340 C 800,440 1120,580 1280,480 C 1440,380 1700,540 1920,430 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,620 C 320,720 500,490 640,580 C 780,670 1100,780 1280,690 C 1460,600 1740,730 1920,640 L 1920,1080 L 0,1080 Z">
       <div class="container">
         <header class="flow-section__header">
-          <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.35rem;">Service &amp; Proximité</span>
-          <h2 class="u-heading-l">Comment ça se passe chez nous</h2>
-          <p class="flow-section__subtitle">La proximité humaine avec la réactivité des plus grands catalogues</p>
+          <div class="section-header-unified">
+            <span class="section-badge-pill">Service Comptoir</span>
+            <h2 class="section-title-h2">Comment ça se passe chez nous</h2>
+            <p class="section-handwritten-note">« La réactivité nationale, la chaleur humaine en plus »</p>
+          </div>
         </header>
 
         <div class="flow-steps">
@@ -1418,12 +1430,17 @@
     </div>
 
     <!-- Section: Revue de Presse & Témoignages -->
-    <section id="avis" class="press-section">
+    <section id="avis" class="press-section" 
+      data-liquid-bg="#FFFDE7" data-liquid-wave1="#FFF59D" data-liquid-wave2="#FBC02D"
+      data-liquid-path1="M 0,620 C 280,580 480,320 640,260 C 800,200 1120,200 1280,260 C 1440,320 1640,580 1920,620 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,820 C 290,780 490,560 640,500 C 790,440 1130,440 1280,500 C 1430,560 1630,780 1920,820 L 1920,1080 L 0,1080 Z">
       <div class="container">
         <div class="press-section__header">
-          <span class="tag-badge" style="background-color: var(--color-yellow); color: var(--color-black); margin-bottom: 0.75rem;">Revue Culturelle &amp; Avis</span>
-          <h2 class="u-heading-l">La presse et nos lecteurs en parlent</h2>
-          <p class="u-paragraph-large">Retours critiques, enthousiasme des lecteurs et échos des gazettes littéraires.</p>
+          <div class="section-header-unified">
+            <span class="section-badge-pill">Échos &amp; Critiques</span>
+            <h2 class="section-title-h2">Ce qu'ils en disent</h2>
+            <p class="section-handwritten-note">« Dans les gazettes et chez nos fidèles lecteurs »</p>
+          </div>
         </div>
 
         <div class="press-grid">
@@ -1491,9 +1508,16 @@
     </section>
 
     <!-- Section 7: FAQ Accordion -->
-    <section id="faq" class="faq-section">
+    <section id="faq" class="faq-section" 
+      data-liquid-bg="#E1F5FE" data-liquid-wave1="#81D4FA" data-liquid-wave2="#0288D1"
+      data-liquid-path1="M 0,720 C 320,700 500,740 640,710 C 780,680 1120,750 1280,720 C 1440,690 1720,730 1920,700 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,880 C 340,860 520,890 640,870 C 760,850 1140,900 1280,880 C 1420,860 1700,890 1920,870 L 1920,1080 L 0,1080 Z">
       <div class="container faq-section__inner">
-        <h2 class="u-heading-l">Vos questions fréquentes</h2>
+        <div class="section-header-unified">
+          <span class="section-badge-pill">Questions &amp; Réponses</span>
+          <h2 class="section-title-h2">Tout ce qu'il faut savoir</h2>
+          <p class="section-handwritten-note">« Vos questions les plus fréquentes décryptées »</p>
+        </div>
 
         <div class="faq-accordion">
           <div class="faq-item is-open">
@@ -1540,7 +1564,10 @@
     </section>
 
     <!-- Section 9: Événements & Dédicaces -->
-    <section id="evenements" class="choice-section">
+    <section id="evenements" class="choice-section" 
+      data-liquid-bg="#FCE4EC" data-liquid-wave1="#F48FB1" data-liquid-wave2="#D81B60"
+      data-liquid-path1="M 0,310 C 300,160 520,440 640,360 C 760,280 1140,540 1280,420 C 1420,300 1700,180 1920,290 L 1920,1080 L 0,1080 Z"
+      data-liquid-path2="M 0,560 C 280,410 500,680 640,600 C 780,520 1120,760 1280,650 C 1440,540 1720,420 1920,520 L 1920,1080 L 0,1080 Z">
       <!-- Section Thematic Parallax Background (Identique architecture Hero) -->
       <div class="section-parallax section-parallax--events" aria-hidden="true">
         <!-- Layer 1: Blurred base depth layer -->
@@ -1566,9 +1593,10 @@
 
       <div class="container">
         <header class="choice-section__header">
-          <div class="choice-section__title-group">
-            <h2 class="u-heading-l">Événements &amp; Dédicaces</h2>
-            <p class="u-paragraph-regular">La vie culturelle de notre commune s'anime ici. Venez rencontrer ceux qui font vivre les mots et l'imaginaire.</p>
+          <div class="section-header-unified">
+            <span class="section-badge-pill">Agenda Culturel</span>
+            <h2 class="section-title-h2">Rencontres &amp; Dédicaces</h2>
+            <p class="section-handwritten-note">« Les prochains rendez-vous à la librairie »</p>
           </div>
         </header>
 
@@ -1597,7 +1625,10 @@
   </main>
 
   <!-- Footer -->
-  <footer id="contact" class="footer">
+  <footer id="contact" class="footer" 
+    data-liquid-bg="#1C2841" data-liquid-wave1="#162035" data-liquid-wave2="#0D1322"
+    data-liquid-path1="M 0,500 C 350,530 500,470 640,510 C 780,550 1100,480 1280,520 C 1460,560 1720,490 1920,530 L 1920,1080 L 0,1080 Z"
+    data-liquid-path2="M 0,720 C 340,750 520,690 640,730 C 760,770 1120,700 1280,740 C 1440,780 1700,710 1920,750 L 1920,1080 L 0,1080 Z">
     <div class="container">
       <div class="footer__top">
         <div class="footer__newsletter">

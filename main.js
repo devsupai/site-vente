@@ -648,16 +648,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ease: 'power3.out',
   });
 
-  // Book Cards Staggered Entry
-  gsap.from('.book-card', {
+  // Books Section Entry
+  gsap.from('.books-slider-wrap', {
     scrollTrigger: {
-      trigger: '.books-slider',
+      trigger: '.books-slider-wrap',
       start: 'top 85%',
     },
     opacity: 0,
-    y: 60,
-    scale: 0.94,
-    stagger: 0.12,
+    y: 40,
     duration: 0.8,
     ease: 'power2.out',
   });
@@ -675,16 +673,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ease: 'power3.out',
   });
 
-  // Stationery Cards Staggered Entry
-  gsap.from('.stationery-card', {
+  // Stationery Section Entry
+  gsap.from('.stationery-slider-wrap', {
     scrollTrigger: {
-      trigger: '.stationery-slider',
+      trigger: '.stationery-slider-wrap',
       start: 'top 85%',
     },
     opacity: 0,
-    y: 50,
-    scale: 0.95,
-    stagger: 0.12,
+    y: 40,
     duration: 0.8,
     ease: 'power2.out',
   });
@@ -699,19 +695,17 @@ document.addEventListener('DOMContentLoaded', () => {
     y: 35,
     stagger: 0.15,
     duration: 0.8,
-    ease: 'power3.out',
+    ease: 'power2.out',
   });
 
-  // Goodies Cards Staggered Entry
-  gsap.from('.goodies-card', {
+  // Goodies Section Entry
+  gsap.from('.goodies-slider-wrap', {
     scrollTrigger: {
-      trigger: '.goodies-slider',
+      trigger: '.goodies-slider-wrap',
       start: 'top 85%',
     },
     opacity: 0,
-    y: 50,
-    scale: 0.95,
-    stagger: 0.12,
+    y: 40,
     duration: 0.8,
     ease: 'power2.out',
   });
@@ -977,15 +971,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Scroll listener for header elevation & smooth spy updates
+    const heroSectionForHeader = document.querySelector('.hero');
+    function updateHeaderGlassMode() {
+      if (!headerElem) return;
+      if (!heroSectionForHeader) {
+        const scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 50) headerElem.classList.add('is-scrolled');
+        else headerElem.classList.remove('is-scrolled');
+        return;
+      }
+      const heroRect = heroSectionForHeader.getBoundingClientRect();
+      // Keep luxurious dark glass mode throughout Hero; transition to luminous glass when entering liquid canvas
+      if (heroRect.bottom <= 110) {
+        headerElem.classList.add('is-scrolled');
+      } else {
+        headerElem.classList.remove('is-scrolled');
+      }
+    }
+
     window.addEventListener(
       'scroll',
       () => {
-        const scrollY = window.scrollY || window.pageYOffset;
-        if (scrollY > 30) {
-          headerElem?.classList.add('is-scrolled');
-        } else {
-          headerElem?.classList.remove('is-scrolled');
-        }
+        updateHeaderGlassMode();
         updateActiveSectionFromScroll();
       },
       { passive: true }
@@ -993,6 +1000,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial check after intro animation completes
     setTimeout(() => {
+      updateHeaderGlassMode();
       updateActiveSectionFromScroll();
     }, 1800);
 
@@ -1004,116 +1012,290 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Reusable Horizontal Slider Initializer (Books, Stationery, Goodies)
-  function initHorizontalSlider(sliderId, prevBtnId, nextBtnId, step = 380) {
+  // --- Universal 3D Cylindrical Carousel Engine (inspired by Envato 3D Media Carousel) ---
+  function init3DCylinderCarousel({
+    sliderId,
+    prevBtnId,
+    nextBtnId,
+    cardSelector,
+    refreshHookName,
+  }) {
     const slider = document.getElementById(sliderId);
     const prevBtn = document.getElementById(prevBtnId);
     const nextBtn = document.getElementById(nextBtnId);
-
     if (!slider) return;
 
-    function updateState() {
-      // Find all visible items inside slider
-      const visibleChildren = Array.from(slider.children).filter((c) => {
-        return window.getComputedStyle(c).display !== 'none';
-      });
+    let cards = Array.from(slider.querySelectorAll(cardSelector));
+    let visibleCards = cards.filter((c) => window.getComputedStyle(c).display !== 'none');
 
-      const totalWidth = visibleChildren.reduce((sum, el) => sum + el.offsetWidth, 0);
-      const computedGap = parseFloat(window.getComputedStyle(slider).gap) || 24;
-      const totalWithGaps = totalWidth + Math.max(0, visibleChildren.length - 1) * computedGap;
+    let currentIndex = 0;
+    const animState = { progress: 0 };
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartProgress = 0;
+    let hasDragged = false;
 
-      const hasOverflow = totalWithGaps > (slider.clientWidth + 6);
-
-      if (hasOverflow) {
-        slider.classList.remove('is-centered');
-        slider.classList.add('is-scrollable');
+    function getCarouselMetrics(totalCount) {
+      const vw = window.innerWidth;
+      const isFew = (totalCount || 4) <= 4;
+      if (vw <= 640) {
+        return {
+          radius: 440,
+          angleStep: isFew ? 42 : 38,
+          sensitivity: 220,
+          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
+        };
+      } else if (vw <= 1024) {
+        return {
+          radius: 750,
+          angleStep: isFew ? 32 : 28,
+          sensitivity: 300,
+          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
+        };
+      } else if (vw <= 1440) {
+        return {
+          radius: 980,
+          angleStep: isFew ? 26 : 23,
+          sensitivity: 380,
+          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
+        };
       } else {
-        slider.classList.add('is-centered');
-        slider.classList.remove('is-scrollable');
-      }
-
-      const controlsGroup = prevBtn?.parentElement;
-      if (controlsGroup) {
-        controlsGroup.style.opacity = hasOverflow ? '1' : '0';
-        controlsGroup.style.pointerEvents = 'none';
-        controlsGroup.style.transition = 'opacity 0.25s ease';
-      }
-
-      if (prevBtn) {
-        const atStart = slider.scrollLeft <= 5;
-        prevBtn.style.opacity = !atStart ? '1' : '0.35';
-        prevBtn.style.pointerEvents = !atStart ? 'auto' : 'none';
-      }
-      if (nextBtn) {
-        const atEnd = slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 5);
-        nextBtn.style.opacity = !atEnd ? '1' : '0.35';
-        nextBtn.style.pointerEvents = !atEnd ? 'auto' : 'none';
+        return {
+          radius: 1200,
+          angleStep: isFew ? 24 : 19,
+          sensitivity: 440,
+          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
+        };
       }
     }
 
+    function render() {
+      visibleCards = cards.filter((c) => window.getComputedStyle(c).display !== 'none');
+      const total = visibleCards.length;
+      if (total === 0) return;
+
+      const { radius, angleStep, cutOff } = getCarouselMetrics(total);
+      const progress = animState.progress;
+
+      // Update controls visibility
+      if (prevBtn && nextBtn) {
+        const controlsGroup = prevBtn.parentElement;
+        if (controlsGroup) {
+          controlsGroup.style.opacity = total > 1 ? '1' : '0';
+          controlsGroup.style.pointerEvents = total > 1 ? 'auto' : 'none';
+        }
+      }
+
+      visibleCards.forEach((card, idx) => {
+        let diff = idx - progress;
+
+        if (total > 2) {
+          // Circular shortest path wrap-around
+          diff = ((((diff + total / 2) % total) + total) % total) - total / 2;
+        }
+
+        const absDiff = Math.abs(diff);
+        const angleDeg = diff * angleStep;
+        const angleRad = (angleDeg * Math.PI) / 180;
+
+        // Tangent cylindrical 3D geometry
+        const transX = Math.round(radius * Math.sin(angleRad));
+        const transZ = Math.round(radius * (Math.cos(angleRad) - 1));
+        const rotY = -angleDeg;
+
+        // Depth attenuation
+        const distRatio = Math.min(1, (1 - Math.cos(angleRad)) / 2);
+        const scale = Math.max(0.82, 1 - distRatio * 0.18);
+        const brightness = Math.max(0.55, 1 - distRatio * 0.40);
+        const zIndex = Math.round((1 - distRatio) * 100);
+
+        // Smooth progressive edge fade so cards transition without popping
+        let opacity = Math.max(0, 1 - distRatio * 0.65);
+        const fadeMargin = 0.45;
+        if (absDiff > cutOff - fadeMargin) {
+          const fadeProgress = (cutOff - absDiff) / fadeMargin;
+          opacity *= Math.max(0, Math.min(1, fadeProgress));
+        }
+
+        if (absDiff >= cutOff) {
+          card.style.visibility = 'hidden';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.visibility = 'visible';
+          card.style.pointerEvents = absDiff < 0.45 ? 'auto' : 'auto';
+        }
+
+        card.style.zIndex = zIndex;
+        card.style.transform = `translate3d(-50%, 0, 0) translate3d(${transX}px, 0, ${transZ}px) rotateY(${rotY.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+        card.style.opacity = opacity.toFixed(2);
+        card.style.filter = `brightness(${brightness.toFixed(2)})`;
+
+        if (absDiff < 0.45) {
+          card.classList.add('is-active-card');
+        } else {
+          card.classList.remove('is-active-card');
+        }
+      });
+    }
+
+    function goTo(targetIdx, duration = 0.75) {
+      visibleCards = cards.filter((c) => window.getComputedStyle(c).display !== 'none');
+      const total = visibleCards.length;
+      if (total <= 1) {
+        targetIdx = 0;
+      } else if (total === 2) {
+        targetIdx = Math.max(0, Math.min(1, targetIdx));
+      }
+
+      currentIndex = targetIdx;
+      gsap.to(animState, {
+        progress: targetIdx,
+        duration: duration,
+        ease: 'power3.out',
+        onUpdate: render,
+      });
+    }
+
     if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: -step, behavior: 'smooth' });
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goTo(currentIndex - 1);
       });
     }
 
     if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: step, behavior: 'smooth' });
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        goTo(currentIndex + 1);
       });
     }
 
-    slider.addEventListener('scroll', updateState, { passive: true });
-
-    // Drag-to-scroll
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    slider.addEventListener('mousedown', (e) => {
-      if (e.target.closest('button, a, input, select, textarea')) return;
-      isDown = true;
-      slider.style.cursor = 'grabbing';
-      slider.style.userSelect = 'none';
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
+    // Pointer Drag & Touch Swipe
+    slider.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('button, a, input, select, textarea, .js-trigger-drawer, .js-view-boosters-tab')) return;
+      isDragging = true;
+      hasDragged = false;
+      dragStartX = e.clientX;
+      dragStartProgress = animState.progress;
+      gsap.killTweensOf(animState);
     });
 
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
-      slider.style.cursor = 'grab';
+    window.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - dragStartX;
+      if (Math.abs(deltaX) > 10) {
+        hasDragged = true;
+      }
+      if (hasDragged) {
+        const { sensitivity } = getCarouselMetrics(visibleCards.length);
+        animState.progress = dragStartProgress - deltaX / sensitivity;
+        render();
+      }
     });
 
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      slider.style.cursor = 'grab';
-      slider.style.removeProperty('user-select');
-    });
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
 
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      slider.scrollLeft = scrollLeft - walk;
-    });
-
-    if (window.ResizeObserver) {
-      const ro = new ResizeObserver(() => {
-        updateState();
-      });
-      ro.observe(slider);
+      if (hasDragged) {
+        const target = Math.round(animState.progress);
+        goTo(target, 0.45);
+        setTimeout(() => {
+          hasDragged = false;
+        }, 120);
+      }
     }
-    window.addEventListener('resize', updateState);
 
-    setTimeout(updateState, 80);
-    setTimeout(updateState, 400);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+
+    // Click handler: let modal and drawer clicks fire naturally; center side card if clicked
+    slider.addEventListener('click', (e) => {
+      if (hasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+
+      // If clicked on an interactive trigger, let it execute freely
+      if (e.target.closest('.js-open-book-modal, .js-trigger-drawer, .js-view-boosters-tab, button, a')) {
+        return;
+      }
+
+      const clickedCard = e.target.closest(cardSelector);
+      if (clickedCard && !clickedCard.classList.contains('is-active-card')) {
+        const idx = visibleCards.indexOf(clickedCard);
+        if (idx !== -1) {
+          e.preventDefault();
+          e.stopPropagation();
+          const total = visibleCards.length;
+          if (total > 2) {
+            let diff = idx - (animState.progress % total);
+            diff = ((((diff + total / 2) % total) + total) % total) - total / 2;
+            goTo(animState.progress + diff);
+          } else {
+            goTo(idx);
+          }
+        }
+      }
+    });
+
+    // Keyboard Arrow navigation when visible in viewport
+    window.addEventListener('keydown', (e) => {
+      const rect = slider.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) return;
+      if (e.key === 'ArrowLeft') {
+        goTo(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        goTo(currentIndex + 1);
+      }
+    });
+
+    // Immediate synchronous layout calculation
+    render();
+    slider.classList.add('is-ready');
+
+    window.addEventListener('resize', render);
+    setTimeout(render, 40);
+    setTimeout(render, 250);
+
+    // Expose refresh hook function for category filter tabs
+    if (refreshHookName) {
+      window[refreshHookName] = () => {
+        cards = Array.from(slider.querySelectorAll(cardSelector));
+        visibleCards = cards.filter((c) => window.getComputedStyle(c).display !== 'none');
+        currentIndex = 0;
+        animState.progress = 0;
+        render();
+      };
+    }
   }
 
-  // Initialize horizontal sliders for catalog sections (Books, Stationery, Goodies)
-  initHorizontalSlider('booksSlider', 'sliderPrev', 'sliderNext', 380);
-  initHorizontalSlider('stationerySlider', 'stationeryPrev', 'stationeryNext', 380);
-  initHorizontalSlider('goodiesSlider', 'goodiesPrev', 'goodiesNext', 380);
+  // Initialize 3D cylindrical carousels for all 3 catalog sections
+  init3DCylinderCarousel({
+    sliderId: 'booksSlider',
+    prevBtnId: 'sliderPrev',
+    nextBtnId: 'sliderNext',
+    cardSelector: '.book-card',
+    refreshHookName: '_refreshBooks3DCarousel',
+  });
+
+  init3DCylinderCarousel({
+    sliderId: 'stationerySlider',
+    prevBtnId: 'stationeryPrev',
+    nextBtnId: 'stationeryNext',
+    cardSelector: '.stationery-card',
+    refreshHookName: '_refreshStationery3DCarousel',
+  });
+
+  init3DCylinderCarousel({
+    sliderId: 'goodiesSlider',
+    prevBtnId: 'goodiesPrev',
+    nextBtnId: 'goodiesNext',
+    cardSelector: '.goodies-card',
+    refreshHookName: '_refreshGoodies3DCarousel',
+  });
 
   // FAQ Accordion
   const faqItems = document.querySelectorAll('.faq-item');
@@ -1194,6 +1376,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const tl = gsap.timeline({
         onComplete: () => {
+          if (window._refreshBooks3DCarousel) {
+            window._refreshBooks3DCarousel();
+          }
           window.dispatchEvent(new Event('resize'));
         },
       });
@@ -1203,30 +1388,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isMatch) {
           card.style.display = 'flex';
+          card.style.visibility = 'visible';
           tl.to(card, {
             opacity: 1,
-            scale: 1,
-            duration: 0.35,
+            duration: 0.3,
             ease: 'power2.out',
-            clearProps: 'scale,opacity',
+            clearProps: 'opacity',
           }, 0);
         } else {
           tl.to(card, {
             opacity: 0,
-            scale: 0.94,
             duration: 0.25,
             ease: 'power2.in',
             onComplete: () => {
               card.style.display = 'none';
+              card.style.visibility = 'hidden';
+              if (window._refreshBooks3DCarousel) {
+                window._refreshBooks3DCarousel();
+              }
             },
           }, 0);
         }
       });
 
-      // Reset slider scroll
-      const bookSlider = document.getElementById('booksSlider');
-      if (bookSlider) {
-        bookSlider.scrollTo({ left: 0, behavior: 'smooth' });
+      if (window._refreshBooks3DCarousel) {
+        window._refreshBooks3DCarousel();
       }
     });
   });
@@ -1246,13 +1432,11 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
 
-      const statSlider = document.getElementById('stationerySlider');
-      if (statSlider) {
-        statSlider.scrollTo({ left: 0, behavior: 'smooth' });
-      }
-
       const tl = gsap.timeline({
         onComplete: () => {
+          if (window._refreshStationery3DCarousel) {
+            window._refreshStationery3DCarousel();
+          }
           window.dispatchEvent(new Event('resize'));
         },
       });
@@ -1262,25 +1446,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isMatch) {
           card.style.display = 'flex';
+          card.style.visibility = 'visible';
           tl.to(card, {
             opacity: 1,
-            scale: 1,
-            duration: 0.35,
+            duration: 0.3,
             ease: 'power2.out',
-            clearProps: 'scale,opacity',
+            clearProps: 'opacity',
           }, 0);
         } else {
           tl.to(card, {
             opacity: 0,
-            scale: 0.94,
             duration: 0.25,
             ease: 'power2.in',
             onComplete: () => {
               card.style.display = 'none';
+              card.style.visibility = 'hidden';
+              if (window._refreshStationery3DCarousel) {
+                window._refreshStationery3DCarousel();
+              }
             },
           }, 0);
         }
       });
+
+      if (window._refreshStationery3DCarousel) {
+        window._refreshStationery3DCarousel();
+      }
     });
   });
 
@@ -1299,14 +1490,11 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
 
-      const goodiesSlider = document.getElementById('goodiesSlider');
-      if (goodiesSlider) {
-        goodiesSlider.scrollTo({ left: 0, behavior: 'smooth' });
-        goodiesSlider.dataset.activeCat = cat;
-      }
-
       const tl = gsap.timeline({
         onComplete: () => {
+          if (window._refreshGoodies3DCarousel) {
+            window._refreshGoodies3DCarousel();
+          }
           window.dispatchEvent(new Event('resize'));
         },
       });
@@ -1328,25 +1516,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isMatch) {
           card.style.display = 'flex';
+          card.style.visibility = 'visible';
           tl.to(card, {
             opacity: 1,
-            scale: 1,
-            duration: 0.35,
+            duration: 0.3,
             ease: 'power2.out',
-            clearProps: 'scale,opacity',
+            clearProps: 'opacity',
           }, 0);
         } else {
           tl.to(card, {
             opacity: 0,
-            scale: 0.94,
             duration: 0.25,
             ease: 'power2.in',
             onComplete: () => {
               card.style.display = 'none';
+              card.style.visibility = 'hidden';
+              if (window._refreshGoodies3DCarousel) {
+                window._refreshGoodies3DCarousel();
+              }
             },
           }, 0);
         }
       });
+
+      if (window._refreshGoodies3DCarousel) {
+        window._refreshGoodies3DCarousel();
+      }
     });
   });
 
@@ -1997,4 +2192,95 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- Liquid Animated Background Scroll Orchestrator (Multi-Color & Shape Morphing) ---
+  function initLiquidBackgroundScroll() {
+    const liquidBg = document.getElementById('liquidBackground');
+    if (!liquidBg) return;
+
+    const waveEl1 = liquidBg.querySelector('.liquid-bg__wave--1');
+    const waveEl2 = liquidBg.querySelector('.liquid-bg__wave--2');
+    const heroSection = document.querySelector('.hero');
+    const sections = Array.from(document.querySelectorAll('[data-liquid-bg]'));
+    if (!sections.length) return;
+
+    // 1. Initial State Check (if user refreshes mid-page or below hero)
+    function checkHeroPosition() {
+      if (!heroSection) {
+        liquidBg.classList.add('is--active');
+        return;
+      }
+      const heroRect = heroSection.getBoundingClientRect();
+      if (heroRect.bottom <= window.innerHeight * 0.45) {
+        liquidBg.classList.add('is--active');
+        const activeSection = sections.find((sec) => {
+          const r = sec.getBoundingClientRect();
+          return r.top <= window.innerHeight * 0.65 && r.bottom >= window.innerHeight * 0.35;
+        }) || sections[0];
+        if (activeSection) {
+          updateLiquidWave(activeSection, 0.4);
+        }
+      } else {
+        liquidBg.classList.remove('is--active');
+      }
+    }
+
+    // 2. Hide liquid background when inside Hero, fade in when leaving Hero
+    if (heroSection) {
+      ScrollTrigger.create({
+        trigger: heroSection,
+        start: 'top top',
+        end: 'bottom 45%',
+        onEnter: () => liquidBg.classList.remove('is--active'),
+        onEnterBack: () => liquidBg.classList.remove('is--active'),
+        onLeave: () => liquidBg.classList.add('is--active'),
+      });
+    }
+
+    // 3. Update colors and morph SVG paths smoothly when crossing each section
+    function updateLiquidWave(section, duration = 1.25) {
+      const bg = section.dataset.liquidBg;
+      const wave1 = section.dataset.liquidWave1;
+      const wave2 = section.dataset.liquidWave2;
+      const path1 = section.dataset.liquidPath1;
+      const path2 = section.dataset.liquidPath2;
+
+      // Update color tokens
+      if (bg) liquidBg.style.setProperty('--liquid-bg', bg);
+      if (wave1) liquidBg.style.setProperty('--liquid-wave-1', wave1);
+      if (wave2) liquidBg.style.setProperty('--liquid-wave-2', wave2);
+
+      // Morph SVG wave paths smoothly
+      if (path1 && waveEl1) {
+        gsap.to(waveEl1, {
+          attr: { d: path1 },
+          duration: duration,
+          ease: 'power2.inOut',
+          overwrite: 'auto',
+        });
+      }
+      if (path2 && waveEl2) {
+        gsap.to(waveEl2, {
+          attr: { d: path2 },
+          duration: duration + 0.1,
+          ease: 'power2.inOut',
+          overwrite: 'auto',
+        });
+      }
+    }
+
+    sections.forEach((section) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 65%',
+        end: 'bottom 35%',
+        onEnter: () => updateLiquidWave(section),
+        onEnterBack: () => updateLiquidWave(section),
+      });
+    });
+
+    checkHeroPosition();
+  }
+
+  initLiquidBackgroundScroll();
 });
