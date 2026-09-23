@@ -1012,8 +1012,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Universal 3D Cylindrical Carousel Engine (inspired by Envato 3D Media Carousel) ---
-  function init3DCylinderCarousel({
+  // --- Universal Modern Flat Linear Carousel Engine ---
+  function initFlatCarousel({
     sliderId,
     prevBtnId,
     nextBtnId,
@@ -1038,35 +1038,34 @@ document.addEventListener('DOMContentLoaded', () => {
     function getCarouselMetrics(totalCount) {
       const vw = window.innerWidth;
       const isFew = (totalCount || 4) <= 4;
+      let cardSpacing, cutOff;
+
       if (vw <= 640) {
-        return {
-          radius: 440,
-          angleStep: isFew ? 42 : 38,
-          sensitivity: 220,
-          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
-        };
+        cardSpacing = Math.min(250, Math.round(vw * 0.74));
+        cutOff = 1.35;
       } else if (vw <= 1024) {
-        return {
-          radius: 750,
-          angleStep: isFew ? 32 : 28,
-          sensitivity: 300,
-          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
-        };
-      } else if (vw <= 1440) {
-        return {
-          radius: 980,
-          angleStep: isFew ? 26 : 23,
-          sensitivity: 380,
-          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
-        };
+        cardSpacing = 265;
+        cutOff = isFew ? 1.4 : 1.75;
+      } else if (vw <= 1360) {
+        cardSpacing = 285;
+        cutOff = isFew ? 1.8 : 2.55;
       } else {
-        return {
-          radius: 1200,
-          angleStep: isFew ? 24 : 19,
-          sensitivity: 440,
-          cutOff: (totalCount || 4) >= 5 ? 2.4 : 1.35,
-        };
+        cardSpacing = 305;
+        cutOff = isFew ? 2.2 : 2.55;
       }
+
+      // Guarantee strict bilateral symmetry for even-numbered total collections:
+      // An even count (e.g. 6 items) must NEVER show the opposite card on only one side
+      if (totalCount > 2 && totalCount % 2 === 0) {
+        const maxSymmetricCutOff = (totalCount / 2) - 0.25;
+        cutOff = Math.min(cutOff, maxSymmetricCutOff);
+      }
+
+      return {
+        cardSpacing,
+        sensitivity: cardSpacing,
+        cutOff,
+      };
     }
 
     function render() {
@@ -1074,7 +1073,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const total = visibleCards.length;
       if (total === 0) return;
 
-      const { radius, angleStep, cutOff } = getCarouselMetrics(total);
+      const { cardSpacing, cutOff } = getCarouselMetrics(total);
       const progress = animState.progress;
 
       // Update controls visibility
@@ -1095,26 +1094,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const absDiff = Math.abs(diff);
-        const angleDeg = diff * angleStep;
-        const angleRad = (angleDeg * Math.PI) / 180;
 
-        // Tangent cylindrical 3D geometry
-        const transX = Math.round(radius * Math.sin(angleRad));
-        const transZ = Math.round(radius * (Math.cos(angleRad) - 1));
-        const rotY = -angleDeg;
+        // Flat linear horizontal translation (cards stay straight and face the reader)
+        const transX = Math.round(diff * cardSpacing);
 
-        // Depth attenuation
-        const distRatio = Math.min(1, (1 - Math.cos(angleRad)) / 2);
-        const scale = Math.max(0.82, 1 - distRatio * 0.18);
-        const brightness = Math.max(0.55, 1 - distRatio * 0.40);
-        const zIndex = Math.round((1 - distRatio) * 100);
+        // Subtle scale hierarchy: active card at 1.0, adjacent cards at 0.95
+        const scale = Math.max(0.92, 1 - absDiff * 0.04);
+        const zIndex = Math.round(100 - absDiff * 10);
 
-        // Smooth progressive edge fade so cards transition without popping
-        let opacity = Math.max(0, 1 - distRatio * 0.65);
-        const fadeMargin = 0.45;
+        // Progressive edge fade for smooth entry/exit
+        let opacity = 1;
+        const fadeMargin = 0.55;
         if (absDiff > cutOff - fadeMargin) {
           const fadeProgress = (cutOff - absDiff) / fadeMargin;
-          opacity *= Math.max(0, Math.min(1, fadeProgress));
+          opacity = Math.max(0, Math.min(1, fadeProgress));
         }
 
         if (absDiff >= cutOff) {
@@ -1122,13 +1115,13 @@ document.addEventListener('DOMContentLoaded', () => {
           card.style.pointerEvents = 'none';
         } else {
           card.style.visibility = 'visible';
-          card.style.pointerEvents = absDiff < 0.45 ? 'auto' : 'auto';
+          card.style.pointerEvents = 'auto';
         }
 
         card.style.zIndex = zIndex;
-        card.style.transform = `translate3d(-50%, 0, 0) translate3d(${transX}px, 0, ${transZ}px) rotateY(${rotY.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+        card.style.transform = `translate3d(-50%, 0, 0) translate3d(${transX}px, 0, 0) scale(${scale.toFixed(3)})`;
         card.style.opacity = opacity.toFixed(2);
-        card.style.filter = `brightness(${brightness.toFixed(2)})`;
+        card.style.filter = 'none';
 
         if (absDiff < 0.45) {
           card.classList.add('is-active-card');
@@ -1272,8 +1265,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initialize 3D cylindrical carousels for all 3 catalog sections
-  init3DCylinderCarousel({
+  // Initialize flat linear carousels for all 3 catalog sections
+  initFlatCarousel({
     sliderId: 'booksSlider',
     prevBtnId: 'sliderPrev',
     nextBtnId: 'sliderNext',
@@ -1281,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     refreshHookName: '_refreshBooks3DCarousel',
   });
 
-  init3DCylinderCarousel({
+  initFlatCarousel({
     sliderId: 'stationerySlider',
     prevBtnId: 'stationeryPrev',
     nextBtnId: 'stationeryNext',
@@ -1289,7 +1282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     refreshHookName: '_refreshStationery3DCarousel',
   });
 
-  init3DCylinderCarousel({
+  initFlatCarousel({
     sliderId: 'goodiesSlider',
     prevBtnId: 'goodiesPrev',
     nextBtnId: 'goodiesNext',
@@ -1708,15 +1701,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookModalClose = document.getElementById('bookModalClose');
   const openBook3D = document.getElementById('openBook3D');
   const openBookShadow = document.getElementById('openBookShadow');
-  const openBookCoverWing = document.getElementById('openBookCoverWing');
-  const openBookFlipPrompt = document.getElementById('openBookFlipPrompt');
-  const openBookRecloseBtn = document.getElementById('openBookRecloseBtn');
-  const openBookPageLeft = document.querySelector('.open-book__page--left');
 
   const modalBookBadge = document.getElementById('modalBookBadge');
   const modalBookCategory = document.getElementById('modalBookCategory');
-  const modalBookCover = document.getElementById('modalBookCover');
-  const modalCoverWingImg = document.getElementById('modalCoverWingImg');
   const modalBookTitleLeft = document.getElementById('modalBookTitleLeft');
   const modalBookAuthorLeft = document.getElementById('modalBookAuthorLeft');
   const modalBookPublisher = document.getElementById('modalBookPublisher');
@@ -1731,7 +1718,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentModalBookData = null;
   let activeModalTrigger = null;
   let isBookModalAnimating = false;
-  let isCoverOpen = false;
 
   function formatBookSynopsis(text) {
     if (!text) return '';
@@ -1764,32 +1750,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBookCategory.textContent = data.category ? `Rayon ${data.category.toUpperCase()}` : 'Sélection Littéraire';
     }
 
-    // Resolve cover from live rendered DOM image (which Vite has already resolved/hashed), fallback to data.cover
-    let resolvedCover = data.cover || '';
-    if (triggerEl) {
-      const card = triggerEl.closest('.book-card') || triggerEl.closest('.exclusive-card') || triggerEl;
-      const imgEl = card?.querySelector('.book-3d__cover-img') || triggerEl.querySelector('img') || card?.querySelector('img');
-      if (imgEl && (imgEl.currentSrc || imgEl.src)) {
-        resolvedCover = imgEl.currentSrc || imgEl.src;
-      }
-    } else if (data.id) {
-      const card = document.querySelector(`[data-id="${data.id}"]`);
-      const imgEl = card?.querySelector('.book-3d__cover-img') || card?.querySelector('img');
-      if (imgEl && (imgEl.currentSrc || imgEl.src)) {
-        resolvedCover = imgEl.currentSrc || imgEl.src;
-      }
-    }
-
-    if (modalBookCover) {
-      modalBookCover.src = resolvedCover;
-      modalBookCover.alt = `Couverture de ${data.title || "l'ouvrage"}`;
-    }
-
-    if (modalCoverWingImg) {
-      modalCoverWingImg.src = resolvedCover;
-      modalCoverWingImg.alt = `Couverture de ${data.title || "l'ouvrage"}`;
-    }
-
     if (modalBookTitleLeft) modalBookTitleLeft.textContent = data.title || '';
     if (modalBookRunningTitle) modalBookRunningTitle.textContent = data.title || '';
     if (modalBookAuthorLeft) modalBookAuthorLeft.textContent = data.author ? `Par ${data.author}` : '';
@@ -1807,6 +1767,46 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBookSynopsis.innerHTML = formatBookSynopsis(data.synopsis || '');
     }
 
+    // Determine format type matching the carousel book
+    let formatType = data.formatType || '';
+    if (!formatType && triggerEl) {
+      const card = triggerEl.closest('.book-card') || triggerEl.closest('.exclusive-card') || triggerEl;
+      formatType = card?.dataset?.formatType || '';
+      if (!formatType) {
+        const b3d = card?.querySelector('.book-3d') || triggerEl.querySelector('.book-3d');
+        if (b3d) {
+          if (b3d.classList.contains('book-3d--bd')) formatType = 'bd';
+          else if (b3d.classList.contains('book-3d--poche')) formatType = 'poche';
+          else if (b3d.classList.contains('book-3d--beau-livre')) formatType = 'beau-livre';
+          else if (b3d.classList.contains('book-3d--roman')) formatType = 'roman';
+        }
+      }
+    }
+    if (!formatType && data.id) {
+      const card = document.querySelector(`[data-id="${data.id}"]`);
+      formatType = card?.dataset?.formatType || '';
+      if (!formatType) {
+        const b3d = card?.querySelector('.book-3d');
+        if (b3d) {
+          if (b3d.classList.contains('book-3d--bd')) formatType = 'bd';
+          else if (b3d.classList.contains('book-3d--poche')) formatType = 'poche';
+          else if (b3d.classList.contains('book-3d--beau-livre')) formatType = 'beau-livre';
+          else if (b3d.classList.contains('book-3d--roman')) formatType = 'roman';
+        }
+      }
+    }
+    if (!formatType) {
+      if (data.id === 'le-monde-sans-fin') formatType = 'bd';
+      else if (data.id === 'spy-family' || data.id === 'les-enfants-du-fleuve') formatType = 'poche';
+      else if (data.id === 'forets-sauvages') formatType = 'beau-livre';
+      else formatType = 'roman';
+    }
+
+    if (openBook3D) {
+      openBook3D.classList.remove('open-book--roman', 'open-book--bd', 'open-book--poche', 'open-book--beau-livre');
+      openBook3D.classList.add(`open-book--${formatType}`);
+    }
+
     // Set spine color on 3D book
     const spineColor = data.spineColor || '#202731';
     if (openBook3D) {
@@ -1819,7 +1819,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bookModalOverlay?.classList.add('is-active');
     document.body.style.overflow = 'hidden';
 
-    // 3D GSAP animation
+    // 3D GSAP animation: directly reveal the open 2-page book
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
@@ -1841,134 +1841,30 @@ document.addEventListener('DOMContentLoaded', () => {
       const tl = gsap.timeline({
         onComplete: () => {
           isBookModalAnimating = false;
-          openBookFlipPrompt?.focus();
+          bookModalClose?.focus();
         }
       });
 
-      // Start closed: cover sitting over right page, waiting for user click
-      isCoverOpen = false;
-      openBook3D.classList.remove('is-open');
-
-      gsap.set(openBookCoverWing, { rotateY: 0 });
-      if (openBookFlipPrompt) {
-        gsap.set(openBookFlipPrompt, { opacity: 1, display: 'flex' });
-      }
-      if (openBookPageLeft) {
-        gsap.set(openBookPageLeft, { opacity: 0.45, filter: 'brightness(0.75)' });
-      }
-
-      gsap.set(openBook3D, { scale: 0.85, opacity: 0, y: 35, rotateX: 16, rotateY: -6 });
+      gsap.set(openBook3D, { scale: 0.88, opacity: 0, y: 35, rotateX: 14, rotateY: 0 });
       gsap.set(openBookShadow, { scale: 0.6, opacity: 0 });
 
-      // Animate closed book rising smoothly to the center of the viewport
       tl.to(openBook3D, {
         scale: 1,
         opacity: 1,
         y: 0,
         rotateX: 8,
         rotateY: 0,
-        duration: 0.55,
+        duration: 0.5,
         ease: 'power3.out'
       })
       .to(openBookShadow, {
         scale: 1,
         opacity: 0.65,
-        duration: 0.55,
+        duration: 0.5,
         ease: 'power3.out'
       }, '<');
     }
   }
-
-  // Manual Page Turn Action (User controlled)
-  function turnCover(open) {
-    if (isBookModalAnimating) return;
-    isBookModalAnimating = true;
-
-    if (open) {
-      // User opens the book
-      if (openBookFlipPrompt) {
-        gsap.to(openBookFlipPrompt, {
-          opacity: 0,
-          scale: 0.88,
-          duration: 0.25,
-          onComplete: () => {
-            openBookFlipPrompt.style.display = 'none';
-          }
-        });
-      }
-
-      gsap.to(openBookCoverWing, {
-        rotateY: -180,
-        duration: 0.85,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          isCoverOpen = true;
-          isBookModalAnimating = false;
-          openBook3D.classList.add('is-open');
-        }
-      });
-
-      if (openBookPageLeft) {
-        gsap.to(openBookPageLeft, {
-          opacity: 1,
-          filter: 'brightness(1)',
-          duration: 0.75,
-          ease: 'power2.out'
-        });
-      }
-    } else {
-      // User re-closes the book
-      openBook3D.classList.remove('is-open');
-
-      if (openBookFlipPrompt) {
-        openBookFlipPrompt.style.display = 'flex';
-        gsap.fromTo(openBookFlipPrompt,
-          { opacity: 0, scale: 0.88 },
-          { opacity: 1, scale: 1, duration: 0.35, delay: 0.4 }
-        );
-      }
-
-      gsap.to(openBookCoverWing, {
-        rotateY: 0,
-        duration: 0.75,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          isCoverOpen = false;
-          isBookModalAnimating = false;
-        }
-      });
-
-      if (openBookPageLeft) {
-        gsap.to(openBookPageLeft, {
-          opacity: 0.45,
-          filter: 'brightness(0.75)',
-          duration: 0.65,
-          ease: 'power2.in'
-        });
-      }
-    }
-  }
-
-  // Click on closed cover or flip prompt to open
-  openBookCoverWing?.addEventListener('click', (e) => {
-    // If book is not open yet, click turns the page
-    if (!isCoverOpen && !e.target.closest('#openBookRecloseBtn')) {
-      turnCover(true);
-    }
-  });
-
-  openBookFlipPrompt?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      turnCover(true);
-    }
-  });
-
-  // Click on reclose button to turn back
-  openBookRecloseBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    turnCover(false);
-  });
 
   function closeBookModal() {
     if (!bookOpenModal || isBookModalAnimating || !bookOpenModal.classList.contains('is-active')) return;
@@ -1988,22 +1884,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const tl = gsap.timeline({ onComplete: finalizeBookModalClose });
 
-      // Rotate cover back to closed if it was opened
-      if (isCoverOpen) {
-        tl.to(openBookCoverWing, {
-          rotateY: 0,
-          duration: 0.55,
-          ease: 'power2.inOut'
-        });
-      }
-
       tl.to(openBook3D, {
         scale: 0.88,
         opacity: 0,
         y: 25,
         duration: 0.35,
         ease: 'power2.in'
-      }, isCoverOpen ? '-=0.2' : 0)
+      })
       .to(openBookShadow, {
         opacity: 0,
         scale: 0.6,
@@ -2016,7 +1903,6 @@ document.addEventListener('DOMContentLoaded', () => {
       bookModalOverlay?.classList.remove('is-active');
       bookOpenModal.setAttribute('inert', '');
       document.body.style.removeProperty('overflow');
-      isCoverOpen = false;
       isBookModalAnimating = false;
       if (activeModalTrigger && typeof activeModalTrigger.focus === 'function') {
         activeModalTrigger.focus();
@@ -2054,6 +1940,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (book3dEl) {
         const compStyle = getComputedStyle(book3dEl);
         dataset.spineColor = compStyle.getPropertyValue('--spine-color') || '#202731';
+        if (!dataset.formatType) {
+          if (book3dEl.classList.contains('book-3d--bd')) dataset.formatType = 'bd';
+          else if (book3dEl.classList.contains('book-3d--poche')) dataset.formatType = 'poche';
+          else if (book3dEl.classList.contains('book-3d--beau-livre')) dataset.formatType = 'beau-livre';
+          else if (book3dEl.classList.contains('book-3d--roman')) dataset.formatType = 'roman';
+        }
       }
 
       const coverImg = card.querySelector('.book-3d__cover-img') || trigger.querySelector('img') || card.querySelector('img');
@@ -2073,6 +1965,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (book3dEl) {
           const compStyle = getComputedStyle(book3dEl);
           dataset.spineColor = compStyle.getPropertyValue('--spine-color') || '#202731';
+          if (!dataset.formatType) {
+            if (book3dEl.classList.contains('book-3d--bd')) dataset.formatType = 'bd';
+            else if (book3dEl.classList.contains('book-3d--poche')) dataset.formatType = 'poche';
+            else if (book3dEl.classList.contains('book-3d--beau-livre')) dataset.formatType = 'beau-livre';
+            else if (book3dEl.classList.contains('book-3d--roman')) dataset.formatType = 'roman';
+          }
         }
 
         const coverImg = card.querySelector('.book-3d__cover-img') || trigger.querySelector('img') || card.querySelector('img');

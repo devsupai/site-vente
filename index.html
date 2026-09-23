@@ -175,7 +175,7 @@
           </div>
 
           <!-- Bouton circulaire Proposition 4 : Sceau Minimaliste en Verre Dépoli Fumé -->
-          <a href="#livres" class="hero-circle-btn" aria-label="Découvrir la sélection — Maison de la Presse">
+          <a href="#livres" class="hero-circle-btn" aria-label="Découvrir la sélection - Maison de la Presse">
             <svg class="hero-circle-btn__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" aria-hidden="true">
               <defs>
                 <!-- Arcs de texte calibrés -->
@@ -330,6 +330,7 @@
           <!-- Book 1: Veiller sur elle -->
           <article class="book-card" 
             data-category="roman"
+            data-format-type="roman"
             data-id="veiller-sur-elle"
             data-title="Veiller sur elle"
             data-author="Jean-Baptiste Andrea"
@@ -394,6 +395,7 @@
           <!-- Book 2: La Faille -->
           <article class="book-card"
             data-category="thriller"
+            data-format-type="roman"
             data-id="la-faille"
             data-title="La Faille"
             data-author="Franck Thilliez"
@@ -457,6 +459,7 @@
           <!-- Book 3: Le Monde sans fin -->
           <article class="book-card"
             data-category="bd-manga"
+            data-format-type="bd"
             data-id="le-monde-sans-fin"
             data-title="Le Monde sans fin"
             data-author="Jean-Marc Jancovici &amp; Christophe Blain"
@@ -520,6 +523,7 @@
           <!-- Book 4: Les Enfants du fleuve -->
           <article class="book-card"
             data-category="roman"
+            data-format-type="poche"
             data-id="les-enfants-du-fleuve"
             data-title="Les Enfants du fleuve"
             data-author="Lisa Wingate"
@@ -583,6 +587,7 @@
           <!-- Book 5: Spy x Family -->
           <article class="book-card"
             data-category="bd-manga"
+            data-format-type="poche"
             data-id="spy-family"
             data-title="Spy x Family (Tome 1)"
             data-author="Tatsuya Endo"
@@ -646,6 +651,7 @@
           <!-- Book 6: Forêts Sauvages -->
           <article class="book-card"
             data-category="nature"
+            data-format-type="beau-livre"
             data-id="forets-sauvages"
             data-title="Forêts sauvages"
             data-author="Annik Schnitzler &amp; Biosphoto"
@@ -750,10 +756,14 @@
             <div class="filter-tabs" role="tablist" aria-label="Filtrer les articles de papeterie et beaux-arts">
               <button type="button" role="tab" aria-selected="true" class="filter-tab stationery-tab is-active" data-cat="all">
                 <span>Tous les univers</span>
-                <span class="filter-tab__count">4</span>
+                <span class="filter-tab__count">7</span>
               </button>
               <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="ecriture">
                 <span>Écriture &amp; Stylos</span>
+                <span class="filter-tab__count">2</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="carnets">
+                <span>Carnets &amp; Blocs</span>
                 <span class="filter-tab__count">1</span>
               </button>
               <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="canson">
@@ -762,6 +772,10 @@
               </button>
               <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="pinceaux">
                 <span>Pinceaux d'Art</span>
+                <span class="filter-tab__count">1</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="correspondance">
+                <span>Enveloppes &amp; Courrier</span>
                 <span class="filter-tab__count">1</span>
               </button>
               <button type="button" role="tab" aria-selected="false" class="filter-tab stationery-tab" data-cat="classeur">
@@ -865,30 +879,33 @@
             </div>
           </article>
 
-          <!-- Item 3: Pinceaux Beaux-Arts (Set Raphaël Précision) -->
+          <!-- Item 3: Pinceaux Beaux-Arts (Assortiment 14 Pinceaux d'Artiste) -->
           <article class="stationery-card" data-category="pinceaux">
             <div class="stationery-3d-stage">
               <div class="stationery-3d-shadow stationery-3d-shadow--brushes"></div>
               <div class="stationery-3d-item">
-                <img src="assets/stationery/mockup_pinceaux_raphael.jpg" 
-                  alt="Packshot set de 4 pinceaux beaux-arts Raphaël Précision martre et bois" 
-                  class="stationery-3d-mockup stationery-3d-mockup--brushes" 
-                  width="280" 
-                  height="280" 
-                  loading="lazy">
+                <picture>
+                  <source srcset="assets/stationery/mockup_pinceaux_artiste.webp" type="image/webp">
+                  <img src="assets/stationery/mockup_pinceaux_artiste.png" 
+                    alt="Assortiment de 14 pinceaux beaux-arts en éventail avec spalter et pinceau éventail" 
+                    class="stationery-3d-mockup stationery-3d-mockup--brushes" 
+                    width="280" 
+                    height="187" 
+                    loading="lazy">
+                </picture>
               </div>
             </div>
             <div class="stationery-card__info">
               <div class="stationery-card__meta">
-                <span class="stationery-card__badge">Poils Martre &amp; Bois</span>
-                <span class="stationery-card__spec">Set 4 pcs • 18,90 €</span>
+                <span class="stationery-card__badge">Assortiment Atelier</span>
+                <span class="stationery-card__spec">Set 14 pcs • 24,90 €</span>
               </div>
-              <h3 class="stationery-card__title">Set 4 Pinceaux Raphaël Précision</h3>
-              <p class="stationery-card__desc">Pinceaux d'artisanat français montés sur manche bois verni avec virole nickelée, pointe fine extra-nerveuse pour l'aquarelle et l'illustration.</p>
+              <h3 class="stationery-card__title">Assortiment 14 Pinceaux d'Artiste</h3>
+              <p class="stationery-card__desc">Sélection multi-techniques pour l'huile, l'acrylique et l'aquarelle : spalter large d'atelier, pinceau éventail, brosses plates et pointes rondes sur manches bois et viroles laiton.</p>
               <button type="button" class="btn-alt js-trigger-drawer"
-                data-id="pinceaux-raphael-precision"
-                data-title="Set 4 Pinceaux Raphaël Précision"
-                data-author="Raphaël • Manufacture Bretagne"
+                data-id="assortiment-14-pinceaux-artiste"
+                data-title="Assortiment 14 Pinceaux d'Artiste"
+                data-author="Atelier Beaux-Arts • Multi-Techniques"
                 data-cat="Matériel d'Art"
                 data-genre="Pinceaux">
                 <span class="btn-alt__text-wrap">
@@ -903,7 +920,129 @@
             </div>
           </article>
 
-          <!-- Item 4: Feuilles de Classeur (Feuillets Mobiles Clairefontaine Seyès) -->
+          <!-- Item 4: Carnets & Blocs (Bloc-Notes Rhodia N°16 A5 Quadrillé) -->
+          <article class="stationery-card" data-category="carnets">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--rhodia"></div>
+              <div class="stationery-3d-item">
+                <picture>
+                  <source srcset="assets/stationery/mockup_rhodia_bloc.webp" type="image/webp">
+                  <img src="assets/stationery/mockup_rhodia_bloc.png" 
+                    alt="Bloc-notes Rhodia N°16 A5 orange avec couverture fermée et carnet ouvert en éventail" 
+                    class="stationery-3d-mockup stationery-3d-mockup--rhodia" 
+                    width="280" 
+                    height="239" 
+                    loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Papier Vélin 80g • 5x5</span>
+                <span class="stationery-card__spec">80 f. dét. A5 • 4,50 €</span>
+              </div>
+              <h3 class="stationery-card__title">Bloc-Notes Rhodia N°16 A5</h3>
+              <p class="stationery-card__desc">Le bloc agrafé culte à la couverture orange imperméable et pliable, garni de 80 feuilles micro-perforées au papier vélin velouté Clairefontaine 80 g/m² à petits carreaux 5x5.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="rhodia-bloc-n16"
+                data-title="Bloc-Notes Rhodia N°16 A5"
+                data-author="Rhodia • Manufacture Clairefontaine"
+                data-cat="Carnets &amp; Écriture"
+                data-genre="Blocs">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 5: Calligraphie (Coffret Calligraphie Vintage & 5 Plumes) -->
+          <article class="stationery-card" data-category="ecriture">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--calligraphy"></div>
+              <div class="stationery-3d-item">
+                <picture>
+                  <source srcset="assets/stationery/mockup_coffret_calligraphie.webp" type="image/webp">
+                  <img src="assets/stationery/mockup_coffret_calligraphie.png" 
+                    alt="Coffret d'écriture calligraphie avec porte-plume en bois naturel, flacon d'encre noire et 5 plumes métalliques" 
+                    class="stationery-3d-mockup stationery-3d-mockup--calligraphy" 
+                    width="280" 
+                    height="290" 
+                    loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Manche Bois &amp; 5 Plumes</span>
+                <span class="stationery-card__spec">Coffret + Encre • 19,90 €</span>
+              </div>
+              <h3 class="stationery-card__title">Coffret Calligraphie Vintage</h3>
+              <p class="stationery-card__desc">Écrin traditionnel orné de cartes anciennes contenant un porte-plume en bois naturel verni, un flacon d'encre noire calligraphique cacheté et 5 plumes métalliques interchangeables.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="coffret-calligraphie-vintage"
+                data-title="Coffret Calligraphie Vintage"
+                data-author="Atelier d'Écriture Ancienne"
+                data-cat="Calligraphie &amp; Dessin"
+                data-genre="Plumes">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 6: Correspondance & Courrier (Enveloppes DL Patte Autocollante) -->
+          <article class="stationery-card" data-category="correspondance">
+            <div class="stationery-3d-stage">
+              <div class="stationery-3d-shadow stationery-3d-shadow--envelopes"></div>
+              <div class="stationery-3d-item">
+                <picture>
+                  <source srcset="assets/stationery/mockup_enveloppes_dl.webp" type="image/webp">
+                  <img src="assets/stationery/mockup_enveloppes_dl.png" 
+                    alt="Lot d'enveloppes blanches format DL avec patte autocollante et bande protectrice détachable" 
+                    class="stationery-3d-mockup stationery-3d-mockup--envelopes" 
+                    width="280" 
+                    height="242" 
+                    loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <div class="stationery-card__info">
+              <div class="stationery-card__meta">
+                <span class="stationery-card__badge">Bande Protectrice DL</span>
+                <span class="stationery-card__spec">Paquet de 50 • 4,90 €</span>
+              </div>
+              <h3 class="stationery-card__title">Enveloppes DL Autocollantes</h3>
+              <p class="stationery-card__desc">Enveloppes blanches format DL (110 × 220 mm) 80 g/m² avec fermeture pratique par bande siliconée détachable et intérieur imprimé bleu opaque pour la confidentialité de vos courriers.</p>
+              <button type="button" class="btn-alt js-trigger-drawer"
+                data-id="enveloppes-dl-autocollantes"
+                data-title="Enveloppes DL Autocollantes"
+                data-author="Papeterie de Courrier"
+                data-cat="Correspondance"
+                data-genre="Enveloppes">
+                <span class="btn-alt__text-wrap">
+                  <span>Mettre de côté</span>
+                </span>
+                <span class="btn-alt__icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
+                    <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
           <article class="stationery-card" data-category="classeur">
             <div class="stationery-3d-stage">
               <div class="stationery-3d-shadow stationery-3d-shadow--sheets"></div>
@@ -1706,7 +1845,7 @@
           <!-- Fond reliure rigide extérieure -->
           <div class="open-book__hardback" id="openBookHardback"></div>
 
-          <!-- Page Gauche : Fiche éditoriale & Miniature de couverture -->
+          <!-- Page Gauche : Fiche éditoriale & Informations de l'ouvrage -->
           <div class="open-book__page open-book__page--left">
             <div class="open-book__page-content">
               <div class="open-book__page-header">
@@ -1715,11 +1854,6 @@
               </div>
 
               <div class="open-book__left-body">
-                <div class="open-book__cover-frame">
-                  <img id="modalBookCover" src="" alt="Couverture de l'ouvrage" class="open-book__cover-img" width="140" height="210">
-                  <div class="open-book__cover-emboss"></div>
-                </div>
-
                 <div class="open-book__left-meta">
                   <h3 id="modalBookTitleLeft" class="open-book__title">Titre de l'ouvrage</h3>
                   <p id="modalBookAuthorLeft" class="open-book__author">Auteur</p>
@@ -1779,67 +1913,17 @@
               </div>
 
               <div class="open-book__right-footer">
-                <button id="modalBookReserveBtn" class="btn-alt btn-alt--primary open-book__cta">
-                  <span class="btn-alt__text-wrap">
-                    <span>Mettre de côté au comptoir</span>
-                  </span>
-                  <span class="btn-alt__icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" fill="none" aria-hidden="true">
-                      <path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path>
-                    </svg>
-                  </span>
+                <button id="modalBookReserveBtn" class="open-book__reserve-btn" aria-label="Mettre de côté au comptoir">
+                  <span>Mettre de côté au comptoir</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
                 </button>
               </div>
             </div>
             <!-- Épaisseur tranche droite de papier -->
             <div class="open-book__stack open-book__stack--right"></div>
-          </div>
-
-          <!-- Volet de Couverture 3D Pivotant -->
-          <div class="open-book__cover-wing" id="openBookCoverWing">
-            <!-- Face externe (Couverture fermée visible avant ouverture) -->
-            <div class="open-book__cover-wing-outside">
-              <img id="modalCoverWingImg" src="" alt="Couverture de l'ouvrage" class="open-book__cover-wing-img">
-              <div class="open-book__cover-wing-sheen"></div>
-              <div class="open-book__cover-wing-joint"></div>
-
-              <!-- Indication & Flèche de retournement interactif -->
-              <div class="open-book__flip-prompt" id="openBookFlipPrompt" role="button" tabindex="0" aria-label="Tourner la page pour ouvrir le livre">
-                <div class="open-book__flip-icon-wrap">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="open-book__flip-arrow">
-                    <path d="M9 14 4 9l5-5"/>
-                    <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/>
-                  </svg>
-                </div>
-                <div class="open-book__flip-text-group">
-                  <span class="open-book__flip-main">Tourner la page</span>
-                  <span class="open-book__flip-sub">Cliquez pour ouvrir</span>
-                </div>
-              </div>
-            </div>
-            <!-- Face interne (Page de garde quand le livre est ouvert) -->
-            <div class="open-book__cover-wing-inside">
-              <div class="open-book__guard-page">
-                <div class="open-book__guard-border">
-                  <span class="open-book__guard-brand">Maison de la Presse</span>
-                  <span class="open-book__guard-mention">Sélection des Libraires &amp; Coup de Cœur</span>
-                  <div class="open-book__guard-seal">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                  </div>
-                  <!-- Bouton discret pour refermer la page -->
-                  <button type="button" class="open-book__reclose-btn" id="openBookRecloseBtn" aria-label="Refermer la couverture">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="m15 14 5-5-5-5"/>
-                      <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0A5.5 5.5 0 0 0 9.5 20H13"/>
-                    </svg>
-                    <span>Refermer la couverture</span>
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>
