@@ -1609,7 +1609,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bookDrawer) return;
 
     if (drawerCover) {
-      drawerCover.src = data.cover || '';
+      let coverSrc = data.cover || '';
+      if (data.id) {
+        const sourceCard = document.querySelector(`[data-id="${data.id}"]`);
+        const coverImg = sourceCard?.querySelector('.book-3d__cover-img') || sourceCard?.querySelector('img');
+        if (coverImg && (coverImg.currentSrc || coverImg.src)) {
+          coverSrc = coverImg.currentSrc || coverImg.src;
+        }
+      }
+      drawerCover.src = coverSrc;
       drawerCover.alt = `Couverture de ${data.title || "l'ouvrage"}`;
     }
     if (drawerBadge) {
@@ -1756,13 +1764,29 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBookCategory.textContent = data.category ? `Rayon ${data.category.toUpperCase()}` : 'Sélection Littéraire';
     }
 
+    // Resolve cover from live rendered DOM image (which Vite has already resolved/hashed), fallback to data.cover
+    let resolvedCover = data.cover || '';
+    if (triggerEl) {
+      const card = triggerEl.closest('.book-card') || triggerEl.closest('.exclusive-card') || triggerEl;
+      const imgEl = card?.querySelector('.book-3d__cover-img') || triggerEl.querySelector('img') || card?.querySelector('img');
+      if (imgEl && (imgEl.currentSrc || imgEl.src)) {
+        resolvedCover = imgEl.currentSrc || imgEl.src;
+      }
+    } else if (data.id) {
+      const card = document.querySelector(`[data-id="${data.id}"]`);
+      const imgEl = card?.querySelector('.book-3d__cover-img') || card?.querySelector('img');
+      if (imgEl && (imgEl.currentSrc || imgEl.src)) {
+        resolvedCover = imgEl.currentSrc || imgEl.src;
+      }
+    }
+
     if (modalBookCover) {
-      modalBookCover.src = data.cover || '';
+      modalBookCover.src = resolvedCover;
       modalBookCover.alt = `Couverture de ${data.title || "l'ouvrage"}`;
     }
 
     if (modalCoverWingImg) {
-      modalCoverWingImg.src = data.cover || '';
+      modalCoverWingImg.src = resolvedCover;
       modalCoverWingImg.alt = `Couverture de ${data.title || "l'ouvrage"}`;
     }
 
@@ -2032,6 +2056,11 @@ document.addEventListener('DOMContentLoaded', () => {
         dataset.spineColor = compStyle.getPropertyValue('--spine-color') || '#202731';
       }
 
+      const coverImg = card.querySelector('.book-3d__cover-img') || trigger.querySelector('img') || card.querySelector('img');
+      if (coverImg && (coverImg.currentSrc || coverImg.src)) {
+        dataset.cover = coverImg.currentSrc || coverImg.src;
+      }
+
       openBookModal(dataset, trigger);
     });
 
@@ -2045,6 +2074,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const compStyle = getComputedStyle(book3dEl);
           dataset.spineColor = compStyle.getPropertyValue('--spine-color') || '#202731';
         }
+
+        const coverImg = card.querySelector('.book-3d__cover-img') || trigger.querySelector('img') || card.querySelector('img');
+        if (coverImg && (coverImg.currentSrc || coverImg.src)) {
+          dataset.cover = coverImg.currentSrc || coverImg.src;
+        }
+
         openBookModal(dataset, trigger);
       }
     });
