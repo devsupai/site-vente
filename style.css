@@ -72,7 +72,7 @@
   --color-gray-text: #555555;
   
   --font-main: 'Degular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
   --font-handwritten: 'Hello Organichand', cursive, sans-serif;
   --font-script: 'Kaushan Script', cursive, sans-serif;
 
@@ -1938,25 +1938,9 @@ img, svg {
   padding: 0 1rem;
 }
 
-/* 1. Surtitre / Badge pillule discret et raffiné */
+/* 1. Surtitre / Badge pillule (supprimé des sections) */
 .section-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-main);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-ink-blue);
-  background: rgba(28, 40, 65, 0.08);
-  border: 1px solid rgba(28, 40, 65, 0.16);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 0.35rem 1.1rem;
-  border-radius: 9999px;
-  margin-bottom: 0.85rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  display: none !important;
 }
 
 /* 2. Titre Principal H2 Éditorial */
@@ -3759,10 +3743,11 @@ img, svg {
   transition: transform 0.45s var(--ease-smooth), opacity 0.45s ease, filter 0.45s ease;
 }
 
-.goodies-3d-shadow--lollipop {
-  width: 100px;
-  height: 22px;
-  bottom: 6px;
+.goodies-3d-shadow--lollipop,
+.goodies-3d-shadow--candies {
+  width: 220px;
+  height: 28px;
+  bottom: 8px;
   transform: translateX(-50%) rotateX(75deg);
 }
 
@@ -3798,7 +3783,8 @@ img, svg {
   filter: blur(9px);
 }
 
-.goodies-card:hover .goodies-3d-shadow--lollipop {
+.goodies-card:hover .goodies-3d-shadow--lollipop,
+.goodies-card:hover .goodies-3d-shadow--candies {
   transform: translateX(-50%) rotateX(75deg) scale(1.15);
 }
 
@@ -3880,14 +3866,25 @@ img, svg {
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.20));
 }
 
-.goodies-3d-mockup--lollipop {
-  max-width: 75%;
-  max-height: 92%;
-  transform: rotate(4deg);
+.goodies-3d-item picture,
+.goodies-3d-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.goodies-card:hover .goodies-3d-mockup--lollipop {
-  transform: rotate(0deg) scale(1.06);
+.goodies-3d-mockup--lollipop,
+.goodies-3d-mockup--candies {
+  max-width: 95%;
+  max-height: 90%;
+  transform: rotate(-1deg);
+}
+
+.goodies-card:hover .goodies-3d-mockup--lollipop,
+.goodies-card:hover .goodies-3d-mockup--candies {
+  transform: rotate(0deg) translateY(-4px) scale(1.05);
 }
 
 .goodies-3d-mockup--booster {
@@ -4372,94 +4369,180 @@ img, svg {
 
 /* --- Members Choice / Événements Section (#evenements) --- */
 .choice-section {
-  background-color: var(--color-white);
-  padding: clamp(3.5rem, 7vh, 6rem) 0;
-  border-bottom: 2px solid var(--color-black);
+  background-color: transparent !important;
+  padding-top: clamp(4.2rem, 7vh, 5.5rem) !important;
+  padding-bottom: clamp(3rem, 5vh, 4.5rem) !important;
+  border-bottom: none !important;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.choice-section__header {
-  margin-bottom: clamp(2rem, 3.8vh, 3.25rem);
-}
-
-.choice-section__title-group {
-  max-width: 680px;
-}
-
-.choice-section__title-group .u-heading-l {
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
-}
-
-.choice-section__title-group .u-paragraph-regular {
-  color: #ded9cd;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-}
-
-.choice-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(2rem, 3.5vw, 4.5rem);
+.choice-section > .container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   width: 100%;
 }
 
-@media (max-width: 860px) {
+.choice-section__header {
+  margin-bottom: clamp(1.5rem, 2.5vh, 2.5rem);
+  flex-shrink: 0;
+}
+
+.choice-section__header .section-header-unified {
+  margin-bottom: 0;
+}
+
+.choice-section__title-group {
+  max-width: 720px;
+}
+
+.choice-section__title-group .u-heading-l {
+  color: var(--color-ink-blue) !important;
+  text-shadow: none !important;
+}
+
+.choice-section__title-group .u-paragraph-regular {
+  color: rgba(28, 40, 65, 0.85) !important;
+  text-shadow: none !important;
+}
+
+/* --- Section Événements & Agenda Culturel (Mise en page aérée et triptyque équilibré) --- */
+.choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.18fr 1fr;
+  gap: clamp(1.5rem, 2.8vw, 3.5rem);
+  width: 100%;
+  max-width: var(--max-w, 1360px);
+  margin: auto auto; /* Centrage vertical naturel dans l'espace disponible sous le titre */
+  align-items: start;
+}
+
+@media (max-width: 960px) {
   .choice-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    max-width: 440px;
+    gap: 3.5rem;
+    margin: 2rem auto;
   }
 }
 
 .choice-card {
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s var(--ease-smooth);
-  box-shadow: none;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-.choice-card:hover {
-  transform: translateY(-6px);
+/* Zone visuelle généreuse et aérée pour équilibrer la surface perçue des images */
+.choice-card__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: clamp(340px, 42vh, 460px);
+  margin: 0 auto clamp(1.5rem, 2.5vh, 2.2rem);
 }
 
-.choice-card img {
+.choice-card__visual picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.choice-card__img {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
-  max-height: clamp(120px, 16vh, 160px);
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  margin-bottom: clamp(0.6rem, 1.4vh, 1rem);
-  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s ease;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
 }
 
-.choice-card:hover img {
-  transform: scale(1.04);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
+/* 1. Rendu Polaroid (Samedi Dédicace) : ancre gauche carrée */
+.choice-card__img--polaroid {
+  width: 100%;
+  max-width: clamp(300px, 23vw, 370px);
+  max-height: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1.04;
+  border-radius: 3px;
+  filter: drop-shadow(0 18px 36px rgba(28, 40, 65, 0.16)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+  transform: rotate(-1.5deg);
 }
 
-.choice-card .u-heading-s {
-  color: #ffffff;
-  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
-  margin-bottom: 0.3rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+.choice-card:hover .choice-card__img--polaroid {
+  transform: rotate(0deg) translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 26px 48px rgba(28, 40, 65, 0.24)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
 }
 
-.choice-card .u-paragraph-regular {
-  color: #ded9cd;
-  font-size: 0.88rem;
-  line-height: 1.4;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+/* 2. Rendu Autocollant Découpé (Café Littéraire) : badge central horizontal avec échelle optique */
+.choice-card__img--sticker {
+  width: 100%;
+  max-width: clamp(380px, 30vw, 490px);
+  max-height: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 36px rgba(28, 40, 65, 0.18)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+  transform: rotate(1.2deg) scale(1.05);
+}
+
+.choice-card:hover .choice-card__img--sticker {
+  transform: rotate(0deg) translateY(-8px) scale(1.09);
+  filter: drop-shadow(0 26px 48px rgba(28, 40, 65, 0.25)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+
+/* 3. Rendu Carnet d'artiste (Coin Jeunesse & BD) : ancre droite avec crayons */
+.choice-card__img--carnet {
+  width: 100%;
+  max-width: clamp(310px, 23.5vw, 380px);
+  max-height: 100%;
+  height: auto;
+  filter: drop-shadow(0 16px 36px rgba(28, 40, 65, 0.15));
+  transform: rotate(0.5deg);
+}
+
+.choice-card:hover .choice-card__img--carnet {
+  transform: rotate(0deg) translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 24px 48px rgba(28, 40, 65, 0.22));
+}
+
+/* Typographie sous les visuels */
+.choice-card__title {
+  font-family: var(--font-main);
+  font-size: clamp(1.3rem, 1.6vw, 1.65rem);
+  font-weight: 800;
+  color: var(--color-ink-blue) !important;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.55rem 0;
+  text-shadow: none !important;
+}
+
+.choice-card__desc {
+  font-family: var(--font-main);
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  line-height: 1.55;
+  color: rgba(28, 40, 65, 0.82) !important;
+  margin: 0 auto;
+  max-width: 340px;
+  text-shadow: none !important;
 }
 
 
@@ -5906,13 +5989,7 @@ html.lenis, html.lenis body {
   .press-card {
     padding: 0.95rem 0.85rem;
   }
-  .choice-card {
-    padding: 0.85rem;
-  }
-  .choice-card img {
-    max-height: 105px;
-    margin-bottom: 0.5rem;
-  }
+
   .footer__top {
     gap: 1.5rem;
     margin-bottom: 1.5rem;

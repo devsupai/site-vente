@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f9a220'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400..800&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -278,7 +278,6 @@
       <div class="container">
         <div class="books-section__header">
           <div class="section-header-unified">
-            <span class="section-badge-pill">Sélection du Moment</span>
             <h2 class="section-title-h2">Nos Coups de Cœur Littéraires</h2>
             <p class="section-handwritten-note">« Des histoires qui ne vous lâcheront plus »</p>
           </div>
@@ -746,7 +745,6 @@
       <div class="container">
         <div class="stationery-section__header">
           <div class="section-header-unified">
-            <span class="section-badge-pill">Atelier d'Écriture</span>
             <h2 class="section-title-h2">Papeterie Fine &amp; Carnets</h2>
             <p class="section-handwritten-note">« Le plaisir noble du papier et de l'encre »</p>
           </div>
@@ -1114,7 +1112,6 @@
       <div class="container">
         <div class="goodies-section__header">
           <div class="section-header-unified">
-            <span class="section-badge-pill">Pop Culture &amp; Cadeaux</span>
             <h2 class="section-title-h2">Trésors &amp; Objets Rares</h2>
             <p class="section-handwritten-note">« Des pièces exclusives pour les passionnés »</p>
           </div>
@@ -1163,37 +1160,40 @@
 
         <!-- Goodies Items Horizontal Slider -->
         <div id="goodiesSlider" class="goodies-slider">
-          <!-- Item 1: Confiserie (Sucette Pierrot Gourmand) -->
+          <!-- Item 1: Confiserie & Friandises (Assortiment Culte) -->
           <article class="goodies-card" data-category="bonbons">
             <div class="goodies-3d-stage">
-              <div class="goodies-3d-shadow goodies-3d-shadow--lollipop"></div>
+              <div class="goodies-3d-shadow goodies-3d-shadow--candies"></div>
               <div class="goodies-3d-item">
-                <img src="assets/goodies/mockup_pierrot_gourmand.png" 
-                  alt="Packshot officiel véritable sucette Pierrot Gourmand caramel au lait frais" 
-                  class="goodies-3d-mockup goodies-3d-mockup--lollipop" 
-                  width="280" 
-                  height="280" 
-                  loading="lazy">
+                <picture class="goodies-3d-picture">
+                  <source srcset="assets/goodies/mockup_friandises.webp" type="image/webp">
+                  <img src="assets/goodies/mockup_friandises.png" 
+                    alt="Assortiment officiel de friandises et bonbons cultes du comptoir presse" 
+                    class="goodies-3d-mockup goodies-3d-mockup--candies" 
+                    width="280" 
+                    height="170" 
+                    loading="lazy">
+                </picture>
               </div>
             </div>
             <div class="goodies-card__info">
               <div class="goodies-card__meta">
-                <span class="goodies-card__badge">Caramel Lait Frais</span>
-                <span class="goodies-card__spec">Bois de hêtre • 0,50 €</span>
+                <span class="goodies-card__badge">Confiserie Culte</span>
+                <span class="goodies-card__spec">Haribo, Carambar, M&amp;M's • Dès 0,50 €</span>
               </div>
-              <h3 class="goodies-card__title">Véritable Sucette Pierrot Gourmand</h3>
-              <p class="goodies-card__desc">Le bonbon culte des comptoirs de presse : caramel au lait frais de France cuit en chaudron selon la recette de 1924, monté sur bâtonnet en bois naturel.</p>
+              <h3 class="goodies-card__title">Friandises &amp; Bonbons du Comptoir</h3>
+              <p class="goodies-card__desc">Les douceurs incontournables des comptoirs de presse : sachets Haribo, véritables Carambar, M&amp;M's, chewing-gums et douceurs foraines à emporter.</p>
               <button type="button" class="btn-alt js-trigger-drawer"
-                data-id="pierrot-gourmand-sucette-caramel"
-                data-title="Véritable Sucette Pierrot Gourmand"
-                data-author="Pierrot Gourmand • Manufacture du Lot"
+                data-id="friandises-bonbons-comptoir"
+                data-title="Friandises &amp; Bonbons du Comptoir"
+                data-author="Haribo, Carambar, M&amp;M's &amp; Marques Cultes"
                 data-cat="Confiserie &amp; Comptoir"
                 data-genre="Bonbons"
-                data-price="0,50 €"
-                data-badge="Caramel Lait Frais"
-                data-format="Sucette fer de lance unitaire"
-                data-cover="assets/goodies/mockup_pierrot_gourmand.png"
-                data-desc="Le bonbon culte des comptoirs de presse : caramel au lait frais de France cuit en chaudron selon la recette de 1924, monté sur bâtonnet en bois naturel.">
+                data-price="Dès 0,50 €"
+                data-badge="Confiserie Culte"
+                data-format="Pièces, sachets &amp; rouleaux au choix"
+                data-cover="assets/goodies/mockup_friandises.png"
+                data-desc="Les douceurs incontournables des comptoirs de presse : sachets Haribo, véritables Carambar, M&amp;M's, chewing-gums et douceurs foraines à emporter.">
                 <span class="btn-alt__text-wrap">
                   <span>Mettre de côté</span>
                 </span>
@@ -1466,7 +1466,6 @@
       <div class="container">
         <header class="flow-section__header">
           <div class="section-header-unified">
-            <span class="section-badge-pill">Service Comptoir</span>
             <h2 class="section-title-h2">Comment ça se passe chez nous</h2>
             <p class="section-handwritten-note">« La réactivité nationale, la chaleur humaine en plus »</p>
           </div>
@@ -1639,7 +1638,6 @@
       <div class="container">
         <div class="press-section__header">
           <div class="section-header-unified">
-            <span class="section-badge-pill">Échos &amp; Critiques</span>
             <h2 class="section-title-h2">Ce qu'ils en disent</h2>
             <p class="section-handwritten-note">« Dans les gazettes et chez nos fidèles lecteurs »</p>
           </div>
@@ -1716,7 +1714,6 @@
       data-liquid-path2="M 0,880 C 340,860 520,890 640,870 C 760,850 1140,900 1280,880 C 1420,860 1700,890 1920,870 L 1920,1080 L 0,1080 Z">
       <div class="container faq-section__inner">
         <div class="section-header-unified">
-          <span class="section-badge-pill">Questions &amp; Réponses</span>
           <h2 class="section-title-h2">Tout ce qu'il faut savoir</h2>
           <p class="section-handwritten-note">« Vos questions les plus fréquentes décryptées »</p>
         </div>
@@ -1796,29 +1793,46 @@
       <div class="container">
         <header class="choice-section__header">
           <div class="section-header-unified">
-            <span class="section-badge-pill">Agenda Culturel</span>
             <h2 class="section-title-h2">Rencontres &amp; Dédicaces</h2>
             <p class="section-handwritten-note">« Les prochains rendez-vous à la librairie »</p>
           </div>
         </header>
 
         <div class="choice-grid">
+          <!-- Événement 1: Samedi Dédicace (Polaroid authentique) -->
           <div class="choice-card">
-            <img src="/assets/events/event_dedicace.jpg" alt="Samedi Dédicace et Rencontre" width="140" height="210">
-            <h3 class="u-heading-s">Samedi Dédicace</h3>
-            <p class="u-paragraph-regular">Rencontre &amp; signature avec les romanciers du moment</p>
+            <div class="choice-card__visual">
+              <picture>
+                <source srcset="/assets/events/event_dedicace.webp" type="image/webp">
+                <img src="/assets/events/event_dedicace.png" alt="Samedi Dédicace et Rencontre" class="choice-card__img choice-card__img--polaroid" width="700" height="727" loading="lazy">
+              </picture>
+            </div>
+            <h3 class="choice-card__title">Samedi Dédicace</h3>
+            <p class="choice-card__desc">Rencontre intimiste et signature avec les romanciers du moment</p>
           </div>
 
+          <!-- Événement 2: Café Littéraire (Autocollant découpé) -->
           <div class="choice-card">
-            <img src="/assets/events/event_cafe.jpg" alt="Café Littéraire du Samedi" width="140" height="210">
-            <h3 class="u-heading-s">Café Littéraire</h3>
-            <p class="u-paragraph-regular">Échange libre autour de la rentrée des auteurs</p>
+            <div class="choice-card__visual">
+              <picture>
+                <source srcset="/assets/events/event_cafe.webp" type="image/webp">
+                <img src="/assets/events/event_cafe.png" alt="Café Littéraire du Samedi" class="choice-card__img choice-card__img--sticker" width="800" height="533" loading="lazy">
+              </picture>
+            </div>
+            <h3 class="choice-card__title">Café Littéraire</h3>
+            <p class="choice-card__desc">Échange libre autour de la rentrée des auteurs</p>
           </div>
 
+          <!-- Événement 3: Coin Jeunesse & BD (Carnet d'artiste & mangas) -->
           <div class="choice-card">
-            <img src="/assets/events/event_jeunesse.jpg" alt="Concours Dessin Jeunesse" width="140" height="210">
-            <h3 class="u-heading-s">Coin Jeunesse &amp; BD</h3>
-            <p class="u-paragraph-regular">Concours de dessin et nouveautés mangas du mois</p>
+            <div class="choice-card__visual">
+              <picture>
+                <source srcset="/assets/events/event_jeunesse.webp" type="image/webp">
+                <img src="/assets/events/event_jeunesse.png" alt="Coin Jeunesse &amp; BD" class="choice-card__img choice-card__img--carnet" width="800" height="853" loading="lazy">
+              </picture>
+            </div>
+            <h3 class="choice-card__title">Coin Jeunesse &amp; BD</h3>
+            <p class="choice-card__desc">Concours de dessin et nouveautés mangas du mois</p>
           </div>
         </div>
       </div>
