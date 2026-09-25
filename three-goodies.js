@@ -415,10 +415,11 @@ function setupBoosterFanStage(stage) {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.05 }
   );
 
-  observer.observe(stage);
+  const section = stage.closest('.goodies-section') || stage;
+  observer.observe(section);
 }
 
 // --- 2. Setup Single Booster Stage (Individual Cards on 'cartes' tab) ---
@@ -540,6 +541,7 @@ function setupBoosterStage(stage, frontTexUrl, backTexUrl, ariaLabel) {
   let touchStartY = 0;
   let touchHasDragged = false;
   let isVerticalScroll = false;
+  let userHasInteracted = false;
 
   canvasContainer.addEventListener('pointerdown', (e) => {
     isDragging = true;
@@ -685,10 +687,11 @@ function setupBoosterStage(stage, frontTexUrl, backTexUrl, ariaLabel) {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.05 }
   );
 
-  observer.observe(stage);
+  const section = stage.closest('.goodies-section') || stage;
+  observer.observe(section);
 }
 
 // --- 3. Setup Monopoly Game Box 3D Stage ---
@@ -795,11 +798,17 @@ function setupMonopolyStage(stage) {
   // Textures Loading & sRGB calibration
   const textureLoader = new THREE.TextureLoader();
   let loadedCount = 0;
+  let sideShortLeftTex = null;
+  let sideLongTopTex = null;
+
   function onTexLoaded() {
     loadedCount++;
-    if (loadedCount >= 4) {
+    if (sideShortLeftTex) sideShortLeftTex.needsUpdate = true;
+    if (sideLongTopTex) sideLongTopTex.needsUpdate = true;
+    if (loadedCount >= 1) {
       canvasContainer.style.opacity = '1';
       if (fallbackImg) fallbackImg.style.opacity = '0';
+      renderer.render(scene, camera);
     }
   }
 
@@ -816,13 +825,13 @@ function setupMonopolyStage(stage) {
   sideShortTex.colorSpace = THREE.SRGBColorSpace;
 
   // Clone and orient textures for perfect face symmetry
-  const sideShortLeftTex = sideShortTex.clone();
+  sideShortLeftTex = sideShortTex.clone();
   sideShortLeftTex.wrapS = THREE.RepeatWrapping;
   sideShortLeftTex.repeat.x = -1;
   sideShortLeftTex.offset.x = 1;
   sideShortLeftTex.needsUpdate = true;
 
-  const sideLongTopTex = sideLongTex.clone();
+  sideLongTopTex = sideLongTex.clone();
   sideLongTopTex.wrapT = THREE.RepeatWrapping;
   sideLongTopTex.repeat.y = -1;
   sideLongTopTex.offset.y = 1;
@@ -877,6 +886,7 @@ function setupMonopolyStage(stage) {
   let touchStartY = 0;
   let touchHasDragged = false;
   let isVerticalScroll = false;
+  let userHasInteracted = false;
 
   canvasContainer.addEventListener('pointerdown', (e) => {
     isDragging = true;
@@ -961,6 +971,9 @@ function setupMonopolyStage(stage) {
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
+    if (!isRendering) {
+      renderer.render(scene, camera);
+    }
   }
 
   const resizeObserver = new ResizeObserver(updateSize);
@@ -1015,10 +1028,11 @@ function setupMonopolyStage(stage) {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.05 }
   );
 
-  observer.observe(stage);
+  const section = stage.closest('.goodies-section') || stage;
+  observer.observe(section);
 }
 
 // Master Initialization

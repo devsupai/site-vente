@@ -914,6 +914,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    document.querySelectorAll('.header-cta-pill, .hero-circle-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const href = btn.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { duration: 1.1 });
+          }
+        }
+      });
+    });
+
     // Active Section Spy via IntersectionObserver & Scroll Calculation
     const sectionsToTrack = navLinks
       .map((link) => {
@@ -2197,7 +2210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Liquid Animated Background Scroll Orchestrator (Multi-Color & Shape Morphing) ---
+  // --- Liquid Animated Background Scroll Orchestrator (Pixel-accurate Scroll Scrub + Continuous Idle Wave) ---
   function initLiquidBackgroundScroll() {
     const liquidBg = document.getElementById('liquidBackground');
     if (!liquidBg) return;
@@ -2205,10 +2218,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const waveEl1 = liquidBg.querySelector('.liquid-bg__wave--1');
     const waveEl2 = liquidBg.querySelector('.liquid-bg__wave--2');
     const heroSection = document.querySelector('.hero');
-    const sections = Array.from(document.querySelectorAll('[data-liquid-bg]'));
-    if (!sections.length) return;
+    const sectionElements = Array.from(document.querySelectorAll('[data-liquid-bg]'));
+    if (!sectionElements.length || !waveEl1 || !waveEl2) return;
 
-    // 1. Initial State Check (if user refreshes mid-page or below hero)
+    // Helper: Hex color to RGB array
+    function parseHex(hex) {
+      let c = (hex || '').replace('#', '').trim();
+      if (c.length === 3) {
+        c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+      }
+      const num = parseInt(c, 16) || 0;
+      return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+    }
+
+    // Helper: Lerp between two RGB colors
+    function lerpRGB(c1, c2, t) {
+      const r = Math.round(c1[0] + (c2[0] - c1[0]) * t);
+      const g = Math.round(c1[1] + (c2[1] - c1[1]) * t);
+      const b = Math.round(c1[2] + (c2[2] - c1[2]) * t);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // Parse each section's data
+    const sectionsData = sectionElements.map((el) => {
+      const bg = el.dataset.liquidBg || '#FEF7CD';
+      const wave1 = el.dataset.liquidWave1 || '#FCD34D';
+      const wave2 = el.dataset.liquidWave2 || '#F9A220';
+      const path1Str = el.dataset.liquidPath1 || '';
+      const path2Str = el.dataset.liquidPath2 || '';
+
+      const nums1 = (path1Str.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+      const nums2 = (path2Str.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+
+      return {
+        el,
+        bgRgb: parseHex(bg),
+        wave1Rgb: parseHex(wave1),
+        wave2Rgb: parseHex(wave2),
+        nums1,
+        nums2,
+        anchorY: 0,
+      };
+    });
+
+    // Compute scroll anchors for each section
+    function updateAnchors() {
+      const scrollY = window.__lenis ? window.__lenis.scroll : (window.scrollY || window.pageYOffset || 0);
+      const heroH = heroSection ? heroSection.offsetHeight : window.innerHeight;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+      sectionsData.forEach((sec, idx) => {
+        if (idx === 0) {
+          // First section (Books): anchored where hero transitions out
+          sec.anchorY = heroH * 0.6;
+        } else if (idx === sectionsData.length - 1) {
+          // Last section (Footer): anchored near page bottom
+          const rect = sec.el.getBoundingClientRect();
+          const top = rect.top + scrollY;
+          sec.anchorY = Math.min(top - window.innerHeight * 0.35, maxScroll);
+        } else {
+          // Intermediate sections: anchored when section top reaches ~40% of viewport
+          const rect = sec.el.getBoundingClientRect();
+          const top = rect.top + scrollY;
+          sec.anchorY = top - window.innerHeight * 0.4;
+        }
+      });
+
+      // Ensure strictly ascending anchor coordinates
+      for (let k = 1; k < sectionsData.length; k++) {
+        if (sectionsData[k].anchorY <= sectionsData[k - 1].anchorY) {
+          sectionsData[k].anchorY = sectionsData[k - 1].anchorY + 60;
+        }
+      }
+    }
+
+    // Listen to resize and ScrollTrigger refresh
+    window.addEventListener('resize', updateAnchors, { passive: true });
+    window.addEventListener('load', updateAnchors, { passive: true });
+    ScrollTrigger.addEventListener('refresh', updateAnchors);
+    updateAnchors();
+
+    // Check Hero position for opacity fade
     function checkHeroPosition() {
       if (!heroSection) {
         liquidBg.classList.add('is--active');
@@ -2217,19 +2307,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const heroRect = heroSection.getBoundingClientRect();
       if (heroRect.bottom <= window.innerHeight * 0.45) {
         liquidBg.classList.add('is--active');
-        const activeSection = sections.find((sec) => {
-          const r = sec.getBoundingClientRect();
-          return r.top <= window.innerHeight * 0.65 && r.bottom >= window.innerHeight * 0.35;
-        }) || sections[0];
-        if (activeSection) {
-          updateLiquidWave(activeSection, 0.4);
-        }
       } else {
         liquidBg.classList.remove('is--active');
       }
     }
 
-    // 2. Hide liquid background when inside Hero, fade in when leaving Hero
     if (heroSection) {
       ScrollTrigger.create({
         trigger: heroSection,
@@ -2240,50 +2322,98 @@ document.addEventListener('DOMContentLoaded', () => {
         onLeave: () => liquidBg.classList.add('is--active'),
       });
     }
+    checkHeroPosition();
 
-    // 3. Update colors and morph SVG paths smoothly when crossing each section
-    function updateLiquidWave(section, duration = 1.25) {
-      const bg = section.dataset.liquidBg;
-      const wave1 = section.dataset.liquidWave1;
-      const wave2 = section.dataset.liquidWave2;
-      const path1 = section.dataset.liquidPath1;
-      const path2 = section.dataset.liquidPath2;
-
-      // Update color tokens
-      if (bg) liquidBg.style.setProperty('--liquid-bg', bg);
-      if (wave1) liquidBg.style.setProperty('--liquid-wave-1', wave1);
-      if (wave2) liquidBg.style.setProperty('--liquid-wave-2', wave2);
-
-      // Morph SVG wave paths smoothly
-      if (path1 && waveEl1) {
-        gsap.to(waveEl1, {
-          attr: { d: path1 },
-          duration: duration,
-          ease: 'power2.inOut',
-          overwrite: 'auto',
-        });
-      }
-      if (path2 && waveEl2) {
-        gsap.to(waveEl2, {
-          attr: { d: path2 },
-          duration: duration + 0.1,
-          ease: 'power2.inOut',
-          overwrite: 'auto',
-        });
-      }
+    // Format SVG Bézier path string from 24 numbers
+    function formatWavePath(n) {
+      return `M ${n[0]},${n[1].toFixed(1)} C ${n[2].toFixed(1)},${n[3].toFixed(1)} ${n[4].toFixed(1)},${n[5].toFixed(1)} ${n[6].toFixed(1)},${n[7].toFixed(1)} C ${n[8].toFixed(1)},${n[9].toFixed(1)} ${n[10].toFixed(1)},${n[11].toFixed(1)} ${n[12].toFixed(1)},${n[13].toFixed(1)} C ${n[14].toFixed(1)},${n[15].toFixed(1)} ${n[16].toFixed(1)},${n[17].toFixed(1)} ${n[18]},${n[19].toFixed(1)} L 1920,1080 L 0,1080 Z`;
     }
 
-    sections.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top 65%',
-        end: 'bottom 35%',
-        onEnter: () => updateLiquidWave(section),
-        onEnterBack: () => updateLiquidWave(section),
-      });
-    });
+    // Reusable arrays to eliminate garbage collection overhead during 60/120fps RAF
+    const curNums1 = new Float64Array(24);
+    const curNums2 = new Float64Array(24);
+    const yIndices = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
 
-    checkHeroPosition();
+    // Main continuous RAF loop: updates geometry and color pixel-by-pixel on scroll, and applies gentle harmonic wave at idle
+    function renderFrame(timestamp) {
+      const time = timestamp * 0.001; // seconds
+      const currentScroll = window.__lenis ? window.__lenis.scroll : (window.scrollY || window.pageYOffset || 0);
+
+      // 1. Determine active segment and scroll progress t
+      const lastIdx = sectionsData.length - 1;
+      let segIdx = 0;
+      let t = 0;
+
+      if (currentScroll <= sectionsData[0].anchorY) {
+        segIdx = 0;
+        t = 0;
+      } else if (currentScroll >= sectionsData[lastIdx].anchorY) {
+        segIdx = lastIdx - 1;
+        t = 1;
+      } else {
+        for (let i = 0; i < lastIdx; i++) {
+          if (currentScroll >= sectionsData[i].anchorY && currentScroll <= sectionsData[i + 1].anchorY) {
+            segIdx = i;
+            const span = sectionsData[i + 1].anchorY - sectionsData[i].anchorY;
+            const rawT = span > 0 ? (currentScroll - sectionsData[i].anchorY) / span : 0;
+            // Smoothstep curve for seamless transition without harsh acceleration
+            t = rawT * rawT * (3 - 2 * rawT);
+            break;
+          }
+        }
+      }
+
+      const secA = sectionsData[segIdx];
+      const secB = sectionsData[Math.min(segIdx + 1, lastIdx)];
+
+      // 2. Interpolate base geometry between section A and section B
+      const a1 = secA.nums1;
+      const b1 = secB.nums1;
+      const a2 = secA.nums2;
+      const b2 = secB.nums2;
+
+      for (let j = 0; j < 24; j++) {
+        curNums1[j] = a1[j] + (b1[j] - a1[j]) * t;
+        curNums2[j] = a2[j] + (b2[j] - a2[j]) * t;
+      }
+
+      // 3. Apply continuous subtle idle wave undulation (harmonic liquid travelling waves)
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const amp1 = prefersReduced ? 0 : 16;
+      const amp2 = prefersReduced ? 0 : 20;
+
+      if (!prefersReduced) {
+        for (let k = 0; k < yIndices.length; k++) {
+          const yIdx = yIndices[k];
+          const x = curNums1[yIdx - 1];
+
+          // Wave 1 undulation
+          const offset1 = Math.sin(time * 1.35 - x * 0.0028) * amp1 + Math.cos(time * 0.75 + x * 0.0018) * (amp1 * 0.4);
+          curNums1[yIdx] += offset1;
+
+          // Wave 2 undulation (independent harmonic frequency and phase)
+          const offset2 = Math.sin(time * 1.15 + x * 0.0022 + 1.6) * amp2 + Math.cos(time * 0.55 - x * 0.0014) * (amp2 * 0.35);
+          curNums2[yIdx] += offset2;
+        }
+      }
+
+      // 4. Update SVG path attributes
+      waveEl1.setAttribute('d', formatWavePath(curNums1));
+      waveEl2.setAttribute('d', formatWavePath(curNums2));
+
+      // 5. Interpolate and apply color tokens synchronously
+      const bgCol = lerpRGB(secA.bgRgb, secB.bgRgb, t);
+      const wave1Col = lerpRGB(secA.wave1Rgb, secB.wave1Rgb, t);
+      const wave2Col = lerpRGB(secA.wave2Rgb, secB.wave2Rgb, t);
+
+      liquidBg.style.setProperty('--liquid-bg', bgCol);
+      liquidBg.style.setProperty('--liquid-wave-1', wave1Col);
+      liquidBg.style.setProperty('--liquid-wave-2', wave2Col);
+
+      requestAnimationFrame(renderFrame);
+    }
+
+    requestAnimationFrame(renderFrame);
   }
 
   initLiquidBackgroundScroll();
