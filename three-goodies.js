@@ -258,15 +258,28 @@ function setupBoosterFanStage(stage) {
   let targetRotX = baseFanRot.x;
   let userHasInteracted = false;
 
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchHasDragged = false;
+  let isVerticalScroll = false;
+
   canvasContainer.addEventListener('pointerdown', (e) => {
     isDragging = true;
     userHasInteracted = true;
+    touchHasDragged = false;
+    isVerticalScroll = false;
     prevPointerX = e.clientX;
     prevPointerY = e.clientY;
+    touchStartX = e.clientX;
+    touchStartY = e.clientY;
     dragVelocityX = 0;
     dragVelocityY = 0;
     canvasContainer.style.cursor = 'grabbing';
-    canvasContainer.setPointerCapture(e.pointerId);
+    if (e.pointerType !== 'touch') {
+      try {
+        canvasContainer.setPointerCapture(e.pointerId);
+      } catch (_) {}
+    }
     badge360.style.opacity = '0';
   });
 
@@ -279,6 +292,20 @@ function setupBoosterFanStage(stage) {
     cursorLight.position.y = -ny * 3.8;
 
     if (isDragging) {
+      if (e.pointerType === 'touch') {
+        const totalDx = e.clientX - touchStartX;
+        const totalDy = e.clientY - touchStartY;
+        if (!touchHasDragged && Math.abs(totalDy) > 8 && Math.abs(totalDy) > Math.abs(totalDx)) {
+          isVerticalScroll = true;
+          isDragging = false;
+          return;
+        }
+        if (Math.abs(totalDx) > 8) {
+          touchHasDragged = true;
+        }
+      }
+      if (isVerticalScroll) return;
+
       const deltaX = e.clientX - prevPointerX;
       const deltaY = e.clientY - prevPointerY;
       prevPointerX = e.clientX;
@@ -509,17 +536,28 @@ function setupBoosterStage(stage, frontTexUrl, backTexUrl, ariaLabel) {
   let dragVelocityY = 0;
   let targetRotY = baseRotation.y;
   let targetRotX = baseRotation.x;
-  let userHasInteracted = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchHasDragged = false;
+  let isVerticalScroll = false;
 
   canvasContainer.addEventListener('pointerdown', (e) => {
     isDragging = true;
     userHasInteracted = true;
+    touchHasDragged = false;
+    isVerticalScroll = false;
     prevPointerX = e.clientX;
     prevPointerY = e.clientY;
+    touchStartX = e.clientX;
+    touchStartY = e.clientY;
     dragVelocityX = 0;
     dragVelocityY = 0;
     canvasContainer.style.cursor = 'grabbing';
-    canvasContainer.setPointerCapture(e.pointerId);
+    if (e.pointerType !== 'touch') {
+      try {
+        canvasContainer.setPointerCapture(e.pointerId);
+      } catch (_) {}
+    }
     badge360.style.opacity = '0';
   });
 
@@ -532,6 +570,20 @@ function setupBoosterStage(stage, frontTexUrl, backTexUrl, ariaLabel) {
     cursorLight.position.y = -ny * 3.5;
 
     if (isDragging) {
+      if (e.pointerType === 'touch') {
+        const totalDx = e.clientX - touchStartX;
+        const totalDy = e.clientY - touchStartY;
+        if (!touchHasDragged && Math.abs(totalDy) > 8 && Math.abs(totalDy) > Math.abs(totalDx)) {
+          isVerticalScroll = true;
+          isDragging = false;
+          return;
+        }
+        if (Math.abs(totalDx) > 8) {
+          touchHasDragged = true;
+        }
+      }
+      if (isVerticalScroll) return;
+
       const deltaX = e.clientX - prevPointerX;
       const deltaY = e.clientY - prevPointerY;
       prevPointerX = e.clientX;
@@ -821,17 +873,28 @@ function setupMonopolyStage(stage) {
   let dragVelocityY = 0;
   let targetRotY = baseRotation.y;
   let targetRotX = baseRotation.x;
-  let userHasInteracted = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchHasDragged = false;
+  let isVerticalScroll = false;
 
   canvasContainer.addEventListener('pointerdown', (e) => {
     isDragging = true;
     userHasInteracted = true;
+    touchHasDragged = false;
+    isVerticalScroll = false;
     prevPointerX = e.clientX;
     prevPointerY = e.clientY;
+    touchStartX = e.clientX;
+    touchStartY = e.clientY;
     dragVelocityX = 0;
     dragVelocityY = 0;
     canvasContainer.style.cursor = 'grabbing';
-    canvasContainer.setPointerCapture(e.pointerId);
+    if (e.pointerType !== 'touch') {
+      try {
+        canvasContainer.setPointerCapture(e.pointerId);
+      } catch (_) {}
+    }
     badge360.style.opacity = '0';
   });
 
@@ -844,6 +907,20 @@ function setupMonopolyStage(stage) {
     cursorLight.position.y = -ny * 3.5;
 
     if (isDragging) {
+      if (e.pointerType === 'touch') {
+        const totalDx = e.clientX - touchStartX;
+        const totalDy = e.clientY - touchStartY;
+        if (!touchHasDragged && Math.abs(totalDy) > 8 && Math.abs(totalDy) > Math.abs(totalDx)) {
+          isVerticalScroll = true;
+          isDragging = false;
+          return;
+        }
+        if (Math.abs(totalDx) > 8) {
+          touchHasDragged = true;
+        }
+      }
+      if (isVerticalScroll) return;
+
       const deltaX = e.clientX - prevPointerX;
       const deltaY = e.clientY - prevPointerY;
       prevPointerX = e.clientX;

@@ -125,7 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (heroParagraph) gsap.set(heroParagraph, { opacity: 0, y: 15 });
   if (heroCta) gsap.set(heroCta, { opacity: 0, y: 15 });
-  if (heroCircleBtn) gsap.set(heroCircleBtn, { opacity: 0, scale: 0.7, rotate: -15, xPercent: -50, yPercent: -50 });
+  const isMobileHero = window.innerWidth <= 768;
+  if (heroCircleBtn) {
+    gsap.set(heroCircleBtn, {
+      opacity: 0,
+      scale: 0.7,
+      rotate: -15,
+      xPercent: isMobileHero ? 0 : -50,
+      yPercent: isMobileHero ? 0 : -50,
+    });
+  }
   if (heroHandwritten) gsap.set(heroHandwritten, { opacity: 0, scale: 0.7, rotate: -10 });
 
   if (boxStage) gsap.set(boxStage, { opacity: 0, y: 70, scale: 0.9 });
@@ -250,8 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: 1,
       scale: 1,
       rotate: 0,
-      xPercent: -50,
-      yPercent: -50,
+      xPercent: isMobileHero ? 0 : -50,
+      yPercent: isMobileHero ? 0 : -50,
       duration: 0.65,
       ease: 'back.out(1.7)',
       onComplete: () => {
@@ -1164,19 +1173,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Pointer Drag & Touch Swipe
+    let dragStartY = 0;
+    let isVerticalScroll = false;
+
     slider.addEventListener('pointerdown', (e) => {
       if (e.target.closest('button, a, input, select, textarea, .js-trigger-drawer, .js-view-boosters-tab')) return;
       isDragging = true;
       hasDragged = false;
+      isVerticalScroll = false;
       dragStartX = e.clientX;
+      dragStartY = e.clientY;
       dragStartProgress = animState.progress;
       gsap.killTweensOf(animState);
     });
 
     window.addEventListener('pointermove', (e) => {
-      if (!isDragging) return;
+      if (!isDragging || isVerticalScroll) return;
       const deltaX = e.clientX - dragStartX;
-      if (Math.abs(deltaX) > 10) {
+      const deltaY = e.clientY - dragStartY;
+
+      // Abort horizontal drag if user gesture is vertical scroll
+      if (!hasDragged && Math.abs(deltaY) > 8 && Math.abs(deltaY) > Math.abs(deltaX)) {
+        isVerticalScroll = true;
+        isDragging = false;
+        return;
+      }
+
+      if (Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY)) {
         hasDragged = true;
       }
       if (hasDragged) {
@@ -1184,7 +1207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animState.progress = dragStartProgress - deltaX / sensitivity;
         render();
       }
-    });
+    }, { passive: true });
 
     function endDrag() {
       if (!isDragging) return;
@@ -1337,20 +1360,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileOverlay = document.getElementById('mobileOverlay');
 
   function openMenu() {
+    mobileMenu?.removeAttribute('inert');
     mobileMenu?.classList.add('is-active');
     mobileOverlay?.classList.add('is-active');
+    menuToggle?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    if (window.__lenis) {
+      window.__lenis.stop();
+    }
+    menuClose?.focus();
   }
 
   function closeMenu() {
     mobileMenu?.classList.remove('is-active');
     mobileOverlay?.classList.remove('is-active');
+    mobileMenu?.setAttribute('inert', '');
+    menuToggle?.setAttribute('aria-expanded', 'false');
     document.body.style.removeProperty('overflow');
+    if (window.__lenis) {
+      window.__lenis.start();
+    }
+    menuToggle?.focus();
   }
 
   menuToggle?.addEventListener('click', openMenu);
   menuClose?.addEventListener('click', closeMenu);
   mobileOverlay?.addEventListener('click', closeMenu);
+
+  // Close mobile drawer and scroll smoothly when tapping any link inside
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      closeMenu();
+      if (href && href.startsWith('#')) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          setTimeout(() => {
+            if (window.__lenis) {
+              window.__lenis.scrollTo(target, { duration: 1.0 });
+            } else {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 200);
+        }
+      }
+    });
+  });
 
   // --- Category Filter Tabs for Books Carousel ---
   const bookFilterTabs = document.querySelectorAll('.books-section .filter-tab');
@@ -1366,6 +1422,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
       const tl = gsap.timeline({
         onComplete: () => {
@@ -1424,6 +1481,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
       const tl = gsap.timeline({
         onComplete: () => {
@@ -1482,6 +1540,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       tab.classList.add('is-active');
       tab.setAttribute('aria-selected', 'true');
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
       const tl = gsap.timeline({
         onComplete: () => {
@@ -1636,6 +1695,9 @@ document.addEventListener('DOMContentLoaded', () => {
     bookDrawer.classList.add('is-active');
     drawerOverlay?.classList.add('is-active');
     document.body.style.overflow = 'hidden';
+    if (window.__lenis) {
+      window.__lenis.stop();
+    }
 
     drawerClose?.focus();
   }
@@ -1646,6 +1708,9 @@ document.addEventListener('DOMContentLoaded', () => {
     drawerOverlay?.classList.remove('is-active');
     bookDrawer.setAttribute('inert', '');
     document.body.style.removeProperty('overflow');
+    if (window.__lenis) {
+      window.__lenis.start();
+    }
   }
 
   drawerClose?.addEventListener('click', closeDrawer);
@@ -1818,6 +1883,9 @@ document.addEventListener('DOMContentLoaded', () => {
     bookOpenModal.classList.add('is-active');
     bookModalOverlay?.classList.add('is-active');
     document.body.style.overflow = 'hidden';
+    if (window.__lenis) {
+      window.__lenis.stop();
+    }
 
     // 3D GSAP animation: directly reveal the open 2-page book
     const isMobile = window.innerWidth <= 768;
@@ -1903,6 +1971,9 @@ document.addEventListener('DOMContentLoaded', () => {
       bookModalOverlay?.classList.remove('is-active');
       bookOpenModal.setAttribute('inert', '');
       document.body.style.removeProperty('overflow');
+      if (window.__lenis) {
+        window.__lenis.start();
+      }
       isBookModalAnimating = false;
       if (activeModalTrigger && typeof activeModalTrigger.focus === 'function') {
         activeModalTrigger.focus();
