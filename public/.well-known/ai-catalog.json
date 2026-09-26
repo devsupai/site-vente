@@ -1,0 +1,32 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Maison de la Presse",
+    "identifier": "did:web:site-de-vente-17abc.web.app"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:site-de-vente-17abc.web.app:catalog:store",
+      "displayName": "Maison de la Presse - Librairie & Culture",
+      "type": "text/markdown",
+      "url": "https://site-de-vente-17abc.web.app/llms.txt",
+      "description": "Catalogue de livres, nouveautes litteraires, papeterie fine, presse quotidienne et commande sous 48h.",
+      "representativeQueries": [
+        "commander un livre a la Maison de la Presse",
+        "horaires et localisation Maison de la Presse",
+        "trouver des romans, mangas ou fournitures de bureau"
+      ]
+    },
+    {
+      "identifier": "urn:air:site-de-vente-17abc.web.app:service:sitemap",
+      "displayName": "Plan du site et arborescence",
+      "type": "application/xml",
+      "url": "https://site-de-vente-17abc.web.app/sitemap.xml",
+      "description": "Index XML des pages publiques et rayons du site.",
+      "representativeQueries": [
+        "sections du site",
+        "pages disponibles"
+      ]
+    }
+  ]
+}
