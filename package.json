@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/copy-assets.js",
+    "optimize-images": "node scripts/optimize-images.js",
     "preview": "vite preview"
   },
   "devDependencies": {

@@ -1,0 +1,13 @@
+# Maison de la Presse
+
+> Librairie independante, presse, papeterie fine et espace jeux/goodies. Conseils de lecture, nouveautes litteraires et commande de livres sous 48h.
+
+## Sections et Rayons
+
+- [Accueil](https://site-de-vente-17abc.web.app/): Vitrine officielle et presentation de la Maison de la Presse.
+- [Livres](https://site-de-vente-17abc.web.app/#livres): Selection de romans, bandes dessinees, polars et litterature jeunesse.
+- [Papeterie](https://site-de-vente-17abc.web.app/#papeterie): Carnets haut de gamme, stylos, papiers d'art et fournitures de bureau.
+- [Goodies](https://site-de-vente-17abc.web.app/#goodies): Cartes a collectionner, boosters Pokemon, figurines et jeux de societe.
+- [Evenements](https://site-de-vente-17abc.web.app/#evenements): Rencontres auteurs, seances de dedicaces et ateliers jeunesse.
+- [Fonctionnement](https://site-de-vente-17abc.web.app/#fonctionnement): Retrait en boutique, commande personnalisee et echanges culturels.
+- [Contact et Horaires](https://site-de-vente-17abc.web.app/#contact): Localisation du magasin, horaires d'ouverture et coordonnees.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://site-de-vente-17abc.web.app/sitemap.xml

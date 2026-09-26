@@ -4134,10 +4134,10 @@ img, svg {
   flex-shrink: 0;
   white-space: nowrap;
 }
-.step-card__badge--1 { background: #D97706; color: #ffffff; }
-.step-card__badge--2 { background: #059669; color: #ffffff; }
-.step-card__badge--3 { background: #EA580C; color: #ffffff; }
-.step-card__badge--4 { background: #7C3AED; color: #ffffff; }
+.step-card__badge--1 { background: #b45309; color: #ffffff; }
+.step-card__badge--2 { background: #047857; color: #ffffff; }
+.step-card__badge--3 { background: #c2410c; color: #ffffff; }
+.step-card__badge--4 { background: #6d28d9; color: #ffffff; }
 
 /* Illustration */
 .step-card__visual {
