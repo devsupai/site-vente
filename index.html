@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"></noscript>
+  <link rel="preload" as="image" href="/hero-mobile.webp" type="image/webp" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="/hero.webp" type="image/webp" media="(min-width: 769px)">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -151,6 +152,8 @@
 
         <!-- Layer 2: Focal layer (sharp focal zone revealed via mask-image) -->
         <picture class="hero-flatlay__picture hero-flatlay__picture--focal">
+          <source media="(max-width: 768px)" srcset="/hero-mobile.webp" type="image/webp">
+          <source media="(max-width: 768px)" srcset="/hero-mobile.png" type="image/png">
           <source srcset="/hero.webp" type="image/webp">
           <img 
             src="/hero.png" 

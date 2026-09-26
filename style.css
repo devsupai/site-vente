@@ -247,25 +247,37 @@ img, svg {
 .btn-alt {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.6rem;
   border-radius: var(--radius-pill);
+  background-color: var(--color-ink-blue);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-ink-blue);
+  font-family: var(--font-main);
   font-weight: 700;
   font-size: 1rem;
+  line-height: 1.2;
   cursor: pointer;
-  background: transparent;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(28, 40, 65, 0.18);
+  transition: transform 0.22s var(--ease-smooth),
+              background-color 0.22s ease,
+              border-color 0.22s ease,
+              box-shadow 0.22s ease,
+              color 0.22s ease;
+  user-select: none;
 }
 
 .btn-alt__text-wrap {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-pill);
-  background-color: var(--color-ink-blue);
-  color: var(--color-white);
-  border: 1.5px solid var(--color-ink-blue);
-  overflow: hidden;
-  transition: transform 0.2s var(--ease-smooth), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: none;
+  border-radius: 0;
 }
 
 .btn-alt__icon-wrap {
@@ -273,37 +285,48 @@ img, svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: var(--color-ink-blue);
-  color: var(--color-white);
-  border: 1.5px solid var(--color-ink-blue);
-  overflow: hidden;
-  transition: transform 0.2s var(--ease-smooth), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  flex-shrink: 0;
+  transition: transform 0.22s var(--ease-smooth);
 }
 
 .btn-alt__icon-wrap svg {
   width: 14px;
   height: 13px;
-  transition: transform 0.2s ease;
+  fill: currentColor;
+  display: block;
+  transition: transform 0.22s ease;
 }
 
-.btn-alt:hover .btn-alt__text-wrap {
-  background-color: var(--color-white);
-  color: var(--color-ink-blue);
-  border-color: var(--color-ink-blue);
+/* Hover : réaction unifiée de l'ensemble du bouton sans éléments scindés */
+.btn-alt:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-ink-blue-hover);
+  border-color: var(--color-ink-blue-hover);
+  color: var(--color-white);
+  box-shadow: 0 8px 24px rgba(28, 40, 65, 0.28);
 }
 
 .btn-alt:hover .btn-alt__icon-wrap {
-  background-color: var(--color-white);
-  color: var(--color-ink-blue);
-  border-color: var(--color-ink-blue);
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 .btn-alt:hover .btn-alt__icon-wrap svg {
-  transform: translateX(2px);
+  transform: translateX(1px);
+}
+
+.btn-alt:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(28, 40, 65, 0.16);
+}
+
+.btn-alt:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 3px;
 }
 
 /* --- Header --- */
@@ -1138,7 +1161,9 @@ img, svg {
   .hero--flatlay {
     min-height: calc(100vh - var(--header-h, 56px));
     min-height: calc(100dvh - var(--header-h, 56px));
-    height: auto;
+    height: calc(100dvh - var(--header-h, 56px));
+    background: #FAF7F2 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0;
   }
   .hero-flatlay__container {
@@ -1146,31 +1171,51 @@ img, svg {
     min-height: calc(100dvh - var(--header-h, 56px));
     height: 100%;
     padding: 0;
+    position: relative;
+  }
+  .hero-flatlay__container::before,
+  .hero-flatlay__container::after {
+    display: none !important;
   }
   .hero-flatlay__picture {
-    min-height: calc(100vh - var(--header-h, 56px));
-    min-height: calc(100dvh - var(--header-h, 56px));
+    position: absolute;
+    inset: 0;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    transform: none !important;
   }
   .hero-flatlay__picture--bg {
-    display: none;
+    display: none !important;
   }
   .hero-particles {
     display: none !important;
   }
-  .hero-flatlay__image {
-    min-height: calc(100vh - var(--header-h, 56px));
-    min-height: calc(100dvh - var(--header-h, 56px));
-    object-fit: cover;
-    object-position: center;
+  .hero-grain {
+    opacity: 0.04 !important;
   }
-  /* Sur mobile : empilement colonne centré avec fond verre sombre sur le texte */
+  .hero-flatlay__image {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  .hero-flatlay__image--focal {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    filter: none !important;
+  }
+  /* Sur mobile : empilement colonne centré dans la zone claire centrale */
   .hero-flatlay__center {
     position: absolute;
     inset: auto;
-    top: 36%;
+    top: 44%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: min(92vw, 380px);
+    width: min(92vw, 360px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1189,11 +1234,13 @@ img, svg {
     max-width: 100% !important;
     box-sizing: border-box !important;
     text-align: center;
-    background: radial-gradient(ellipse at center, rgba(32, 23, 19, 0.94) 0%, rgba(20, 15, 12, 0.92) 100%);
-    border: 1px solid rgba(245, 166, 35, 0.28);
-    padding: 1.1rem 1rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 253, 248, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(220, 160, 50, 0.35);
+    padding: 1.1rem 1.15rem;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(40, 25, 15, 0.08), 0 2px 6px rgba(40, 25, 15, 0.04);
     pointer-events: auto;
   }
   .hero-flatlay__title {
@@ -1203,6 +1250,8 @@ img, svg {
     line-height: 1.15;
     word-break: normal;
     overflow-wrap: break-word;
+    color: #1A1410 !important;
+    text-shadow: none !important;
   }
   .hero-flatlay__title-line,
   .hero-flatlay__title-line--sub {
@@ -1210,6 +1259,11 @@ img, svg {
     white-space: normal;
     padding-left: 0 !important;
     text-align: center;
+    color: #1A1410 !important;
+    text-shadow: none !important;
+  }
+  .hero-flatlay__title-line--sub {
+    color: #C07008 !important;
   }
   .hero-flatlay__desc {
     text-align: center;
@@ -1218,6 +1272,8 @@ img, svg {
     padding-left: 0 !important;
     max-width: 100%;
     margin-top: 0.45rem;
+    color: #4A3E38 !important;
+    text-shadow: none !important;
   }
   .hero-circle-btn {
     position: relative;
@@ -1237,6 +1293,9 @@ img, svg {
     pointer-events: auto;
     flex-shrink: 0;
     display: block;
+    background: rgba(26, 20, 16, 0.92) !important;
+    border: 1.5px solid rgba(245, 166, 35, 0.55) !important;
+    box-shadow: 0 10px 24px rgba(35, 20, 10, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.15) !important;
   }
   .hero-circle-btn:hover {
     transform: scale(1.05) translateY(-2px);
@@ -1253,27 +1312,33 @@ img, svg {
     z-index: 6;
   }
   .hero-metric-card {
-    padding: 0.38rem 0.45rem;
+    padding: 0.42rem 0.5rem;
     border-radius: 12px;
-    border: 1px solid rgba(245, 239, 230, 0.14);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: rgba(22, 17, 14, 0.88) !important;
+    border: 1px solid rgba(245, 166, 35, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
   }
   .hero-metric-card__num {
     font-size: 1.05rem;
     margin-bottom: 0.1rem;
+    color: #F5A623 !important;
   }
   .hero-metric-card__label {
     font-size: 0.7rem;
     margin-bottom: 0.05rem;
+    color: #F5EFE6 !important;
   }
   .hero-metric-card__sub {
     font-size: 0.62rem;
+    color: rgba(245, 239, 230, 0.75) !important;
   }
 }
 
 @media (max-width: 768px) and (max-height: 680px) {
   .hero-flatlay__center {
-    top: 33%;
+    top: 41%;
   }
   .hero-circle-btn {
     width: 92px !important;
@@ -1288,7 +1353,7 @@ img, svg {
 
 @media (max-width: 768px) and (max-height: 600px) {
   .hero-flatlay__center {
-    top: 30%;
+    top: 38%;
   }
   .hero-flatlay__desc {
     display: none;
